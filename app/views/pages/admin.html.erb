@@ -1,2 +1,86 @@
-<h1>Pages#admin</h1>
-<p>Find me in app/views/pages/admin.html.erb</p>
+<!-- NEW COURSE BOOKINGS -->
+<div class="row">
+	<div class="col m12">
+		<div class="card">
+			<div class="card-content grey-text">
+				<h3>New course bookings</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Course</th>
+							<th>Intake</th>
+						</tr>
+					</thead>
+					<% @new_course_bookings.each do |booking| %>
+						<tbody>
+							<tr>
+								<td><%= booking.user.name %></td>
+								<td><%= booking.course_intake.course %></td>
+								<td><%= booking.course_intake %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- NEW ENQUIRIES -->
+<div class="row">
+	<div class="col m12">
+		<div class="card">
+			<div class="card-content grey-text">
+				<h3>New enquiries</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Company</th>
+							<th>Enquiry Type</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<% @new_enquiries.each do |enquiry| %>
+						<tbody>
+							<tr>
+								<td><%= enquiry.first_name %> <%= enquiry.last_name %></td>
+								<td><%= enquiry.company %></td>
+								<td><%= enquiry.enquiry_type %></td>
+								<td><%= enquiry.created_at.strftime('%d %b %y') %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- NEW FEEDBACK -->
+<div class="row">
+	<div class="col m12">
+		<div class="card">
+			<div class="card-content grey-text">
+				<h3>New feedback</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Course</th>
+							<th>Rating</th>
+							<th>Testimonial</th>
+						</tr>
+					</thead>
+					<% @new_feedback_forms.each do |feedback| %>
+						<tbody>
+							<tr>
+								<td><%= feedback.course.name %></td>
+								<td><%= feedback.rating %></td>
+								<td><%= 'Yes' if feedback.testimonial %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

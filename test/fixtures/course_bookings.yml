@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_intake_id: 
+  user_id: 
+  price: MyString
+  promo_code: MyString
+  paid: false
+  completed: false
+
+two:
+  course_intake_id: 
+  user_id: 
+  price: MyString
+  promo_code: MyString
+  paid: false
+  completed: false

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<a href="/enquiry_types/new" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
+<h1>Enquiry Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enquiry_types.each do |enquiry_type| %>
+      <tr>
+        <td><%= enquiry_type.name %></td>
+        <td><%= enquiry_type.description %></td>
+        <td><%= link_to 'Edit', edit_enquiry_type_path(enquiry_type) %></td>
+        <td><%= link_to 'Delete', enquiry_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_booking_id: 
+  reason: MyString
+  background: MyString
+  experience: MyString
+  hobbies: MyString
+
+two:
+  course_booking_id: 
+  reason: MyString
+  background: MyString
+  experience: MyString
+  hobbies: MyString

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course intake:</strong>
+  <%= @course_booking.course_intake %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @course_booking.user %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course_booking.price %>
+</p>
+
+<p>
+  <strong>Promo code:</strong>
+  <%= @course_booking.promo_code %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @course_booking.paid %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @course_booking.completed %>
+</p>
+
+<%= link_to 'Edit', edit_course_booking_path(@course_booking) %> |
+<%= link_to 'Back', course_bookings_path %>

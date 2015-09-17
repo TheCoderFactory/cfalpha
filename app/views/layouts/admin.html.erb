@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CfAlpha</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <script src="//use.typekit.net/hpa2uqd.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <style>
+  header, main, footer {
+    padding-left: 300px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+  .side-nav .collapsible {
+  border: none;
+  box-shadow: none; }
+  .side-nav .collapsible li {
+    padding: 0; }
+.side-nav .collapsible-header {
+  background-color: transparent;
+  border: none;
+  line-height: inherit;
+  height: inherit;
+  margin: 0 1rem; }
+  .side-nav .collapsible-header i {
+    line-height: inherit; }
+.side-nav .collapsible-body {
+  border: 0;
+  background-color: #fff; }
+  .side-nav .collapsible-body li a {
+    margin: 0 1rem 0 2rem; }
+
+.collapsible.popout {
+  border: none;
+  box-shadow: none; }
+  .collapsible.popout > li {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 0 24px;
+    transition: margin .35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .collapsible.popout > li.active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    margin: 16px 0; }
+.side-nav {
+  position: fixed;
+  width: 300px;
+  left: -105%;
+  top: 0;
+  margin: 0;
+  height: 100%;
+  height: calc(100% + 60px);
+  height: -moz-calc(100%);
+  padding-bottom: 60px;
+  background-color: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  will-change: left; }
+  .side-nav.right-aligned {
+    will-change: right;
+    right: -105%;
+    left: auto; }
+  .side-nav .collapsible {
+    margin: 0; }
+  .side-nav li {
+    float: none;
+    padding: 0 15px; }
+    .side-nav li:hover, .side-nav li.active {
+      background-color: #ddd; }
+  .side-nav a {
+    color: #444;
+    display: block;
+    font-size: 1rem;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 15px; }
+.bold > a {
+  font-weight: bold; }
+  </style>
+</head>
+<body>
+
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/admin_sidebar' %>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    
+  <%= render 'layouts/footer' %>
+ <script>
+ $(document).on('page:change', function(event){
+    $('ul.tabs').tabs();
+    $('.parallax').parallax();
+    $('select').material_select();
+    $('.datepicker').pickadate({
+       // selectMonths: true, // Creates a dropdown to control month
+       // selectYears: 15 // Creates a dropdown of 15 years to control year
+     });
+    $('.button-collapse').sideNav({'edge': 'left'});
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+</script>
+</body>
+</html>

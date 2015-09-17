@@ -1,0 +1,19 @@
+<%= simple_form_for(@course_intake) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :course %>
+    <%= f.association :course_location %>
+    <%= f.input :start_date %>
+    <%= f.input :start_time %>
+    <%= f.input :end_date %>
+    <%= f.input :end_time %>
+    <%= f.input :days_of_week %>
+    <%= f.input :status %>
+    <%= f.input :price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,14 +1,31 @@
 Rails.application.routes.draw do
+
+  get 'coder-factory-workshops-for-beginners', to: 'pages#beginner'
+  get 'coder-factory-app-builder-courses', to: 'pages#builder'
+  get 'coding-workshops-for-businesses', to: 'pages#business'
+  get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
+  get 'coding-for-schools', to: 'pages#schools'
+  resources :feedback_forms
+  resources :prequestionnaires
+  resources :promo_codes
+  resources :course_bookings
+  resources :course_intakes
+  resources :courses
+  resources :skills
+  resources :skill_categories
+  resources :course_locations
+  resources :course_types
+  resources :enquiries
+  resources :enquiry_types
+  resources :profiles
   get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   root 'pages#home'
-  get 'pages/home'
-
-  get 'pages/admin'
-
-  get 'pages/contact'
+  get 'settings', to: 'pages#settings'
+  get 'about', to: 'pages#about'
 
   devise_for :users
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

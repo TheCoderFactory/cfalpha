@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Course Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Address one</th>
+      <th>Address two</th>
+      <th>Suburb</th>
+      <th>State</th>
+      <th>Postcode</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_locations.each do |course_location| %>
+      <tr>
+        <td><%= course_location.name %></td>
+        <td><%= course_location.city %></td>
+        <td><%= course_location.address_one %></td>
+        <td><%= course_location.address_two %></td>
+        <td><%= course_location.suburb %></td>
+        <td><%= course_location.state %></td>
+        <td><%= course_location.postcode %></td>
+        <td><%= course_location.country %></td>
+        <td><%= course_location.latitude %></td>
+        <td><%= course_location.longitude %></td>
+        <td><%= course_location.slug %></td>
+        <td><%= link_to 'Show', course_location %></td>
+        <td><%= link_to 'Edit', edit_course_location_path(course_location) %></td>
+        <td><%= link_to 'Destroy', course_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course location', new_course_location_path %>

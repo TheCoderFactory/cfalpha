@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<a href="/course_locations/new" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
+<h1>Course Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_locations.each do |course_location| %>
+      <tr>
+        <td><%= link_to course_location.name, course_location %></td>
+        <td><%= course_location.city %></td>
+        <td><%= link_to 'Edit', edit_course_location_path(course_location) %></td>
+        <td><%= link_to 'Delete', course_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

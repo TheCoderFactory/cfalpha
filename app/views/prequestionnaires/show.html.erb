@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course booking:</strong>
+  <%= @prequestionnaire.course_booking %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @prequestionnaire.reason %>
+</p>
+
+<p>
+  <strong>Background:</strong>
+  <%= @prequestionnaire.background %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @prequestionnaire.experience %>
+</p>
+
+<p>
+  <strong>Hobbies:</strong>
+  <%= @prequestionnaire.hobbies %>
+</p>
+
+<%= link_to 'Edit', edit_prequestionnaire_path(@prequestionnaire) %> |
+<%= link_to 'Back', prequestionnaires_path %>

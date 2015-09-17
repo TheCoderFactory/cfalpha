@@ -1,0 +1,17 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :course_type %>
+    <%= f.input :name %>
+    <%= f.input :icon %>
+    <%= f.input :tagline %>
+    <%= f.input :description %>
+    <%= f.input :active %>
+    <%= f.input :slug %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

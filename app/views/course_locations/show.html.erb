@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course_location.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @course_location.city %>
+</p>
+
+<p>
+  <strong>Address one:</strong>
+  <%= @course_location.address_one %>
+</p>
+
+<p>
+  <strong>Address two:</strong>
+  <%= @course_location.address_two %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @course_location.suburb %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @course_location.state %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @course_location.postcode %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @course_location.country %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @course_location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @course_location.longitude %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @course_location.slug %>
+</p>
+
+<%= link_to 'Edit', edit_course_location_path(@course_location) %> |
+<%= link_to 'Back', course_locations_path %>

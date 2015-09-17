@@ -1,0 +1,19 @@
+<%= simple_form_for(@enquiry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :enquiry_type %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :company %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :message %>
+    <%= f.input :responded_to %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

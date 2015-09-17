@@ -1,0 +1,32 @@
+<div class="card">
+	<div class="card-content black-text">
+		<span class="card-title"><%= course_intake.course.name %> (<%= course_intake.course_bookings.count %>)</span>
+		<p><i class="material-icons">place</i> <%= course_intake.course_location.name %></p>
+		<p><i class="material-icons">event</i> <%= course_intake.start_date.strftime('%d %b %y') %></p>
+		<hr>
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Student</th>
+		      <th>Price</th>
+		      <th>Promo code</th>
+		      <th>Paid</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% course_intake.course_bookings.each do |course_booking| %>
+		      <tr>
+		        <td><%= course_booking.user.name %></td>
+		        <td><%= course_booking.price %></td>
+		        <td><%= course_booking.promo_code %></td>
+		        <td><%= course_booking.paid %></td>
+		      </tr>
+		    <% end %>
+		    <tr>
+		    	<td></td>
+		    	<td><%= number_to_currency(course_intake.bookings_revenue) %></td>
+		  </tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :picture %>
+    <%= f.input :phone %>
+    <%= f.input :github %>
+    <%= f.input :twitter %>
+    <%= f.input :linkedin %>
+    <%= f.input :gender %>
+    <%= f.input :age %>
+    <%= f.input :referral %>
+    <%= f.input :referral_other %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

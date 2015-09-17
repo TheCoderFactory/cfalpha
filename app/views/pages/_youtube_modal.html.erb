@@ -1,0 +1,34 @@
+<script>
+    (function () {
+      $('.modal-trigger').leanModal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      complete: function() { videoDialogPlayer.stopVideo(); }
+        }
+      );
+      var el = document.createElement('script');
+      el.src = "//www.youtube.com/iframe_api";
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(el, s);
+      
+      var videoDialogPlayer;
+      
+      window.onYouTubeIframeAPIReady = function () {
+        videoDialogPlayer = new YT.Player('videoDialogPlayer', {
+          height: '390',
+          width: '640',
+          videoId: 'd_09xRdOMlU'
+        });
+      }
+      
+      $(function () {
+        $('.modal-trigger').leanModal({ ready: function() { 
+          videoDialogPlayer.playVideo(); },
+          complete: function() { videoDialogPlayer.stopVideo(); }
+        
+        });
+      });
+    }());
+  </script>

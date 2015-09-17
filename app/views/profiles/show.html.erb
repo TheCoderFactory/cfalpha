@@ -1,0 +1,50 @@
+<%= content_for :title, @profile.name + "'s Profile Page" %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @profile.picture %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @profile.phone %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @profile.github %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @profile.twitter %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @profile.linkedin %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Referral:</strong>
+  <%= @profile.referral %>
+</p>
+
+<p>
+  <strong>Referral other:</strong>
+  <%= @profile.referral_other %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

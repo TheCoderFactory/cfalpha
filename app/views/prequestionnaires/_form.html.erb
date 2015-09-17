@@ -1,0 +1,15 @@
+<%= simple_form_for(@prequestionnaire) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :course_booking %>
+    <%= f.input :reason %>
+    <%= f.input :background %>
+    <%= f.input :experience %>
+    <%= f.input :hobbies %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

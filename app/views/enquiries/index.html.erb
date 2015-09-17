@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Enquiries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enquiry type</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Company</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Responded to</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enquiries.each do |enquiry| %>
+      <tr>
+        <td><%= enquiry.enquiry_type %></td>
+        <td><%= enquiry.first_name %></td>
+        <td><%= enquiry.last_name %></td>
+        <td><%= enquiry.company %></td>
+        <td><%= enquiry.phone %></td>
+        <td><%= enquiry.email %></td>
+        <td><%= enquiry.message %></td>
+        <td><%= enquiry.responded_to %></td>
+        <td><%= enquiry.user %></td>
+        <td><%= link_to 'Show', enquiry %></td>
+        <td><%= link_to 'Edit', edit_enquiry_path(enquiry) %></td>
+        <td><%= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Enquiry', new_enquiry_path %>

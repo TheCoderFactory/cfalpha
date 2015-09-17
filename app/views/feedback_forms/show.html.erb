@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @feedback_form.course %>
+</p>
+
+<p>
+  <strong>Course location:</strong>
+  <%= @feedback_form.course_location %>
+</p>
+
+<p>
+  <strong>Expectations:</strong>
+  <%= @feedback_form.expectations %>
+</p>
+
+<p>
+  <strong>Recommend:</strong>
+  <%= @feedback_form.recommend %>
+</p>
+
+<p>
+  <strong>Another:</strong>
+  <%= @feedback_form.another %>
+</p>
+
+<p>
+  <strong>Satisfaction:</strong>
+  <%= @feedback_form.satisfaction %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @feedback_form.value %>
+</p>
+
+<p>
+  <strong>Best part:</strong>
+  <%= @feedback_form.best_part %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @feedback_form.comments %>
+</p>
+
+<p>
+  <strong>Testimonial:</strong>
+  <%= @feedback_form.testimonial %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_form_path(@feedback_form) %> |
+<%= link_to 'Back', feedback_forms_path %>

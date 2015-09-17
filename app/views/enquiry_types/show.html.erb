@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @enquiry_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @enquiry_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_enquiry_type_path(@enquiry_type) %> |
+<%= link_to 'Back', enquiry_types_path %>

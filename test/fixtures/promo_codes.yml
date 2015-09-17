@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  price_value: 9.99
+  percent_value: 1
+  expiry_date: 2015-09-09 16:50:32
+  user_id: 
+  code: MyString
+  course_intake_id: 
+  creator_id: 1
+  date_used: 2015-09-09
+
+two:
+  name: MyString
+  description: MyText
+  price_value: 9.99
+  percent_value: 1
+  expiry_date: 2015-09-09 16:50:32
+  user_id: 
+  code: MyString
+  course_intake_id: 
+  creator_id: 1
+  date_used: 2015-09-09

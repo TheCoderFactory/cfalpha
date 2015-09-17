@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+      <a href="/course_types/new" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
+<h1>Course Types
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Active</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_types.each do |course_type| %>
+      <tr>
+        <td><%= course_type.name %></td>
+        <td><%= course_type.active %></td>
+        <td><%= link_to 'Edit', edit_course_type_path(course_type) %></td>
+        <td><%= link_to 'Delete', course_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

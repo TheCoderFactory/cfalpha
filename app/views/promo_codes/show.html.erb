@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @promo_code.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @promo_code.description %>
+</p>
+
+<p>
+  <strong>Price value:</strong>
+  <%= @promo_code.price_value %>
+</p>
+
+<p>
+  <strong>Percent value:</strong>
+  <%= @promo_code.percent_value %>
+</p>
+
+<p>
+  <strong>Expiry date:</strong>
+  <%= @promo_code.expiry_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @promo_code.user %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @promo_code.code %>
+</p>
+
+<p>
+  <strong>Course intake:</strong>
+  <%= @promo_code.course_intake %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @promo_code.creator_id %>
+</p>
+
+<p>
+  <strong>Date used:</strong>
+  <%= @promo_code.date_used %>
+</p>
+
+<%= link_to 'Edit', edit_promo_code_path(@promo_code) %> |
+<%= link_to 'Back', promo_codes_path %>

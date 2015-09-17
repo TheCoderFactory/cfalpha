@@ -1,0 +1,8 @@
+<li class="collection-item avatar">
+  <i class="fa fa-<%= intake.course.icon %> circle green"></i>
+  <span class="title"><%= link_to intake.course.name, course_path(intake.course) %></span>
+  <p><%= intake.days_of_week %>: <%= intake.start_date.strftime('%d %B %Y') %> - <%= intake.end_date.strftime('%d %B %Y') %><br>
+     <%= intake.course_location.name %>, <%= intake.course_location.city %>
+  </p>
+  <a class="secondary-content waves-effect waves-light btn"><i class="material-icons right">send</i>Book Your Place</a>
+</li>

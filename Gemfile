@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -55,6 +53,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'sitemap_generator'
 gem 'materialize-sass'
+gem 'geocoder'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
