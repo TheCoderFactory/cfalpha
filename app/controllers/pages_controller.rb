@@ -6,9 +6,9 @@ class PagesController < ApplicationController
   end
 
   def admin
-  	unless current_user.has_role? :admin
-  		redirect_to root_path
-  	end
+  	# unless current_user.has_role? :admin
+  	# 	redirect_to root_path
+  	# end
   	@new_course_bookings = CourseBooking.last_seven_days
   	@new_enquiries = Enquiry.last_seven_days
   	@new_feedback_forms = FeedbackForm.last_seven_days
