@@ -16,8 +16,8 @@
 						<tbody>
 							<tr>
 								<td><%= booking.user.name %></td>
-								<td><%= booking.course_intake.course %></td>
-								<td><%= booking.course_intake %></td>
+								<td><%= booking.course_intake.course.name %></td>
+								<td><%= booking.course_intake.start_date.to_date %></td>
 							</tr>
 						</tbody>
 					<% end %>

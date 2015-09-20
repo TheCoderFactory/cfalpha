@@ -25,7 +25,7 @@ class PromoCodesController < ApplicationController
   # POST /promo_codes.json
   def create
     @promo_code = PromoCode.new(promo_code_params)
-
+    @promo_code.creator_id = current_user.id
     respond_to do |format|
       if @promo_code.save
         format.html { redirect_to @promo_code, notice: 'Promo code was successfully created.' }

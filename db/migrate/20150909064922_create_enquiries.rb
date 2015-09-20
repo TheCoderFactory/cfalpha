@@ -7,7 +7,7 @@ class CreateEnquiries < ActiveRecord::Migration
       t.string :company
       t.string :phone
       t.string :email
-      t.string :message
+      t.text :message
       t.boolean :responded_to
       t.references :user, index: true, foreign_key: true
 

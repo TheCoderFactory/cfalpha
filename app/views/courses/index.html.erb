@@ -13,9 +13,9 @@
     <% @course_types.each do |course_type| %>
       <div id="<%= course_type.id %>" class="col s12">
         <ul class="collapsible" data-collapsible="accordion">
-          <% course_type.courses.each do |course| %>
+          <% course_type.courses.alphabetical.each do |course| %>
           <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><%= course.name %> <span class="badge"> Scheduled: <%= course.course_intakes.upcoming.count %> <%= link_to 'edit', edit_course_path(course) %></span></div>
+            <div class="collapsible-header"><i class="fa fa-<%= course.icon %>"></i> <%= course.name %> <span class="badge"> Scheduled: <%= course.course_intakes.upcoming.count %> <%= link_to 'edit', edit_course_path(course) %></span></div>
             <div class="collapsible-body">
               <table>
                 <thead>

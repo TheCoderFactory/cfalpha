@@ -1,6 +1,7 @@
 admin_user = User.create(email: 'admin@example.com', password: '12345678', first_name: 'Pete', last_name: 'Argent')
 admin_user.add_role :admin
 
+
 skill_categories = [
 	"Web Design",
 	"Application Design",
@@ -13,21 +14,21 @@ course_types = [
 	"Part Time",
 	"Full Time Intensive",
 	"School",
-	"Corporate"
+	"Business"
 ]
 
 courses = [
-	{'name' => 'Web Design for Beginners', 'course_type' => 'Workshop'},
-	{'name' => 'Wordpress for Beginners', 'course_type' => 'Workshop'},
-	{'name' => 'Coding for Beginners', 'course_type' => 'Workshop'},
-	{'name' => 'Coding Kickstarter (FREE)', 'course_type' => 'Workshop'},
-	{'name' => 'Web App Builder', 'course_type' => 'Part Time'},
-	{'name' => 'Startup Launcher', 'course_type' => 'Part Time'},
-	{'name' => 'Angular Master', 'course_type' => 'Part Time'},
-	{'name' => 'Digital Leadership', 'course_type' => 'Corporate'},
-	{'name' => 'Fast Track', 'course_type' => 'Full Time Intensive'},
-	{'name' => 'Code The Future', 'course_type' => 'School'},
-	{'name' => 'Silicon Valley Express', 'course_type' => 'Workshop'},
+	{'name' => 'Web Design for Beginners', 'course_type' => 'Workshop', 'icon' => 'chrome'},
+	{'name' => 'Wordpress for Beginners', 'course_type' => 'Workshop', 'icon' => 'wordpress'},
+	{'name' => 'Coding for Beginners', 'course_type' => 'Workshop', 'icon' => 'terminal'},
+	{'name' => 'Coding Kickstarter (FREE)', 'course_type' => 'Workshop', 'icon' => 'play'},
+	{'name' => 'Web App Builder', 'course_type' => 'Part Time', 'icon' => 'desktop'},
+	{'name' => 'Startup Launcher', 'course_type' => 'Part Time', 'icon' => 'rocket'},
+	{'name' => 'Angular Master', 'course_type' => 'Part Time', 'icon' => 'shield'},
+	{'name' => 'Digital Leadership', 'course_type' => 'Business', 'icon' => 'bar-chart'},
+	{'name' => 'Fast Track', 'course_type' => 'Full Time Intensive', 'icon' => 'train'},
+	{'name' => 'Code The Future', 'course_type' => 'School', 'icon' => 'graduation-cap'},
+	{'name' => 'Silicon Valley Express', 'course_type' => 'Workshop', 'icon' => 'plane'},
 ]
 
 course_intakes = [
@@ -60,7 +61,7 @@ CourseLocation.create(name: 'Coder Factory HQ', city: 'Sydney', address_one: 'Le
 def create_courses(courses)
 	courses.each do |course|
 		course_type_id = CourseType.find_by(name: course['course_type']).id
-		Course.create(course_type_id: course_type_id, name: course['name'])
+		Course.create(course_type_id: course_type_id, name: course['name'], icon: course['icon'])
 	end
 end
 
@@ -75,3 +76,12 @@ def create_course_intakes(course_intakes)
 end
 
 create_course_intakes(course_intakes)
+
+EnquiryType.create(name: 'Workshop enquiry', code: 'Workshop')
+EnquiryType.create(name: 'Part time enquiry', code: 'Part time')
+EnquiryType.create(name: 'Business course enquiry', code: 'Business')
+EnquiryType.create(name: 'School enquiry', code: 'School')
+EnquiryType.create(name: 'Fast Track enquiry', code: 'Fast Track')
+EnquiryType.create(name: 'Partnership enquiry', code: 'Partnership')
+EnquiryType.create(name: 'General enquiry', code: 'General')
+EnquiryType.create(name: 'Website problem', code: 'Website problem')

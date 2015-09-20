@@ -1,19 +1,52 @@
 <%= simple_form_for(@enquiry) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :enquiry_type %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :company %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :message %>
-    <%= f.input :responded_to %>
-    <%= f.association :user %>
+  <div class="row">
+    <div class="col m12">
+      <label class="select required" for="enquiry_enquiry_type_id">
+      <abbr title="required">*</abbr> Enquiry type</label>
+      <select class="browser-default" name="enquiry[enquiry_type_id]" id="enquiry_enquiry_type_id">
+        <option value="" disabled selected>Select your enquiry type</option>
+        <option value="1">Workshop enquiry</option>
+        <option value="2">Part time enquiry</option>
+        <option value="3">Business course enquiry</option>
+        <option value="4">School enquiry</option>
+        <option value="5">Fast Track enquiry</option>
+        <option value="6">Partnership enquiry</option>
+        <option value="7">General enquiry</option>
+        <option value="8">Website problem</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col m6">
+      <%= f.input :first_name %>
+    </div>
+    <div class="input-field col m6">
+      <%= f.input :last_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col m4">
+      <%= f.input :email %>
+    </div>
+    <div class="input-field col m4">
+      <%= f.input :phone %>
+    </div>
+    <div class="input-field col m4">
+      <%= f.input :company %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col m12">
+      <label class="text required" for="enquiry_message"><abbr title="required">*</abbr> Message</label><textarea rows="5" class="materialize-textarea" name="enquiry[message]" id="enquiry_message">
+</textarea>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <button class="btn waves-effect waves-light blue" type="submit" name="action">Send enquiry
+    <i class="material-icons right">send</i>
+  </button>
   </div>
 <% end %>

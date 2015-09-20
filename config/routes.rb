@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'blog', to: 'blog#index'
+
   get 'coder-factory-workshops-for-beginners', to: 'pages#beginner'
-  get 'coder-factory-app-builder-courses', to: 'pages#builder'
+  get 'coder-factory-part-time-courses', to: 'pages#part_time'
   get 'coding-workshops-for-businesses', to: 'pages#business'
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#schools'
+  resources :payments, only: [:index, :create]
   resources :feedback_forms
   resources :prequestionnaires
   resources :promo_codes

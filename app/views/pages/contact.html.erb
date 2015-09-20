@@ -1,2 +1,37 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<section id="top-section" class="blue">
+<div class="container">
+  <div class="row">
+    <div class="col s12 m10 offset-m1">
+      <h2>Get in touch</h2><h4> We're happy to hear from you.</h4>
+      <p class="flow-text"></p>
+      <div class="row">
+        <div class="col m4">
+          <div class="card z-depth-3 hoverable">
+            <div class="card-content black-text">
+            <span class="card-title black-text">Contact Details</span>
+            <p>Phone: <a href="tel:1300884095">1300 884 095</a></p>
+            <p>Email: <a href="mailto:info@coderfactory.com">info@coderfactory.com</a></p>
+            <br>
+            <p>CODER FACTORY HQ</p>
+            <p>7 Hudson Street<br>Redfern NSW 2016</p>
+
+            <br>
+            <div style="width:500px;overflow:hidden;height:250px;max-width:100%;"><div id="my-map-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Coder+Factory,+Hudson+Street,+Redfern,+New+South+Wales,+Australia&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div></div>
+            
+            <p>Free untimed street parking available.<br>250m from Redfern Station</p>
+            </div>
+          </div>
+        </div>
+        <div class="col m8">
+          <div class="card z-depth-3 hoverable">
+            <div class="card-content black-text">
+            <span class="card-title black-text">Enquiry Form</span>
+            <%= render 'enquiries/form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

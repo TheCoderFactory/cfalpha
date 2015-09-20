@@ -9,7 +9,7 @@ class CreateCourseIntakes < ActiveRecord::Migration
       t.time :end_time
       t.string :days_of_week, array: true
       t.string :status
-      t.string :price
+      t.decimal :price
       t.string :slug
 
       t.timestamps null: false

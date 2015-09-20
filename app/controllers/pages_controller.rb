@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   layout 'admin', only: [:admin, :settings]
   def home
     @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    @workshops = Course.get_courses_by_type('Workshop')
+    @part_time_courses = Course.get_courses_by_type('Part Time')
+    @business_courses = Course.get_courses_by_type('Business')
+    @school_courses = Course.get_courses_by_type('School')
+
   end
 
   def admin
@@ -16,6 +21,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @enquiry = Enquiry.new
   end
 
   def settings
@@ -28,15 +34,16 @@ class PagesController < ApplicationController
   end
 
   def beginner
-
+    @workshops = Course.get_courses_by_type('Workshop')
   end
 
-  def builder
-
+  def part_time
+    @part_time_courses = Course.get_courses_by_type('Part Time')
   end
 
   def business
-
+    @business_courses = Course.get_courses_by_type('Business')
+    @school_courses = Course.get_courses_by_type('School')
   end
 
   def fasttrack

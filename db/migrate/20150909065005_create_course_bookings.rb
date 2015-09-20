@@ -3,7 +3,7 @@ class CreateCourseBookings < ActiveRecord::Migration
     create_table :course_bookings do |t|
       t.references :course_intake, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
-      t.string :price
+      t.decimal :price
       t.string :promo_code
       t.boolean :paid
       t.boolean :completed

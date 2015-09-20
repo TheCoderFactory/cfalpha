@@ -11,20 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912170826) do
+ActiveRecord::Schema.define(version: 20150920053145) do
 
   create_table "course_bookings", force: :cascade do |t|
     t.integer  "course_intake_id"
     t.integer  "user_id"
-    t.string   "price"
+    t.decimal  "price"
     t.string   "promo_code"
     t.boolean  "paid"
     t.boolean  "completed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "guid"
+    t.decimal  "gst"
+    t.decimal  "discount"
   end
 
   add_index "course_bookings", ["course_intake_id"], name: "index_course_bookings_on_course_intake_id"
+  add_index "course_bookings", ["guid"], name: "index_course_bookings_on_guid", unique: true
   add_index "course_bookings", ["user_id"], name: "index_course_bookings_on_user_id"
 
   create_table "course_intakes", force: :cascade do |t|
@@ -36,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150912170826) do
     t.time     "end_time"
     t.string   "days_of_week"
     t.string   "status"
-    t.string   "price"
+    t.decimal  "price"
     t.string   "slug"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -90,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150912170826) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "icon"
+    t.string   "color"
   end
 
   add_index "courses", ["course_type_id"], name: "index_courses_on_course_type_id"
@@ -101,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150912170826) do
     t.string   "company"
     t.string   "phone"
     t.string   "email"
-    t.string   "message"
+    t.text     "message"
     t.boolean  "responded_to"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
@@ -116,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150912170826) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "code"
   end
 
   create_table "feedback_forms", force: :cascade do |t|
@@ -148,6 +154,15 @@ ActiveRecord::Schema.define(version: 20150912170826) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "course_booking_id"
+    t.decimal  "amount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "payments", ["course_booking_id"], name: "index_payments_on_course_booking_id"
 
   create_table "prequestionnaires", force: :cascade do |t|
     t.integer  "course_booking_id"
@@ -191,6 +206,7 @@ ActiveRecord::Schema.define(version: 20150912170826) do
     t.date     "date_used"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.decimal  "discount"
   end
 
   add_index "promo_codes", ["course_intake_id"], name: "index_promo_codes_on_course_intake_id"
