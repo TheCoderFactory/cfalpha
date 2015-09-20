@@ -61,7 +61,7 @@ CourseLocation.create(name: 'Coder Factory HQ', city: 'Sydney', address_one: 'Le
 def create_courses(courses)
 	courses.each do |course|
 		course_type_id = CourseType.find_by(name: course['course_type']).id
-		Course.create(course_type_id: course_type_id, name: course['name'], icon: course['icon'])
+		Course.create(course_type_id: course_type_id, name: course['name'], icon: course['icon'], active: course['active'])
 	end
 end
 
