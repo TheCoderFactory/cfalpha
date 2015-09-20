@@ -3,7 +3,12 @@
   <span class="title" style="font-size: 1.5em;"><%= link_to intake.course.name, course_path(intake.course) %></span>
   <p><%= intake.days_of_week %>: <%= intake.start_date.strftime('%d %B %Y') %> - <%= intake.end_date.strftime('%d %B %Y') %><br>
      <%= intake.course_location.name %>, <%= intake.course_location.city %><br>
-     Price: <%= number_to_currency(intake.price) %> <%= '+ GST' if intake.price > 0.0 %>
+     Price: 
+     <%  if intake.price > 0.0 %>
+     	<%= number_to_currency(intake.price) %> + GST
+     <% else %>
+     	FREE
+     <% end %>
   </p>
   <a class="secondary-content light-blue waves-effect waves-light btn" href="/course_bookings/new?intake_id=<%= intake.id %>"><i class="material-icons right">send</i>Book Your Place</a>
 </li>

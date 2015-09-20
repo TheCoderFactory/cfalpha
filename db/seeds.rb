@@ -18,17 +18,17 @@ course_types = [
 ]
 
 courses = [
-	{'name' => 'Web Design for Beginners', 'course_type' => 'Workshop', 'icon' => 'chrome'},
-	{'name' => 'Wordpress for Beginners', 'course_type' => 'Workshop', 'icon' => 'wordpress'},
-	{'name' => 'Coding for Beginners', 'course_type' => 'Workshop', 'icon' => 'terminal'},
-	{'name' => 'Coding Kickstarter (FREE)', 'course_type' => 'Workshop', 'icon' => 'play'},
-	{'name' => 'Web App Builder', 'course_type' => 'Part Time', 'icon' => 'desktop'},
+	{'name' => 'Web Design for Beginners', 'course_type' => 'Workshop', 'icon' => 'chrome', 'active' => 'true'},
+	{'name' => 'Wordpress for Beginners', 'course_type' => 'Workshop', 'icon' => 'wordpress', 'active' => 'true'},
+	{'name' => 'Coding for Beginners', 'course_type' => 'Workshop', 'icon' => 'terminal', 'active' => 'true'},
+	{'name' => 'Coding Kickstarter (FREE)', 'course_type' => 'Workshop', 'icon' => 'play', 'active' => 'true'},
+	{'name' => 'Web App Builder', 'course_type' => 'Part Time', 'icon' => 'desktop', 'active' => 'true'},
 	{'name' => 'Startup Launcher', 'course_type' => 'Part Time', 'icon' => 'rocket'},
 	{'name' => 'Angular Master', 'course_type' => 'Part Time', 'icon' => 'shield'},
-	{'name' => 'Digital Leadership', 'course_type' => 'Business', 'icon' => 'bar-chart'},
-	{'name' => 'Fast Track', 'course_type' => 'Full Time Intensive', 'icon' => 'train'},
-	{'name' => 'Code The Future', 'course_type' => 'School', 'icon' => 'graduation-cap'},
-	{'name' => 'Silicon Valley Express', 'course_type' => 'Workshop', 'icon' => 'plane'},
+	{'name' => 'Digital Leadership', 'course_type' => 'Business', 'icon' => 'bar-chart', 'active' => 'true'},
+	{'name' => 'Fast Track', 'course_type' => 'Full Time Intensive', 'icon' => 'train', 'active' => 'true'},
+	{'name' => 'Code The Future', 'course_type' => 'School', 'icon' => 'graduation-cap', 'active' => 'true'},
+	{'name' => 'Silicon Valley Express', 'course_type' => 'Workshop', 'icon' => 'plane', 'active' => 'true'},
 ]
 
 course_intakes = [
