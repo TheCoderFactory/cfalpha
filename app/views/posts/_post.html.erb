@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card z-depth-3">
+      <div class="card-image">
+        <a href="/posts/<%= post.slug %>">
+          <%= image_tag(post.image) %>
+          <span class="card-title"><%= post.title %></span>
+        </a>
+      </div>
+      <div class="card-content">
+        <div class="chip">
+          <img src="<%= asset_path 'pete.jpg' %>" alt="<%= post.user.name if post.user %>">
+          <%= post.user.name if post.user %>
+        </div>
+        <div class="chip">
+          <%= post.published_date.strftime('%d %B %Y') %>
+        </div>
+          <hr>
+        <p class="flow-text"><%= post.lead %></p>
+      </div>
+      <div class="card-action">
+        <a href="/posts/<%= post.slug %>" class="right-align">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>

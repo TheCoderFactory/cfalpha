@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	has_many :enquiries
 	has_one :profile
 	has_many :promo_codes
+  has_many :posts
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

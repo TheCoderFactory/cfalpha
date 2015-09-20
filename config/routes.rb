@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :posts do
+    collection { post :import }
+  end
+  resources :post_categories
   get 'blog', to: 'blog#index'
 
   get 'coder-factory-workshops-for-beginners', to: 'pages#beginner'

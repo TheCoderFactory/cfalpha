@@ -1,0 +1,47 @@
+<section id="top-section" class="light-blue">
+  <div class="container">
+  <div class="row">
+    <div class="col m12">
+    <h2>All Posts</h2>
+      <div class="card">
+        <div class="card-content">
+        <%= link_to 'New Post', new_post_path, class: 'btn' %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Publish</th>
+              <th>Published</th>
+              <th>Views</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= link_to post.title, post %></td>
+                <td><%= post.user.name if post.user %></td>
+                <td><%= '<i class="fa fa-check"></i>'.html_safe if post.publish %></td>
+                <td><%= post.published_date.strftime('%d/%b/%y') %></td>
+                <td><span class="label label-info"><%= post.impressions_count %></span></td>
+                <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_post_path(post) %></td>
+                <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <hr>
+      <div class="row">
+        <div class="col m6">
+      <p>Import posts</p>
+
+      <%= form_tag import_posts_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import Posts" %>
+      <% end %>
+      </div></div></div>
+    </div>
+  </div></div></div>
+</section>

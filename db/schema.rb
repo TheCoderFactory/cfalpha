@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920053145) do
+ActiveRecord::Schema.define(version: 20150920081146) do
 
   create_table "course_bookings", force: :cascade do |t|
     t.integer  "course_intake_id"
@@ -164,6 +164,33 @@ ActiveRecord::Schema.define(version: 20150920053145) do
 
   add_index "payments", ["course_booking_id"], name: "index_payments_on_course_booking_id"
 
+  create_table "post_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "icon"
+    t.integer  "post_count"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_category_id"
+    t.string   "impressions_count"
+    t.string   "title"
+    t.text     "lead"
+    t.text     "content"
+    t.string   "image"
+    t.string   "slug"
+    t.boolean  "publish"
+    t.date     "published_date"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "posts", ["post_category_id"], name: "index_posts_on_post_category_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
   create_table "prequestionnaires", force: :cascade do |t|
     t.integer  "course_booking_id"
     t.string   "reason"
@@ -241,6 +268,26 @@ ActiveRecord::Schema.define(version: 20150920053145) do
   end
 
   add_index "skills", ["skill_category_id"], name: "index_skills_on_skill_category_id"
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

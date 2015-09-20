@@ -1,0 +1,24 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :post_category %>
+    <%= f.input :title %>
+    <%= f.input :image %>
+    <%= f.input :lead %>
+    <%= f.input :content, input_html: { class: 'ckeditor'} %>
+    <%= f.input :slug %>
+    <%= f.input :publish, as: :select %>
+    <%= f.input :published_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script>
+$('.ckeditor').ckeditor({
+  // optional config
+});
+</script>

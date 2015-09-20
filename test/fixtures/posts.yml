@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  post_category_id: 
+  impressions_count: MyString
+  title: MyString
+  lead: MyText
+  content: MyText
+  image: MyString
+  slug: MyString
+  publish: false
+  published_date: 2015-09-20
+
+two:
+  user_id: 
+  post_category_id: 
+  impressions_count: MyString
+  title: MyString
+  lead: MyText
+  content: MyText
+  image: MyString
+  slug: MyString
+  publish: false
+  published_date: 2015-09-20
