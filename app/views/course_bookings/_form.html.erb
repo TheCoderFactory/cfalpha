@@ -8,16 +8,12 @@
       <%= f.association :course_intake %>
     <% end %>
     <% if @course_intake.price > 0.0 %>
-      <div class="row">
-        <div class="col m5">
           <%= f.input :promo_code, label: 'Do you have a promo code? (Check your inbox)' %>
-        </div>
-      </div>
     <% end %>
   
 
   <div class="form-actions">
-    <button type="submit" class='waves-effect waves-light btn light-blue'>
+    <button type="submit" class='waves-effect waves-light btn light-blue btn-large'>
       <i class="material-icons right">check_circle</i> Confirm your booking
     </button>
 

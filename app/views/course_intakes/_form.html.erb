@@ -2,7 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :course %>
+    <% if params[:course] %>
+      <%= f.input :course_id, as: :hidden, input_html: { value: params[:course]} %>
+    <% else %>
+      <%= f.association :course %>
+    <% end %>
     <%= f.association :course_location %>
     <%= f.input :start_date %>
     <%= f.input :start_time %>

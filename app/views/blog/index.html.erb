@@ -9,7 +9,9 @@
     	<div class="col s12 m9">
     		<%= render @posts %>
         <div class="card"><div class="card-content">
-          <%= will_paginate @posts, renderer: MaterializePagination::Rails %>
+          <center>
+            <%= will_paginate @posts, renderer: MaterializePagination::Rails %>
+          </center>
         </div></div>
     	</div>
     	<div class="col s12 m3">

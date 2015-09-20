@@ -7,18 +7,24 @@
 	    <div class="card z-depth-3 hoverable">
 	      <div class="card-content black-text">
 	        <span class="card-title black-text">Course name: <%= @course_intake.course.name %></span>
-	        <% if params[:intake_id] %>
-	        	<p>Location: <%= @course_intake.course_location.name %></p>
-	        	<p>Start date: <%= @course_intake.start_date.strftime('%d %B %Y') %></p>
-	        	<p>Price: 
-	        		<% if @course_intake.price > 0.0 %>
-	        			<%= number_to_currency(@course_intake.price) %> <%= '+ GST' %> <%= '(TOTAL: ' + number_to_currency(@course_intake.price * 1.1).to_s + ')' %>
-	        		<% else %>
-	        			FREE
-	        		<% end %>
-	        	</p>
-	        <% end %>
-	        <%= render 'form' %>
+	        <div class="row">
+	        	<div class="col m6">
+			        <% if params[:intake_id] %>
+			        	<p>Location: <%= @course_intake.course_location.name %></p>
+			        	<p>Start date: <%= @course_intake.start_date.strftime('%d %B %Y') %></p>
+			        	<p>Price: 
+			        		<% if @course_intake.price > 0.0 %>
+			        			<%= number_to_currency(@course_intake.price) %> <%= '+ GST' %> <%= '(TOTAL: ' + number_to_currency(@course_intake.price * 1.1).to_s + ')' %>
+			        		<% else %>
+			        			FREE
+			        		<% end %>
+			        	</p>
+			        <% end %>
+			      </div>
+			      <div class="col m6">
+	        		<%= render 'form' %>
+	        	</div>
+	        </div>
 	      </div>
 	    </div>
 	  </div>

@@ -1,4 +1,9 @@
 <li>
-  <div class="collapsible-header active"><i class="fa fa-<%= course.icon %>"></i> <%= course.name %></div>
+  <div class="collapsible-header active">
+  	<span class="<%= course.color %>-text">
+  		<i class="fa fa-<%= course.icon %>"></i>
+  	</span> 
+  	<%= course.name %>
+  </div>
   <div class="collapsible-body"><p><%= course.description %></p></div>
 </li>

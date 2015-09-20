@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
 
-      post_hash = row.to_hash # exclude the price field
+      post_hash = row.to_hash
       post = Post.where(title: post_hash["title"])
 
       if post.count == 1

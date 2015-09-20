@@ -1,21 +1,24 @@
-<section id="<%= course_detail.name %>" class="<%= course_detail.color %>">
-	<div class="container">
+<section id="<%= course_detail.name %>">
+	<div class="container z-depth-3 white">
 		<div class="row">
-			<div class="col m1">
-				<h2><i class="fa fa-<%= course_detail.icon %>"></i></h2>
-			</div>
-			<div class="col m11">
-			 	<h2><%= course_detail.name %></h2>
+			<div class="col m10 offset-m1 <%= course_detail.color %>-text">
+				<h3>
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle-thin fa-stack-2x"></i>
+  					<i class="fa fa-<%= course_detail.icon %> fa-stack-1x"></i>
+					</span>
+					<%= course_detail.name %>
+				</h3>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col m10 offset-m1">
 			<p class="flow-text"><%= course_detail.tagline %></p>
 			<p>
-				<a class="white black-text waves-effect waves-light btn modal-trigger" href="#modal<%= course_detail.id %>"><i class="material-icons right">help</i>More info</a>
+				<a class="<%= course_detail.color %> black-text waves-effect waves-light btn modal-trigger" href="#modal<%= course_detail.id %>"><i class="material-icons right">help</i>More info</a>
 			</p>
 			
-			<ul class="collection hoverable z-depth-3">
+			<ul class="collection">
             <%= render partial: 'course_intakes/upcoming_course_intake', collection: course_detail.course_intakes.upcoming, as: :intake %>
         </ul>
 			</div>

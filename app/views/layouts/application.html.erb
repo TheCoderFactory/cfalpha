@@ -27,12 +27,27 @@
       <% if user_signed_in? %>
         <% if current_user.has_role? :admin %>
           <li><a class="btn-floating red" href="/admin"><i class="material-icons">insert_chart</i></a></li>
-        <% end %>
-      <% end %>
+        
+      
       <li><a class="btn-floating yellow darken-1" href="/contact"><i class="material-icons">format_quote</i></a></li>
       <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      <% end %>
+      <% end %>
+      <li><a class="btn-floating blue modal-trigger" href="#share-modal"><i class="material-icons">share</i></a></li>
     </ul>
+  </div>
+  <!-- Modal Structure -->
+  <div id="share-modal" class="modal">
+    <div class="modal-content">
+      <h4>Tell your friends about this.</h4>
+      <p>
+        <a class="waves-effect waves-light btn indigo lighten-3"><i class="fa fa-twitter right"></i>Tweet</a> 
+        <a class="waves-effect waves-light btn blue darken-2"><i class="fa fa-facebook right"></i>Share</a> 
+        <a class="waves-effect waves-light btn red"><i class="fa fa-envelope right"></i>Email</a></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
   </div>
 <script>
 	$(document).ready(function() {
