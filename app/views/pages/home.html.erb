@@ -1,16 +1,22 @@
-<%= content_for :title, "Learn to Code @CoderFactory" %>
-<% @video = true %>
-<section class="blue">
+<section class="light-blue" id="top-section">
   <div class="container">
-    <h2>Upcoming courses</h2>
-    <div class="hide-on-small-only">
-      <ul class="collection hoverable z-depth-3">
-        <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-      </ul>
+    <div class="row">
+      <div class="col m12">
+        <h1>Coder Factory Blog</h1>
+      </div>
     </div>
-    <div class="hide-on-med-and-up">
-
+    <div class="row">
+      <div class="col s12 m9">
+        <%= render @posts %>
+        <div class="card"><div class="card-content">
+          <center>
+            <%= will_paginate @posts, renderer: MaterializePagination::Rails %>
+          </center>
+        </div></div>
+      </div>
+      <div class="col s12 m3">
+        <p></p>
+      </div>
     </div>
-    <br>
   </div>
 </section>
