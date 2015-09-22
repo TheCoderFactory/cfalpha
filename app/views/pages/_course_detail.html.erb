@@ -1,4 +1,5 @@
 <section id="<%= course_detail.name %>" class="light-blue">
+<div class="hide-on-small-only">
 	<div class="container z-depth-3 white">
 		<div class="row">
 			<div class="col m10 offset-m1 <%= course_detail.color %>-text">
@@ -25,6 +26,19 @@
       </ul>
 			</div>
 		</div>
+	</div>
+	</div>
+	<div class="hide-on-med-and-up">
+		<div class="card">
+			<div class="card-content black-text">
+				<span class="card-title"><%= course_detail.name %></span>
+				<p class="flow-text"><%= course_detail.tagline %></p>
+				<ul class="collection">
+        	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
+      	</ul>
+			</div>
+		</div>
+
 	</div>
 </section>
 
