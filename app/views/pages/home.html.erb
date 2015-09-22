@@ -49,6 +49,19 @@
   </div></div></div>
 </section>
 
+<section id="inside-cf" class="black">
+  <div class="container">
+    <h2 class="white-text">Inside Coder Factory</h2>
+    <div class="row">
+      <div class="col s12 m6">
+      <img src="<%= asset_path 'vid.jpg' %>" class="responsive-img">
+      </div>
+      <div class="col s12 m6">
+      <img src="<%= asset_path 'learn-to-code.jpg' %>" class="responsive-img">
+      </div>
+  </div>
+</section>
+
 <section class="teal">
   <div class="container">
     <h2 class="white-text">Workshops</h2>   
@@ -67,7 +80,7 @@
 </section>
 <section class="deep-orange">
   <div class="container">
-    <h2>Business Courses</h2>
+    <h2 class="white-text">Business Courses</h2>
     <div class="row">
       <div class="col s12">
         <ul class="collapsible hoverable popout" data-collapsible="accordion">
@@ -75,7 +88,7 @@
           </ul>
       </div>
     </div>
-    <h2>School Courses</h2>
+    <h2 class="white-text">School Courses</h2>
     <div class="row">
       <div class="col s12">
         <ul class="collapsible hoverable popout" data-collapsible="accordion">
@@ -87,10 +100,10 @@
 </section>
 <section class="deep-purple">
   <div class="container">
-    <h2>Fast Track Intensive</h2>
+    <h2 class="white-text">Fast Track Intensive</h2>
     <div class="row">
       <div class="col s12">
-        
+        <%= render @fast_track %>
       </div>
   </div>
 </section>

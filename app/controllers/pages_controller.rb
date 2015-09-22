@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @part_time_courses = Course.get_courses_by_type('Part Time')
     @business_courses = Course.get_courses_by_type('Business')
     @school_courses = Course.get_courses_by_type('School')
+    @fast_track = Course.get_courses_by_type('Full Time Intensive')
   end
 
   def admin
