@@ -1,7 +1,12 @@
 <li class="collection-item avatar blue-grey lighten-5">
   <i class="fa fa-<%= intake.course.icon %> circle light-blue"></i>
   <span class="title capitals" style="font-size: 1.5em;"><%= link_to intake.course.name, new_course_booking_path(intake_id: intake.id) %></span>
-  <p><%= intake.days_of_week %>: <%= intake.start_date.strftime('%d %B %Y') %> - <%= intake.end_date.strftime('%d %B %Y') %><br>
+    <p>
+      <%= intake.days_of_week %>: <%= intake.start_date.strftime('%d %B %Y') %>
+      <% unless intake.start_date == intake.end_date %>
+       - <%= intake.end_date.strftime('%d %B %Y') %>
+      <% end %>
+      <br>
      <%= intake.course_location.name %>, <%= intake.course_location.city %><br>
      Price: 
      <%  if intake.price > 0.0 %>
@@ -9,6 +14,10 @@
      <% else %>
      	FREE
      <% end %>
+     <br>
+     <span class="hide-on-med-and-up">
+      <a class="secondary-content light-blue waves-effect waves-light btn btn-large" href="/course_bookings/new?intake_id=<%= intake.id %>"><i class="material-icons right">send</i>Book your place</a>
+     </span>
   </p>
     <span class="hide-on-small-only">
       <a class="secondary-content light-blue waves-effect waves-light btn btn-large" href="/course_bookings/new?intake_id=<%= intake.id %>"><i class="material-icons right">send</i>Book your place</a>

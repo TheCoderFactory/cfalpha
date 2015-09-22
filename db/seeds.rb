@@ -36,10 +36,10 @@ course_intakes = [
 	{'course' => 'Coding for Beginners', 'start_date' => '2015-09-19', 'start_time' => '10:00', 'end_date' => '2015-09-20', 'end_time' => '16:00', 'days_of_week' => "Saturday, Sunday", 'price' => 360.0},
 	{'course' => 'Wordpress for Beginners', 'start_date' => '2015-09-26', 'start_time' => '10:00', 'end_date' => '2015-09-27', 'end_time' => '16:00', 'days_of_week' => "Saturday, Sunday", 'price' => 360.0},
 	{'course' => 'Web App Builder', 'start_date' => '2015-10-20', 'start_time' => '18:00', 'end_date' => '2016-01-23', 'end_time' => '21:00', 'days_of_week' => "Tuesday, Thursday", 'price' => 2400.0},
-	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-09-13', 'start_time' => '14:00', 'end_date' => '2016-09-13', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
-	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-09-27', 'start_time' => '14:00', 'end_date' => '2016-09-27', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
-	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-10-11', 'start_time' => '14:00', 'end_date' => '2016-10-11', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
-	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-10-25', 'start_time' => '14:00', 'end_date' => '2016-10-25', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0}
+	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-09-13', 'start_time' => '14:00', 'end_date' => '2015-09-13', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
+	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-09-27', 'start_time' => '14:00', 'end_date' => '2015-09-27', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
+	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-10-11', 'start_time' => '14:00', 'end_date' => '2015-10-11', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0},
+	{'course' => 'Coding Kickstarter (FREE)', 'start_date' => '2015-10-25', 'start_time' => '14:00', 'end_date' => '2015-10-25', 'end_time' => '16:00', 'days_of_week' => "Sunday", 'price' => 0.0}
 ]
 
 def create_categories(skill_categories)
