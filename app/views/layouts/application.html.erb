@@ -19,37 +19,9 @@
 <%= render 'layouts/video_header' if @video %>
 <%= yield %>
 <%= render 'layouts/footer' %>
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red" href="/contact">
-      <i class="fa fa-question"></i>
-    </a>
-    <ul>
-      <% if user_signed_in? %>
-        <% if current_user.has_role? :admin %>
-          <li><a class="btn-floating red" href="/admin"><i class="material-icons">insert_chart</i></a></li>
-        
-      
-      <li><a class="btn-floating yellow darken-1" href="/contact"><i class="material-icons">format_quote</i></a></li>
-      
-      <% end %>
-      <li><%= link_to destroy_user_session_path, class: "btn-floating green", title: 'Sign out' do %><i class="material-icons">exit_to_app</i><% end %></li>
-      <% end %>
-      <li><a class="btn-floating blue modal-trigger" href="#share-modal"><i class="material-icons">share</i></a></li>
-    </ul>
-  </div>
-  <!-- Modal Structure -->
-  <div id="share-modal" class="modal">
-    <div class="modal-content">
-      <h4>Tell your friends about this.</h4>
-      <p>
-        <a class="waves-effect waves-light btn indigo lighten-3"><i class="fa fa-twitter right"></i>Tweet</a> 
-        <a class="waves-effect waves-light btn blue darken-2"><i class="fa fa-facebook right"></i>Share</a> 
-        <a class="waves-effect waves-light btn red"><i class="fa fa-envelope right"></i>Email</a></p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-    </div>
-  </div>
+<%= render 'layouts/floating_button' %>
+<%= render 'layouts/sharing_modal' %>
+
 <script>
 	$(document).ready(function() {
     $('select').material_select();

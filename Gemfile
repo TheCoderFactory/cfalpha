@@ -62,6 +62,7 @@ gem 'ckeditor_rails', :git => 'https://github.com/tsechingho/ckeditor-rails'
 gem 'rack-canonical-host'
 gem 'rack-ssl-enforcer'
 gem 'mailgun-ruby'
+gem 'jquery-turbolinks'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
