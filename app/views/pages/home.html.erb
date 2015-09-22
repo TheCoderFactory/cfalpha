@@ -38,3 +38,49 @@
   </div>
   </div></div></div>
 </section>
+
+<section class="teal">
+  <div class="container">
+    <h2 class="white-text">Workshops</h2>   
+      <div class="row"> 
+        <%= render @workshops %>
+      </div>
+  </div>
+</section>
+<section class="indigo">
+  <div class="container">
+    <h2 class="white-text">Part Time Courses</h2>
+    <div class="row">
+      <%= render @part_time_courses %>
+    </div>
+  </div>
+</section>
+<section class="deep-orange">
+  <div class="container">
+    <h2>Business Courses</h2>
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible hoverable popout" data-collapsible="accordion">
+          <%= render @business_courses %>
+          </ul>
+      </div>
+    </div>
+    <h2>School Courses</h2>
+    <div class="row">
+      <div class="col s12">
+        <ul class="collapsible hoverable popout" data-collapsible="accordion">
+          <%= render @school_courses %>
+          </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="deep-purple">
+  <div class="container">
+    <h2>Fast Track Intensive</h2>
+    <div class="row">
+      <div class="col s12">
+        
+      </div>
+  </div>
+</section>
