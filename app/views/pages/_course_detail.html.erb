@@ -31,7 +31,7 @@
 	<div class="hide-on-med-and-up">
 		<div class="card">
 			<div class="card-content black-text">
-				<span class="card-title"><%= course_detail.name %></span>
+				<span class="card-title black-text"><%= course_detail.name %></span>
 				<p class="flow-text"><%= course_detail.tagline %></p>
 				<ul class="collection">
         	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
