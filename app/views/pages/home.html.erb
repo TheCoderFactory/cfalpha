@@ -15,82 +15,104 @@
   <div id="club-hero" class="container white-text">
     <!-- <h2 class="">Join the Coder Factory Club</h2> -->
     <div class="row">
-      <div class="col m4">
+      <div class="col m6">
        <ul class="hero-list">
        <li>* Free workshops</li>
        <li>* Discounts</li>
        <li>* Exclusive events</li>
        <li>* Tutorials & Resources</li>
-       </ul>
-      </div>
-      <div class="col m4">
-      <ul class="hero-list">
         <li>Connect to Coder Factory students for support and encouragement</li>
         </ul>
       </div>
-      <div class="col m4">
-        <div class="card hoverable blue z-depth-3">
-          <div class="card-content">
-            <div class="row"><div class="col m12">
-              <span class="card-title white-text"><i class="material-icons medium left">card_membership</i> Join the Coder Factory Club</span>
+      <div class="col m6">
+      </div>
+    </div>
+    <div class="row"><div class="col m12">
+              <span class="card-title black-text"><i class="material-icons medium left">card_membership</i> Join the Coder Factory Club</span>
             </div></div>
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <%= f.error_notification %>
-              <div class="row">
-                <div class="input-field col s6">
-                    <%= f.input :first_name, required: true %>
+              <div class="white-form">
+                <div class="row">
+                  <div class="input-field col s2">
+                      <%= f.input :first_name, required: true %>
+                  </div>
+                  <div class="input-field col s2">
+                      <%= f.input :last_name, required: true %>
+                  </div>
+                <div class="input-field col s3">
+                  <%= f.input :email, required: true %>
                 </div>
-                <div class="input-field col s6">
-                    <%= f.input :last_name, required: true %>
+                <div class="input-field col s3">
+                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
                 </div>
-              </div>
-              <div class="input-field">
-                <%= f.input :email, required: true %>
-              </div>
-              <div class="input-field">
-                <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, "Join the club" %>
+                <div class="form-actions col s2">
+                  <%= f.button :submit, "Join the club" %>
+                </div>
               </div>
             <% end %>
           </div>
-        </div>
-      </div>
+        
     </div>
   </div>
   </div>
-
-
-
-<section class="">
-  <div class="container">
-    <h2>Workshops</h2>
-    <div class="row">
-      <div class="col m12">
-        <ul class="collapsible hoverable " data-collapsible="accordion">
+<section id="testimonials">
+<div class="container">
+<h2>What our students say...</h2>
+<div class="row"><div class="col m12">
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="<%= asset_path 'julia.jpg' %>"> <!-- random image -->
+        <div class="caption right-align">
           
-          <%= render @workshops %>
-        </ul>
-      </div>
-    
-    </div>
-      
+          <h3>&nbsp;</h3>
+          <p class="light grey-text text-lighten-3 flow-text">Here's our small slogan.</p>
+          <p>- Julia Clavien, Web Designer</p>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
   </div>
+  </div></div></div>
 </section>
-<section class="">
+<section class="teal">
   <div class="container">
-    <h2>Part Time Courses</h2>
-    <div class="row">
-      <div class="col m12">
-        <ul class="collapsible hoverable popout" data-collapsible="accordion">
-          <%= render @part_time_courses %>
-          </ul>
+    <h2 class="white-text">Workshops</h2>   
+      <div class="row"> 
+        <%= render @workshops %>
       </div>
+  </div>
+</section>
+<section class="indigo">
+  <div class="container">
+    <h2 class="white-text">Part Time Courses</h2>
+    <div class="row">
+      <%= render @part_time_courses %>
     </div>
   </div>
 </section>
-<section class="">
+<section class="deep-orange">
   <div class="container">
     <h2>Business Courses</h2>
     <div class="row">
@@ -110,7 +132,7 @@
     </div>
   </div>
 </section>
-<section class="">
+<section class="deep-purple">
   <div class="container">
     <h2>Fast Track Intensive</h2>
     <div class="row">

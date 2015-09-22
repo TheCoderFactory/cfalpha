@@ -1,6 +1,5 @@
 @import "materialize/components/color";
 $primary-color: color("blue", "") !default;
-/*$footer-color: color("yellow", "") !default;*/
 @import 'materialize';
 @import 'YTPlayer';
 @import 'logo';
@@ -10,11 +9,14 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-family: "futura-pt","dapifer", garamond, serif;
+    font-family: "proxima-nova","dapifer", garamond, serif;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'clavo', roboto, sans-serif;
-  font-style: italic;
+  font-family: 'minerva-modern', roboto, sans-serif;
+  
+}
+.white-form input {
+  background: white;
 }
 footer.page-footer {
     margin-top: 0px;
@@ -33,6 +35,10 @@ html {
 }
 .pagination a li.active {
     color: #fff;
+}
+
+.capitals {
+  text-transform: uppercase;
 }
 nav {
   background-color: rgba(0,0,0,0.2);

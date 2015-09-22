@@ -1,9 +1,15 @@
-<li>
-  <div class="collapsible-header active">
-  	<span class="<%= course.color %>-text">
-  		<i class="fa fa-<%= course.icon %>"></i>
-  	</span> 
-  	<%= course.name %>
+<div class="col m4">
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <center><h3 class="light-blue-text"><i class="fa fa-<%= course.icon %> fa-3x"></i></h3></center>
   </div>
-  <div class="collapsible-body"><p><%= course.description %></p></div>
-</li>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4"> <%= course.name %> <span class="red-text"><i class="material-icons right">help</i></span></span>
+    <p><%= course.description %></p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+  </div>
+</div>
+</div>
