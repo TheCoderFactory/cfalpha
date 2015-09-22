@@ -1,11 +1,9 @@
-<section id="<%= course_detail.name %>">
+<section id="<%= course_detail.name %>" class="light-blue">
 	<div class="container z-depth-3 white">
 		<div class="row">
 			<div class="col m10 offset-m1 <%= course_detail.color %>-text">
 				<h3>
-					<span class="fa-stack fa-lg">
-					  <i class="fa fa-circle-thin fa-stack-2x"></i>
-  					<i class="fa fa-<%= course_detail.icon %> fa-stack-1x"></i>
+					<span class="light-blue-text"><i class="fa fa-<%= course_detail.icon %>"></i>
 					</span>
 					<%= course_detail.name %>
 				</h3>
@@ -14,31 +12,19 @@
 		<div class="row">
 			<div class="col m10 offset-m1">
 			<p class="flow-text"><%= course_detail.tagline %></p>
-			<p>
-				<a class="<%= course_detail.color %> black-text waves-effect waves-light btn modal-trigger" href="#modal<%= course_detail.id %>"><i class="material-icons right">help</i>More info</a>
-			</p>
+			<ul class="collapsible" data-collapsible="accordion">
+		    <li>
+		      <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
+		      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+		    </li>
+			</ul>
+			
 			
 			<ul class="collection">
-            <%= render partial: 'course_intakes/upcoming_course_intake', collection: course_detail.course_intakes.upcoming, as: :intake %>
-        </ul>
+        <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
+      </ul>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- MODAL -->
-<div id="modal<%= course_detail.id %>" class="modal bottom-sheet">
-	<div class="container">
-		<div class='row'>
-			<div class="col m10 offset-m1">
-    		<div class="modal-content">
-    			<h4><i class="fa fa-<%= course_detail.icon %>"></i> <%= course_detail.name %></h4>
-      		<p><%= course_detail.description.html_safe if course_detail.description %></p>
-      	</div>
-      	<div class="modal-footer">
-      	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-      	</div>
-    	</div>
-    </div>
-  </div>
-</div>
