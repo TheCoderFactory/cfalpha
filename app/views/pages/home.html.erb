@@ -1,3 +1,12 @@
+<section class="blue">
+  <div class="container">
+    <h2>Upcoming courses</h2>
+    <ul class="collection hoverable z-depth-3">
+      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+    </ul>
+  </div>
+</section>
+
 <section id="testimonials">
 <div class="container">
 <h2>What our students say...</h2>
