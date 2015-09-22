@@ -3,9 +3,14 @@
 <section class="blue">
   <div class="container">
     <h2>Upcoming courses</h2>
-    <ul class="collection hoverable z-depth-3">
-      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-    </ul>
+    <div class="hide-on-small-only">
+      <ul class="collection hoverable z-depth-3">
+        <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+      </ul>
+    </div>
+    <div class="hide-on-med-and-up">
+      
+    </div>
     <br>
   </div>
 </section>
