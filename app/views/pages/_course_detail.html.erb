@@ -1,8 +1,8 @@
-<section id="<%= course_detail.name %>" class="light-blue">
+<section id="<%= course_detail.name %>" class="grey lighten-2">
 <div class="hide-on-small-only">
 	<div class="container z-depth-3 white">
 		<div class="row">
-			<div class="col m10 offset-m1 <%= course_detail.color %>-text">
+			<div class="col m10 offset-m1 black-text">
 				<h3>
 					<span class="light-blue-text"><i class="fa fa-<%= course_detail.icon %>"></i>
 					</span>
@@ -16,7 +16,7 @@
 			<ul class="collapsible" data-collapsible="accordion">
 		    <li>
 		      <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
-		      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+		      <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
 		    </li>
 			</ul>
 			

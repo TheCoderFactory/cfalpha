@@ -1,6 +1,6 @@
 <% @video = true %>
 <% @video_code = 'kUu-o7mnBDk' %>
-<section class="blue">
+<section class="grey lighten-2">
   <div class="container">
     <h2>Upcoming courses</h2>
     <ul class="collection hoverable z-depth-3">
@@ -54,57 +54,145 @@
   <div class="container">
     <h2 class="white-text">Inside Coder Factory</h2>
     <div class="row">
-      <div class="col s12 m6">
-      <img src="<%= asset_path 'vid.jpg' %>" class="responsive-img">
+      <div class="col s12 m6" id="inside-coder-factory">
+        <a href="https://www.youtube.com/watch?v=d_09xRdOMlU" target="_blank">
+          <img src="<%= asset_path 'vid.jpg' %>" class="responsive-img">
+          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Hear from our students.</p>
+        </a>
       </div>
+      
       <div class="col s12 m6">
-      <img src="<%= asset_path 'learn-to-code.jpg' %>" class="responsive-img">
+        <a href="https://www.youtube.com/watch?v=OW1djJd9Fu0" target="_blank">
+          <img src="<%= asset_path 'learn-to-code.jpg' %>" class="responsive-img">
+          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Why you should learn to code.</p>
+        </a>
       </div>
+      
   </div>
 </section>
 
-<section class="teal">
+<section class="grey lighten-2">
   <div class="container">
-    <h2 class="white-text">Workshops</h2>   
-      <div class="row"> 
-        <%= render @workshops %>
-      </div>
-  </div>
-</section>
-<section class="indigo">
-  <div class="container">
-    <h2 class="white-text">Part Time Courses</h2>
-    <div class="row">
-      <%= render @part_time_courses %>
-    </div>
-  </div>
-</section>
-<section class="deep-orange">
-  <div class="container">
-    <h2 class="white-text">Business Courses</h2>
-    <div class="row">
-      <div class="col s12">
-        <ul class="collapsible hoverable popout" data-collapsible="accordion">
-          <%= render @business_courses %>
-          </ul>
-      </div>
-    </div>
-    <h2 class="white-text">School Courses</h2>
-    <div class="row">
-      <div class="col s12">
-        <ul class="collapsible hoverable popout" data-collapsible="accordion">
-          <%= render @school_courses %>
-          </ul>
+    <h2 class="black-text">Workshops</h2>   
+    <div class="row"> 
+      <div class="col-s12">
+        <div class="card black-text">
+          <div class="card-image">
+            <a href="/coder-factory-workshops-for-beginners">
+              <img src="<%= asset_path 'workshops.jpg' %>">
+              <span class="card-title black-text">Learn fast. Have fun.</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="/coder-factory-workshops-for-beginners">See more details</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section class="deep-purple">
+<section class="grey lighten-2">
   <div class="container">
-    <h2 class="white-text">Fast Track Intensive</h2>
+    <h2 class="black-text">Part Time Courses</h2>
+    <div class="row"> 
+      <div class="col-s12">
+        <div class="card black-text">
+          <div class="card-image">
+            <a href="/coder-factory-workshops-for-beginners">
+              <img src="<%= asset_path 'workshops.jpg' %>">
+              <span class="card-title black-text">Learn fast. Have fun.</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="/coder-factory-workshops-for-beginners">See more details</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<section class="grey lighten-2">
+  <div class="container">
+    <h2 class="black-text">Business Courses</h2>
     <div class="row">
-      <div class="col s12">
-        <%= render @fast_track %>
+      <div class="col s12"> 
+      <div class="col-s12">
+        <div class="card black-text">
+          <div class="card-image">
+            <a href="/coder-factory-workshops-for-beginners">
+              <img src="<%= asset_path 'workshops.jpg' %>">
+              <span class="card-title black-text">Learn fast. Have fun.</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="/coder-factory-workshops-for-beginners">See more details</a>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    <h2 class="black-text">School Courses</h2>
+    <div class="row">
+      <div class="col s12"> 
+      <div class="col-s12">
+        <div class="card black-text">
+          <div class="card-image">
+            <a href="/coder-factory-workshops-for-beginners">
+              <img src="<%= asset_path 'workshops.jpg' %>">
+              <span class="card-title black-text">Learn fast. Have fun.</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="/coder-factory-workshops-for-beginners">See more details</a>
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<section class="grey lighten-2">
+  <div class="container">
+    <h2 class="black-text">Fast Track Intensive</h2>
+    <div class="row">
+      <div class="col s12"> 
+      <div class="col-s12">
+        <div class="card black-text">
+          <div class="card-image">
+            <a href="/coder-factory-workshops-for-beginners">
+              <img src="<%= asset_path 'workshops.jpg' %>">
+              <span class="card-title black-text">Learn fast. Have fun.</span>
+            </a>
+          </div>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="/coder-factory-workshops-for-beginners">See more details</a>
+          </div>
+        </div>
+      </div>
+        
       </div>
   </div>
 </section>

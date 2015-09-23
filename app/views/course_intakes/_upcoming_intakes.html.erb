@@ -3,11 +3,13 @@
   
     <p>
       <span class="title capitals" style="font-size: 1.5em;">
-      <%= intake.days_of_week %>: <%= intake.start_date.strftime('%d %B %Y') %>
+      <%= intake.start_date.strftime('%d %b %Y') %>
       <% unless intake.start_date == intake.end_date %>
-       - <%= intake.end_date.strftime('%d %B %Y') %>
+       - <%= intake.end_date.strftime('%d %b %Y') %>
       <% end %>
       </span>
+      <br>
+      <%= intake.days_of_week %>
       <br>
      <%= intake.course_location.name %>, <%= intake.course_location.city %><br>
      Price: 
