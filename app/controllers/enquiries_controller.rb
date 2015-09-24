@@ -29,9 +29,8 @@ class EnquiriesController < ApplicationController
 
     respond_to do |format|
       if @enquiry.save
-        EnquiryMailer.received(@enquiry.id).deliver_later
-        EnquiryMailer.response(@enquiry.id).deliver_later
-        format.html { redirect_to thanks_path, notice: 'Enquiry was successfully created.' }
+        EnquiryMailerJob.new.async.perform(@enquiry.id)
+        format.html { redirect_to thanks_path, notice: 'Your enquiry has been received.' }
         format.json { render :show, status: :created, location: @enquiry }
       else
         format.html { render :new }

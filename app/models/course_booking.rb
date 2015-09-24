@@ -14,16 +14,17 @@ class CourseBooking < ActiveRecord::Base
 
   def check_promo_code
   	if self.promo_code
-  		@promo_code = PromoCode.find_by(code: self.promo_code)
-  		unless @promo_code.date_used
-  			if @promo_code.price_value
-  				self.discount = @promo_code.price_value
-  			elsif @promo_code.percent_value > 0
-  				self.discount = ((@promo_code.percent_value / 100.0) * self.price)
-  			end
-  			self.price = self.price - self.discount
-        @promo_code.redeemed(self.course_intake_id, self.user_id, self.discount)
-  		end
+  		if @promo_code = PromoCode.find_by(code: self.promo_code)
+    		unless @promo_code.date_used
+    			if @promo_code.price_value
+    				self.discount = @promo_code.price_value
+    			elsif @promo_code.percent_value > 0
+    				self.discount = ((@promo_code.percent_value / 100.0) * self.price)
+    			end
+    			self.price = self.price - self.discount
+          @promo_code.redeemed(self.course_intake_id, self.user_id, self.discount)
+    		end
+      end
   	end
   end
 

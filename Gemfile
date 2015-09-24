@@ -63,6 +63,8 @@ gem 'rack-canonical-host'
 gem 'rack-ssl-enforcer'
 gem 'mailgun-ruby'
 gem 'jquery-turbolinks'
+gem 'sucker_punch'
+gem 'fist_of_fury'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

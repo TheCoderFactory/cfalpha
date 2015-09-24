@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'settings', to: 'pages#settings'
   get 'about', to: 'pages#about'
+  get 'thanks', to: 'pages#thanks'
 
   devise_for :users
   resources :users

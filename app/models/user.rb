@@ -10,6 +10,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_create :check_for_enquiries
+
+  def check_for_enquiries
+    @enquiries = Enquiry.where(email: self.email)
+    @enquiries.each do |enquiry|
+      enquiry.update_attributes(user_id: self.id)
+    end
+  end
+
   def name
   	[first_name, last_name].compact.join(' ')
   end

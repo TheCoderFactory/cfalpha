@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920081146) do
+ActiveRecord::Schema.define(version: 20150923162123) do
 
   create_table "course_bookings", force: :cascade do |t|
     t.integer  "course_intake_id"
@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 20150920081146) do
     t.string   "promo_code"
     t.boolean  "paid"
     t.boolean  "completed"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "guid"
     t.decimal  "gst"
     t.decimal  "discount"
+    t.boolean  "reminder_send",    default: false
   end
 
   add_index "course_bookings", ["course_intake_id"], name: "index_course_bookings_on_course_intake_id"

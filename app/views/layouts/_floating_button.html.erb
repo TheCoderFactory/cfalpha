@@ -11,7 +11,7 @@
       
       
       <% end %>
-      <li><%= link_to destroy_user_session_path, class: "btn-floating green", title: 'Sign out' do %><i class="material-icons">exit_to_app</i><% end %></li>
+      <li><%= link_to destroy_user_session_path, method: :delete, class: "btn-floating green", title: 'Sign out' do %><i class="material-icons">exit_to_app</i><% end %></li>
       <% end %>
       <li><a class="btn-floating blue modal-trigger" href="#share-modal"><i class="material-icons">share</i></a></li>
       <li><a class="btn-floating yellow darken-1" href="/contact"><i class="material-icons">call</i></a></li>
