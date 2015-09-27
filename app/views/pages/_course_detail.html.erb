@@ -33,6 +33,12 @@
 			<div class="card-content black-text">
 				<span class="card-title black-text"><%= course_detail.name %></span>
 				<p class="flow-text"><%= course_detail.tagline %></p>
+				<ul class="collapsible" data-collapsible="accordion">
+		    <li>
+		      <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
+		      <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
+		    </li>
+			</ul>
 				<ul class="collection">
         	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
       	</ul>

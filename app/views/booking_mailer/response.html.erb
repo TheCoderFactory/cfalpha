@@ -1,5 +1,90 @@
-<h1>BookingMailer#response</h1>
+<table class="container">
+  <tr>
+    <td>
 
-<p>
-  <%= @greeting %>, find me in app/views/booking_mailer/response.html.erb
-</p>
+      <!-- content start -->
+      <table class="row">
+        <tr>
+          <td class="wrapper last">
+
+            <table class="twelve columns">
+              <tr>
+                <td>
+
+                  <h1>Hi, <%= @user.first_name %></h1>
+      						<p class="lead">Thanks for choosing Coder Factory to learn more about technology.</p>
+      						<img width="580" height="300" src="http://res.cloudinary.com/coder-factory/image/upload/c_scale,h_300/c_crop,g_face,h_300,w_580/v1443081268/workshops_fjbdrj.jpg">
+
+                </td>
+                <td class="expander"></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+      <table class="row callout">
+        <tr>
+          <td class="wrapper last">
+
+            <table class="twelve columns">
+              <tr>
+                <td class="panel">
+
+                  <p>If your booking hasn't been paid for yet. You can do it here anytime: <%= link_to 'Finalise your booking', payments_url(booking: @booking.guid) %> </p>
+
+                </td>
+                <td class="expander"></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <td class="wrapper last">
+
+            <table class="twelve columns">
+              <tr>
+                <td>
+
+                  <h3>Title Ipsum <small>This is a note.</small></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </td>
+                <td class="expander"></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+
+      <table class="row">
+        <tr>
+          <td class="wrapper last">
+
+            <table class="three columns">
+              <tr>
+                <td>
+
+                  <table class="button">
+                    <tr>
+                      <td>
+                        <a href="#">Click Me!</a>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+                <td class="expander"></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
