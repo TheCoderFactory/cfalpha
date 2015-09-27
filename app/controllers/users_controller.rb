@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	layout 'admin'
 
 	def index
+		@role_types = Role.all.order(name: :asc)
 		@admin_users = Role.find_by(name: 'admin').users
 		# @teachers = Role.find_by(name: 'teacher').users
 		# @authors = Role.find_by(name: 'author').users

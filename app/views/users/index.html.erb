@@ -1,3 +1,40 @@
 <h1>Users</h1>
 
-<h3>Admin users</h3>
+<div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <% @role_types.each do |role_type| %>
+          <li class="tab col s3"><a href="#<%= role_type.id %>"><%= role_type.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <% @role_types.each do |role_type| %>
+      <div id="<%= role_type.id %>" class="col s12">
+       <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Enquiries</th>
+                    <th>Bookings</th>
+                    <th colspan="2"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% role_type.users.alphabetical.each do |user| %>
+                    <tr>
+                      <td><%= link_to user.name, user %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.enquiries.count if user.enquiries %></td>
+                      <td><%= user.course_bookings.count if user.course_bookings %></td>
+                      <td>EDIT</td>
+                      <td>Delete</td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              ADD USER
+            </div>
+          <% end %>
+    </div>

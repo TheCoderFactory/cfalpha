@@ -17,7 +17,7 @@
 <%= render 'layouts/navbar' %>
 
 <%= render 'layouts/video_header' if @video %>
-<%= render 'layouts/top_bar' %>
+<%= render 'layouts/top_bar' unless current_page?(blog_path) %>
 <%= yield %>
 <%= render 'layouts/footer' %>
 
@@ -26,7 +26,6 @@
     $('select').material_select();
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
-    $('.modal-trigger').leanModal();
     $('.slider').slider();
   });
 </script>

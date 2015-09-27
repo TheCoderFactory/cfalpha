@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
   def name
   	[first_name, last_name].compact.join(' ')
   end
+
+  def self.alphabetical
+    order(first_name: :asc)
+  end
 end
