@@ -8,7 +8,10 @@
       <%= f.association :course_intake %>
     <% end %>
     <% if @course_intake.price > 0.0 %>
-          <%= f.input :promo_code, label: 'Do you have a promo code? (Check your inbox)' %>
+    <div class="row">
+      <div class="input-field col m12">
+          <%= f.input :promo_code, label: 'Do you have a promo code? (Check your inbox)', placeholder: 'Promo code' %>
+      </div></div>
     <% end %>
   
 

@@ -36,4 +36,8 @@ class CourseBooking < ActiveRecord::Base
     end
   end
 
+  def mark_as_paid
+    self.update_attributes(paid: true)
+  end
+
 end

@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require materialize-sprockets
-//= require_tree .
+//= require jquery.mb.YTPlayer.min
+//= require jquery.payment
 //= require turbolinks

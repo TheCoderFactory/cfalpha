@@ -18,12 +18,12 @@
 <%= render 'layouts/navbar' %>
 
 <%= render 'layouts/video_header' if @video %>
-<%= render 'layouts/top_bar' unless current_page?(blog_path) %>
+
 <%= yield %>
 <%= render 'layouts/footer' %>
 
 <script>
-	$(document).ready(function () {
+	$(function () {
     $('select').material_select();
     $(".button-collapse").sideNav();
     $('.parallax').parallax();

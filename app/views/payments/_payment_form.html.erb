@@ -1,0 +1,27 @@
+<%= form_tag payments_path(booking: @booking.guid), id: 'payment-form', autocomplete: 'on' %>
+  
+  <span class="payment-errors red-text"><%= notice %></span>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="credit-card-number" type="tel" class="cc-number" autocomplete="cc-number" data-stripe="number" placeholder="•••• •••• •••• ••••"></input>
+      <label class="" for="credit-card-number"> Credit Card Number</label>
+    </div>
+    <div class="input-field col s3">
+        <input class="cc-cvc" id="security-code" type="tel" autocomplete="off" data-stripe="cvc" placeholder="•••"></input>
+      <label class="" for="security-code"> CVC
+      </label>
+    </div>
+    <div class="input-field col s3">
+      <input id="cc-exp" type="tel" class="cc-exp" type="tel" autocomplete="cc-exp" placeholder="•• / ••" required>
+      <label class="" for="cc-exp"> Exp Date</label>
+    </div>
+  </div>
+  <div class="row"><div class="col m12">
+                <button type="submit" class="btn light-blue right">Finalise booking</button> 
+    <span class="grey-text text-darken-2"> 
+                <i class="fa fa-2x fa-cc-visa"></i> <i class="fa fa-2x fa-cc-mastercard"></i> <i class="fa fa-2x fa-cc-amex"></i> <%= image_tag 'stripe.png' %></span>
+                </div></div>
+  
+</form>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<%= javascript_include_tag 'payment' %>

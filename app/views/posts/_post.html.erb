@@ -4,10 +4,10 @@
       <div class="card-image">
         <a href="/posts/<%= post.slug %>">
           <%= image_tag(post.image) %>
-          <span class="card-title"><%= post.title %></span>
         </a>
       </div>
-      <div class="card-content">
+      <div class="card-content blog-post">
+              <a href="/posts/<%= post.slug %>"><h1><span class="card-title grey-text text-darken-2"><%= post.title %></span></h1></a>
         <div class="chip">
           <img src="<%= asset_path 'pete.jpg' %>" alt="<%= post.user.name if post.user %>">
           <%= post.user.name if post.user %>
