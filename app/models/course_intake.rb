@@ -23,4 +23,6 @@ class CourseIntake < ActiveRecord::Base
   	course_bookings.sum(:price)
   end
 
+
+
 end

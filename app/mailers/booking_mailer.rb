@@ -8,6 +8,8 @@ class BookingMailer < ApplicationMailer
 
   def response(booking_id)
     @booking = CourseBooking.find(booking_id)
+    @intake = @booking.course_intake
+    @course = @intake.course
     @user = @booking.user
     mail(to: @user.email, subject: @user.first_name + ", your Coder Factory booking has been received")
   end

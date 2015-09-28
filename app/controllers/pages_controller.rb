@@ -20,6 +20,9 @@ class PagesController < ApplicationController
   	@new_prequestionnaires = Prequestionnaire.last_seven_days
   end
 
+  def privacy
+  end
+
   def contact
     @enquiry = Enquiry.new
   end
