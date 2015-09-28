@@ -1,3 +1,7 @@
 <%= content_for :title, "Learn to Code @CoderFactory" %>
+<style>
+#customElement {background-image: url(<%= asset_path 'part-time.jpg' %>);}
+</style>
 <% @video = true %>
+<% @video_code = 'ba_oUCO03X4' %>
 <%= render partial: 'course_detail', collection: @part_time_courses %>
