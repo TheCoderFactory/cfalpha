@@ -3,7 +3,11 @@ class CourseBooking < ActiveRecord::Base
   belongs_to :user
 
   def self.last_seven_days
-  	where('created_at > ?', Date.today - 7.days)
+  	most_recent.where('created_at > ?', Date.today - 7.days)
+  end
+
+  def self.most_recent
+    order(created_at: :desc)
   end
 
   before_create :set_guid, :check_promo_code, :calculate_gst

@@ -1,8 +1,41 @@
+<div class="row">
+	<div class="col m12">
+		<div class="card">
+			<div class="card-content grey-text text-darken-2">
+				<table>
+					<thead>
+						<tr>
+							<th>Metric</th>
+							<th>Last 7 days</th>
+							<th>Previous week</th>
+							<th>Last month</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Bookings</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Enquiries</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- NEW COURSE BOOKINGS -->
 <div class="row">
 	<div class="col m12">
 		<div class="card">
-			<div class="card-content grey-text">
+			<div class="card-content grey-text text-darken-2">
 				<h3>New course bookings</h3>
 				<table>
 					<thead>
@@ -17,7 +50,7 @@
 							<tr>
 								<td><%= booking.user.name %></td>
 								<td><%= booking.course_intake.course.name %></td>
-								<td><%= booking.course_intake.start_date.to_date %></td>
+								<td><%= booking.course_intake.start_date.strftime('%d/%m/%y') %></td>
 							</tr>
 						</tbody>
 					<% end %>
@@ -30,7 +63,7 @@
 <div class="row">
 	<div class="col m12">
 		<div class="card">
-			<div class="card-content grey-text">
+			<div class="card-content grey-text text-darken-2">
 				<h3>New enquiries</h3>
 				<table>
 					<thead>
@@ -44,9 +77,9 @@
 					<% @new_enquiries.each do |enquiry| %>
 						<tbody>
 							<tr>
-								<td><%= enquiry.first_name %> <%= enquiry.last_name %></td>
+								<td><%= link_to enquiry.full_name, enquiry %></td>
 								<td><%= enquiry.company %></td>
-								<td><%= enquiry.enquiry_type %></td>
+								<td><%= enquiry.enquiry_type.name if enquiry.enquiry_type %></td>
 								<td><%= enquiry.created_at.strftime('%d %b %y') %></td>
 							</tr>
 						</tbody>
@@ -60,7 +93,7 @@
 <div class="row">
 	<div class="col m12">
 		<div class="card">
-			<div class="card-content grey-text">
+			<div class="card-content grey-text text-darken-2">
 				<h3>New feedback</h3>
 				<table>
 					<thead>

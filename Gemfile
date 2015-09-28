@@ -1,8 +1,42 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
+gem 'devise'
+gem 'simple_form'
+gem 'country_select'
+gem 'cancancan'
+gem 'rolify'
+gem 'friendly_id'
+gem 'invisible_captcha'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'sitemap_generator'
+gem 'materialize-sass'
+gem 'will_paginate-materialize'
+gem 'geocoder'
+gem 'stripe'
+gem 'will_paginate'
+gem 'acts-as-taggable-on'
+gem 'ckeditor_rails', :git => 'https://github.com/tsechingho/ckeditor-rails'
+gem 'rack-canonical-host'
+gem 'rack-ssl-enforcer'
+gem 'mailgun-ruby'
+gem 'jquery-turbolinks'
+gem 'sucker_punch'
+gem 'fist_of_fury'
+gem 'groupdate'
+gem 'chartkick'
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'passenger'
+  gem 'pg'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,40 +73,4 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-
-gem 'devise'
-gem 'simple_form'
-gem 'country_select'
-gem 'cancancan'
-gem 'rolify'
-gem 'friendly_id'
-gem 'invisible_captcha'
-gem 'carrierwave'
-gem 'cloudinary'
-gem 'sitemap_generator'
-gem 'materialize-sass'
-gem 'will_paginate-materialize'
-gem 'geocoder'
-gem 'stripe'
-gem 'will_paginate'
-gem 'acts-as-taggable-on'
-gem 'ckeditor_rails', :git => 'https://github.com/tsechingho/ckeditor-rails'
-gem 'rack-canonical-host'
-gem 'rack-ssl-enforcer'
-gem 'mailgun-ruby'
-gem 'jquery-turbolinks'
-gem 'sucker_punch'
-gem 'fist_of_fury'
-group :development do
-  gem 'better_errors'
-  gem 'quiet_assets'
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'rails_12factor'
-  gem 'passenger'
-  gem 'pg'
 end

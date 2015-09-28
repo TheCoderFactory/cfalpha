@@ -28,6 +28,12 @@
     <div class="container">
     © <%= Date.today.year %> Coder Factory
     <a class="grey-text text-lighten-4 right" href="/contact">Contact us</a>
+    <%if user_signed_in? %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'right' %>
+      <% if current_user.has_role? :admin %>
+        <%= link_to 'Admin', admin_path, class: 'right' %>
+      <% end %>
+    <% end %>
     </div>
   </div>
 </footer>
