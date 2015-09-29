@@ -1,8 +1,7 @@
-<%= content_for :title, "Learn to Code @CoderFactory" %>
+<%= content_for :title, "Grow your business with technology at Coder Factory" %>
 <style>
 #customElement {background-image: url(<%= asset_path 'business.jpg' %>);}
 </style>
-<% @video = true %>
 <% @video_code = 'RLxe_I3daYk' %>
 <%= render 'layouts/top_bar' %>
 <%= render partial: 'course_detail', collection: @business_courses %>

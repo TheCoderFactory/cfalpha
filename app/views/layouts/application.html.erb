@@ -2,7 +2,7 @@
 <html>
 <head>
   <title><%= content_for?(:title) ? yield(:title) : 'Learn to Code @CoderFactory' %></title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "This is a description" %>">
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "See our new improved programmes that help you become a confident coder. Apply for our full time Fast track programme, part time courses and weekend workshops." %>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -16,8 +16,7 @@
 </head>
 <body>
 <%= render 'layouts/navbar' %>
-
-<%= render 'layouts/video_header' if @video %>
+<%= render 'layouts/video_header' if @video_code %>
 
 <%= yield %>
 <%= render 'layouts/footer' %>

@@ -41,7 +41,11 @@ html {
     font-size: 16px;
 }
 }
-
+#tech-heroes {
+  background: url(<%= asset_path 'heroes2.jpg' %>);
+  height: 400px;
+  background-size: cover;
+}
 .blog-post h1 {
   margin: 5px;
   font-size: 30px;
@@ -53,7 +57,12 @@ html {
     @extend .light-blue
 }
 
-
+.community {
+  background-image: url(http://res.cloudinary.com/coder-factory/image/upload/v1418034058/heart_fivwmy.jpg);
+  background-size: cover;
+  background-repeat: none;
+  height: 800px;
+}
 .pagination a li.active {
     color: #fff;
 }

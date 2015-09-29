@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'thanks', to: 'pages#thanks'
   get 'privacy', to: 'pages#privacy'
+  get 'community', to: 'pages#community'
   
   resources :users
 end

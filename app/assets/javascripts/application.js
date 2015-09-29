@@ -11,10 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require materialize-sprockets
 //= require jquery.mb.YTPlayer.min
 //= require jquery.payment
-//= require turbolinks

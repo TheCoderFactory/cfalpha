@@ -1,3 +1,8 @@
+<%= content_for :title, @post.title + ' [@CoderFactory Blog]' %>
+<%= content_for :description, @post.title + ': ' + @post.lead %>
+<%= content_for :image, @post.image %>
+<%= content_for :tagline, @post.published_date.strftime('%d %B %Y') %>
+
 <section class="light-blue" id="top-section">
   <div class="container">
   
@@ -5,12 +10,12 @@
       <div class="col s12 m9">
         <div class="card">
           <div class="card-image">
-            <a href="/posts/<%= @post.slug %>">
+            <%= link_to post_path(@post) do %>
               <%= image_tag(@post.image) %>
-            </a>
+            <% end %>
           </div>
           <div class="card-content blog-post">
-              <a href="/posts/<%= @post.slug %>"><h1><span class="card-title grey-text text-darken-2"><%= @post.title %></span></h1></a>
+              <%= link_to post_path(@post) do %><h1><span class="card-title grey-text text-darken-2"><%= @post.title %></span></h1><% end %>
             <div class="chip">
               <img src="<%= asset_path 'pete.jpg' %>" alt="<%= @post.user.name %>">
               <%= @post.user.name %>

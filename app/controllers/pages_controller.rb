@@ -53,7 +53,7 @@ class PagesController < ApplicationController
 
   end
 
-  def schools
+  def community
 
   end
 
