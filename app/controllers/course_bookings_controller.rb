@@ -36,10 +36,10 @@ class CourseBookingsController < ApplicationController
     respond_to do |format|
       if @course_booking.save
         current_user.add_role :student
-        BookingMailerJob.new.async.perform(@course_booking.id)
         if @course_booking.price > 0
           format.html { redirect_to payments_path(booking: @course_booking.guid), notice: 'Your course booking was successfully created.' }
         else
+          BookingMailerJob.new.async.perform(@course_booking.id)
           format.html { redirect_to thanks_path(booking: @course_booking.id), notice: 'Your course booking was successfully created.' }
         end
       else

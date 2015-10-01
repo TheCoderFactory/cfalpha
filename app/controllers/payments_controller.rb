@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
 
 		rescue Stripe::CardError => e
 		  
-		    flash[:alert] = "Payment was declined by the bank. #{e.message}"
+		    flash[:alert] = "Please try a different card. #{e.message}"
 		    redirect_to payments_path(booking: @course_booking.guid)
 		   
 	end
