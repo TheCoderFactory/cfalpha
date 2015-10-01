@@ -1,4 +1,11 @@
 Rails.application.configure do
+  config.middleware.use Rack::SslEnforcer
+
+  config.middleware.use ExceptionNotification::Rack,
+  :slack => {
+    :webhook_url => "https://hooks.slack.com/services/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",
+    :channel => "#cf-exceptions"
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -82,7 +89,7 @@ Rails.application.configure do
     :port           => 587,
     :address        => 'smtp.mailgun.org',
     :user_name      => 'postmaster@coderfactory.com',
-    :password       => '7e1d58c0e50db98b0c52174cf8a32b30',
+    :password       => ENV['MAILGUN_PASSWORD'],
     :domain         => 'coderfactory.com',
     :authentication => :plain
   }
