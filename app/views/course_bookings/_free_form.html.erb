@@ -1,0 +1,11 @@
+<%= simple_form_for(@course_booking) do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :course_intake_id, as: :hidden, input_html: { value: params[:intake_id]} %>
+    
+  <div class="form-actions">
+    <button type="submit" class='waves-effect waves-light btn light-blue btn-large'>
+      <i class="material-icons right">check_circle</i> Confirm your booking
+    </button>
+
+  </div>
+<% end %>

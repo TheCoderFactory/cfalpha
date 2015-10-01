@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
 		    @payment = Payment.create(course_booking_id: @course_booking.id, amount: @payment_amount)
 		    @course_booking.mark_as_paid
 		    BookingMailerJob.new.async.perform(@course_booking.id)
-		    redirect_to thanks_path, :notice => "Thanks"
+		    redirect_to thanks_path(booking: @course_booking.id), :notice => "Thanks"
 		  end
 
 		rescue Stripe::CardError => e

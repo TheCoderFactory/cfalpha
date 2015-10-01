@@ -6,6 +6,6 @@ class BookingMailerJob
   		BookingMailer.response(booking_id).deliver_now
   		BookingMailer.received(booking_id).deliver_now
   	end
-    raise NotImplementedError
+    # raise NotImplementedError
   end
 end

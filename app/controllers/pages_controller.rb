@@ -57,4 +57,15 @@ class PagesController < ApplicationController
 
   end
 
+  def thanks
+    if params[:welcome]
+      @user = User.find(params[:welcome])
+      @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    end
+    if params[:booking]
+      @booking = CourseBooking.find(params[:booking])
+      @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    end
+  end
+
 end

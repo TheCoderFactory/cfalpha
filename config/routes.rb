@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :posts do
     collection { post :import }
   end

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :check_for_enquiries
+  after_create :check_for_enquiries, :create_promo_code
 
   def check_for_enquiries
     @enquiries = Enquiry.where(email: self.email)
@@ -25,5 +25,9 @@ class User < ActiveRecord::Base
 
   def self.alphabetical
     order(first_name: :asc)
+  end
+
+  def create_promo_code
+    WelcomeMailerJob.new.async.perform(self.id)
   end
 end

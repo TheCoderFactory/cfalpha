@@ -12,7 +12,7 @@
         <option value="3">Business course enquiry</option>
         <option value="4">School enquiry</option>
         <option value="5">Fast Track enquiry</option>
-        <option value="6">Partnership enquiry</option>
+        <option value="6" <%= 'selected' if params[:etype] == 'partnership' %>>Partnership enquiry</option>
         <option value="7">General enquiry</option>
         <option value="8">Website problem</option>
       </select>

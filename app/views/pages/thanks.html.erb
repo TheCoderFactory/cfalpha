@@ -1,0 +1,33 @@
+<section class="light-blue" id="top-section">
+	<div class="container">
+		<div class="card grey-text text-darken-2">
+			<div class="card-content">
+
+				<!-- JOIN CLUB -->
+				<% if params[:welcome] %>
+					<h2>Welcome <%= @user.first_name %></h2>
+					<p class="flow-text">It's great to have you in the Coder Factory Club.</p>
+					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
+					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p>
+
+					<ul class="collection hoverable z-depth-3">
+			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+			    </ul>
+				<% end %>
+
+				<!-- NEW COURSE BOOKING -->
+				<% if params[:booking] %>
+					<h2>Welcome <%= current_user.first_name %></h2>
+					<p class="flow-text">We're looking forward to having you in class.</p>
+					<p class="flow-text">Check your inbox. You will receive a confirmation of your booking with the details of the course including location, dates and times.</p>
+					<br>
+					<p class="flow-text">In the meantime, check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
+					<h4>More upcoming courses</h4>
+					<ul class="collection">
+			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+			    </ul>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

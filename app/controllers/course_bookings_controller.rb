@@ -33,11 +33,15 @@ class CourseBookingsController < ApplicationController
     @course_booking.user = current_user
     @course_intake = @course_booking.course_intake
     @course_booking.price = @course_intake.price.to_d
-
     respond_to do |format|
       if @course_booking.save
-        format.html { redirect_to payments_path(booking: @course_booking.guid), notice: 'Course booking was successfully created.' }
-        format.json { render :show, status: :created, location: @course_booking }
+        current_user.add_role :student
+        BookingMailerJob.new.async.perform(@course_booking.id)
+        if @course_booking.price > 0
+          format.html { redirect_to payments_path(booking: @course_booking.guid), notice: 'Your course booking was successfully created.' }
+        else
+          format.html { redirect_to thanks_path(booking: @course_booking.id), notice: 'Your course booking was successfully created.' }
+        end
       else
         format.html { render :new }
         format.json { render json: @course_booking.errors, status: :unprocessable_entity }

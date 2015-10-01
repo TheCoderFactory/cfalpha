@@ -1,17 +1,54 @@
-<div class="parallax-container">
-  <div class="parallax"><img src="<%= asset_path 'vid.jpg' %>"></div>
+<section class="light-blue" id="top-section">
   <div class="container">
-    <h2>Inside the Coder Factory</h2>
-    <div class="row">
-      <div class="col m6">
-        
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+    <h1>Coder Factory is the place to go to learn coding.</h1>
+    <h3>Have fun</h3>
+    <p class="flow-text">We want you to have fun while you learn. Sitting in a classroom shouldn't be boring. Coder Factory's passionate teachers share their love of coding with you - but be warned, it's contagious!</p>
+    <h3>Learn fast</h3>
+    <p class="flow-text">Tired of trying to learn on your own at home? Our students have all been there. Now they're out building great applications since they decided to learn the fast and fun way at Coder Factory.</p>
+
+  </div>
+</section>
+<section class="grey lighten-2">
+<div class="container">
+  <h2>The Coder Factory team</h2>
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= asset_path 'pete.jpg' %>">
+        </div>
+        <div class="card-content">
+          <span class="card-title light-blue-text">Pete Argent</span>
+          <p>Director and Head Teacher</p>
+          <p><a href="https://www.linkedin.com/in/peterargent" target="_blank">Connect with me on LinkedIn</a></p>
+        </div>
       </div>
-      <div class="col m6">
-        <div class="valign-wrapper">
-          <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><i class="fa fa-play fa-5x circle"></i></a>
+    </div>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= asset_path 'raman.jpg' %>">
+        </div>
+        <div class="card-content">
+          <span class="card-title light-blue-text">Raman Nambiar</span>
+          <p>Strategic Partnerships</p>
+          <p><%= link_to 'Get in touch with me', new_enquiry_path(etype: 'partnership') %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= asset_path 'dan.jpg' %>">
+        </div>
+        <div class="card-content">
+          <span class="card-title light-blue-text">'Twitter Dan' Siepen</span>
+          <p>Social Media Maestro</p>
+          <p><a href="https://twitter.com/dansiepen" target="_blank">Follow me on Twitter</a></p>
         </div>
       </div>
     </div>
   </div>
+
 </div>
+</section>

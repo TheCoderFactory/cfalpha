@@ -8,7 +8,7 @@
 	  		<div class="col m5 s12">
 	    <div class="card z-depth-3 hoverable">
 	      <div class="card-content grey-text text-darken-2">
-	        <span class="card-title grey-text text-darken-2">Course: <%= @course_intake.course.name %></span>
+	        <span class="card-title grey-text text-darken-2"><i class="fa fa-<%= @course.icon %>"></i> <%= @course_intake.course.name %></span>
 			        <% if params[:intake_id] %>
 			        	<p>Location: <span class="right"><%= @course_intake.course_location.name %>, <%= @course_intake.course_location.city %></span></p>
 			        	<p>Start date: <span class="right"><%= @course_intake.start_date.strftime('%d %B %Y') %></span></p>
@@ -20,8 +20,12 @@
 			        		<% end %>
 			        	</span></p>
 			        <% end %>
-			       <br>
-	        		<%= render 'form' %>
+			       	<br>
+			       	<% if @course_intake.price > 0.0 %>
+	        			<%= render 'form' %>
+	        		<% else %>
+	        			<%= render 'free_form' %>
+	        		<% end %>
 	        	</div>
 	        </div>
 	      </div>

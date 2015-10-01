@@ -3,12 +3,26 @@
 
 <section class="light-blue community valign-wrapper" id="top-section">
 	<div class="container">
-    <h1 class="valign center-align white-text">We<span class="red-text"><i class="fa fa-heart"></i></span> Community</h1>
+    <h1 class="valign center-align white-text">We<span class="red-text"><i class="fa fa-heart"></i></span> Community<br><br><i class="material-icons medium">keyboard_arrow_down</i></h1>
 </div>
 </section>
 
+<% unless user_signed_in? %>
 <section class="grey lighten-2">
 <div class="container">
-<%= render 'layouts/community' %>
+<%= render 'layouts/club' %>
+</div>
+</section>
+<% end %>
+
+<section class="grey lighten-2">
+<div class="container">
+<%= render 'volunteer' %>
+</div>
+</section>
+
+<section class="light-blue">
+<div class="container">
+<%= render 'coder_club' %>
 </div>
 </section>
