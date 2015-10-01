@@ -1,5 +1,5 @@
 class CourseLocation < ActiveRecord::Base
-	has_many :course_intakes
+	has_many :course_intakes, dependent: :restrict_with_exception
 
 	extend FriendlyId
   friendly_id :name, use: :slugged

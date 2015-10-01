@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-	has_many :course_bookings
-	has_many :enquiries
+	has_many :course_bookings, dependent: :restrict_with_exception
+	has_many :enquiries, dependent: :restrict_with_exception
 	has_one :profile, dependent: :destroy
-	has_many :promo_codes
-  has_many :posts
+	has_many :promo_codes, dependent: :restrict_with_exception
+  has_many :posts, dependent: :restrict_with_exception
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
