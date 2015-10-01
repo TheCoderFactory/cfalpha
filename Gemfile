@@ -26,12 +26,12 @@ gem 'sucker_punch'
 gem 'fist_of_fury'
 gem 'groupdate'
 gem 'chartkick'
+gem 'exception_notification'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'sqlite3'
 end
-
 group :production do
   gem 'rails_12factor'
   gem 'passenger'
