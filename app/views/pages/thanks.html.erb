@@ -27,6 +27,16 @@
 			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
 			    </ul>
 				<% end %>
+
+				<!-- ENQUIRY -->
+				<h2>Thanks for getting in touch</h2>
+				<p class="flow-text">We've received your enquiry and one of our friendly team members will respond to you very soon.</p>
+				<br>
+					<p class="flow-text">In the meantime, check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
+					<h4>Upcoming courses</h4>
+					<ul class="collection">
+			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+			    </ul>
 			</div>
 		</div>
 	</div>

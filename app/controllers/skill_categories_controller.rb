@@ -1,6 +1,7 @@
 class SkillCategoriesController < ApplicationController
   before_action :set_skill_category, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  load_and_authorize_resource
   # GET /skill_categories
   # GET /skill_categories.json
   def index

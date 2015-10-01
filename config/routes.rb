@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#schools'
   resources :payments, only: [:index, :create]
-  resources :feedback_forms
-  resources :prequestionnaires
+  resources :feedback_forms, except: [:edit, :update, :destroy]
+  resources :prequestionnaires, except: [:edit, :update, :destroy]
   resources :promo_codes
   resources :course_bookings
   resources :course_intakes
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :skill_categories
   resources :course_locations
   resources :course_types
-  resources :enquiries
+  resources :enquiries, except: [:edit, :update, :destroy]
   resources :enquiry_types
   resources :profiles
   get 'admin', to: 'pages#admin'

@@ -1,6 +1,7 @@
 class PromoCodesController < ApplicationController
   before_action :set_promo_code, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  load_and_authorize_resource
   # GET /promo_codes
   # GET /promo_codes.json
   def index

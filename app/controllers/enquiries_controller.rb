@@ -2,24 +2,23 @@ class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   layout 'admin', except: [:new, :create]
+  # load_and_authorize_resource
   # GET /enquiries
   # GET /enquiries.json
   def index
     @enquiries = Enquiry.all
+    authorize! :read, @enquiries
   end
 
   # GET /enquiries/1
   # GET /enquiries/1.json
   def show
+    authorize! :read, @enquiry
   end
 
   # GET /enquiries/new
   def new
     @enquiry = Enquiry.new
-  end
-
-  # GET /enquiries/1/edit
-  def edit
   end
 
   # POST /enquiries
@@ -30,7 +29,7 @@ class EnquiriesController < ApplicationController
     respond_to do |format|
       if @enquiry.save
         EnquiryMailerJob.new.async.perform(@enquiry.id)
-        format.html { redirect_to thanks_path, notice: 'Your enquiry has been received.' }
+        format.html { redirect_to thanks_path(enquiry: @enquiry.id), notice: 'Your enquiry has been received.' }
         format.json { render :show, status: :created, location: @enquiry }
       else
         format.html { render :new }
@@ -41,27 +40,27 @@ class EnquiriesController < ApplicationController
 
   # PATCH/PUT /enquiries/1
   # PATCH/PUT /enquiries/1.json
-  def update
-    respond_to do |format|
-      if @enquiry.update(enquiry_params)
-        format.html { redirect_to @enquiry, notice: 'Enquiry was successfully updated.' }
-        format.json { render :show, status: :ok, location: @enquiry }
-      else
-        format.html { render :edit }
-        format.json { render json: @enquiry.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @enquiry.update(enquiry_params)
+  #       format.html { redirect_to @enquiry, notice: 'Enquiry was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @enquiry }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @enquiry.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /enquiries/1
   # DELETE /enquiries/1.json
-  def destroy
-    @enquiry.destroy
-    respond_to do |format|
-      format.html { redirect_to enquiries_url, notice: 'Enquiry was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @enquiry.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to enquiries_url, notice: 'Enquiry was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

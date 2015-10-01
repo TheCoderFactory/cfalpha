@@ -1,7 +1,7 @@
 class CourseIntake < ActiveRecord::Base
   belongs_to :course
   belongs_to :course_location
-  has_many :course_bookings
+  has_many :course_bookings, dependent: :destroy
   has_many :promo_codes
 
   # extend FriendlyId

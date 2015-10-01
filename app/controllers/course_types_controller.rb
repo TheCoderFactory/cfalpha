@@ -1,6 +1,7 @@
 class CourseTypesController < ApplicationController
   before_action :set_course_type, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  load_and_authorize_resource
   # GET /course_types
   # GET /course_types.json
   def index

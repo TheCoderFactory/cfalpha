@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   	@new_enquiries = Enquiry.last_seven_days
   	@new_feedback_forms = FeedbackForm.last_seven_days
   	@new_prequestionnaires = Prequestionnaire.last_seven_days
+    authorize! :read, @new_course_bookings
   end
 
   def privacy
@@ -31,6 +32,7 @@ class PagesController < ApplicationController
     @course_types = CourseType.all
     @course_locations = CourseLocation.all
     @enquiry_types = EnquiryType.all
+    authorize! :read, @course_types
   end
 
   def about
@@ -60,12 +62,12 @@ class PagesController < ApplicationController
   def thanks
     if params[:welcome]
       @user = User.find(params[:welcome])
-      @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
-    end
-    if params[:booking]
+    elsif params[:booking]
       @booking = CourseBooking.find(params[:booking])
-      @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    elsif params[:enquiry]
+      @enquiry = Enquiry.find(params[:enquiry])
     end
+    @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
   end
 
 end

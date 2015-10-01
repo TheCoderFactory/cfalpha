@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:show]
+  # skip_before_action :authenticate_user!, only: [:show]
   layout 'admin', except: :show
-  
+  load_and_authorize_resource
   # GET /courses
   # GET /courses.json
   def index

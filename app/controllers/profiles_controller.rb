@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: [:new, :show, :edit]
+  load_and_authorize_resource
   # GET /profiles
   # GET /profiles.json
   def index

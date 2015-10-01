@@ -1,6 +1,7 @@
 class EnquiryTypesController < ApplicationController
   before_action :set_enquiry_type, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  load_and_authorize_resource
   # GET /enquiry_types
   # GET /enquiry_types.json
   def index

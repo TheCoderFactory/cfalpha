@@ -6,21 +6,40 @@
   <body>
     <h1>Enquiry received</h1>
     	<p>
-    	  <strong>First name:</strong>
-    	  <%= @enquiry.first_name %>
-    	</p>
+  <strong>Enquiry type:</strong>
+  <%= @enquiry.enquiry_type.name if @enquiry.enquiry_type %>
+</p>
 
+<p>
+  <strong>First name:</strong>
+  <%= @enquiry.first_name %>
+</p>
 
-    	<p>
-    	  <strong>Email:</strong>
-    	  <%= @enquiry.email %>
-    	</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @enquiry.last_name %>
+</p>
 
-    	
-    	<p>
-    	  <strong>Content:</strong>
-    	  <%= @enquiry.message %>
-    	</p>
+<p>
+  <strong>Company:</strong>
+  <%= @enquiry.company %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @enquiry.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @enquiry.email %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @enquiry.message %>
+</p>
+
 
   </body>
 </html>

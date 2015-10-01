@@ -48,7 +48,7 @@
 					<% @new_course_bookings.each do |booking| %>
 						<tbody>
 							<tr>
-								<td><%= booking.user.name %></td>
+								<td><%= booking.user.name if booking.user %></td>
 								<td><%= booking.course_intake.course.name %></td>
 								<td><%= booking.course_intake.start_date.strftime('%d/%m/%y') %></td>
 							</tr>

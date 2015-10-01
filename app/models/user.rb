@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :course_bookings
 	has_many :enquiries
-	has_one :profile
+	has_one :profile, dependent: :destroy
 	has_many :promo_codes
   has_many :posts
   rolify

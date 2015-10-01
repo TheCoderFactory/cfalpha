@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	layout 'admin'
-
+	load_and_authorize_resource
 	def index
 		@role_types = Role.all.order(name: :asc)
 		@admin_users = Role.find_by(name: 'admin').users

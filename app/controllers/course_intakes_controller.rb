@@ -1,6 +1,7 @@
 class CourseIntakesController < ApplicationController
   before_action :set_course_intake, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  load_and_authorize_resource
   # GET /course_intakes
   # GET /course_intakes.json
   def index

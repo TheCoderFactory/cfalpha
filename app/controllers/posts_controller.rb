@@ -12,15 +12,18 @@ class PostsController < ApplicationController
       end
     end
     send_data(posts_csv, :type => 'text/csv', :filename => 'all_posts.csv')
+    authorize! :edit, @posts
   end
 
   def import
     Post.import(params[:file])
     redirect_to posts_url, notice: "Posts imported."
+    authorize! :edit, Post
   end
 
   def index
     @posts = Post.reverse_chron_order
+    authorize! :read, @posts
   end
 
   def show
@@ -34,15 +37,17 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    
+    authorize! :create, @post
   end
 
   def edit
+    authorize! :edit, @post
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    authorize! :create, @post
     if @post.save
       redirect_to @post
     else
@@ -51,6 +56,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    authorize! :edit, @post
     if @post.update(post_params)
       redirect_to @post
     else
@@ -59,6 +65,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @post
     @post.destroy
     redirect_to posts_path
   end

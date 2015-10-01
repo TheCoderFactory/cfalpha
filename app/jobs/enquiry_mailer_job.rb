@@ -6,6 +6,6 @@ class EnquiryMailerJob
   		EnquiryMailer.response(enquiry_id).deliver_now
   		EnquiryMailer.received(enquiry_id).deliver_now
   	end
-    raise NotImplementedError
+    # raise NotImplementedError
   end
 end

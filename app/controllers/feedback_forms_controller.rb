@@ -1,15 +1,18 @@
 class FeedbackFormsController < ApplicationController
   before_action :set_feedback_form, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: :new
+
   # GET /feedback_forms
   # GET /feedback_forms.json
   def index
     @feedback_forms = FeedbackForm.all
+    authorize! :read, @feedback_forms
   end
 
   # GET /feedback_forms/1
   # GET /feedback_forms/1.json
   def show
+    authorize! :read, @feedback_form
   end
 
   # GET /feedback_forms/new

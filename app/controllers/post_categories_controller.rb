@@ -1,6 +1,6 @@
 class PostCategoriesController < ApplicationController
   before_action :set_post_category, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /post_categories
   # GET /post_categories.json
   def index
