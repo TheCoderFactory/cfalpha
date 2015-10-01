@@ -1,4 +1,4 @@
-Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+Stripe.setPublishableKey('pk_test_TqwxbpH4DJQq5Cxt1iaOHqT8');
 jQuery(function($) {
   $('#payment-form').submit(function(event) {
     var $form = $(this);
