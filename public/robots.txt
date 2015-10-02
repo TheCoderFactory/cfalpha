@@ -2,5 +2,5 @@
 #
 # To ban all spiders from the entire site uncomment the next two lines:
  User-agent: *
- Sitemap: https://www.dropbox.com/s/cjz1t699souv75q/sitemap.xml.gz?dl=1
+ Sitemap: https://coderfactory.com/sitemap.xml
 # Disallow: /admin

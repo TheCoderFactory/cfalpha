@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   resources :posts do
     collection { post :import }
   end
-  resources :post_categories
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
+
   get 'blog', to: 'blog#index'
   get 'coder-factory-workshops-for-beginners', to: 'pages#beginner'
   get 'coder-factory-part-time-courses', to: 'pages#part_time'
   get 'coding-workshops-for-businesses', to: 'pages#business'
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
   get 'fast-track', to: 'pages#fasttrack'
-  get 'coding-for-schools', to: 'pages#schools'
+  get 'coding-for-schools', to: 'pages#business'
   resources :payments, only: [:index, :create]
+  resources :post_categories
   resources :feedback_forms, except: [:edit, :update, :destroy]
   resources :prequestionnaires, except: [:edit, :update, :destroy]
   resources :promo_codes
@@ -33,6 +35,5 @@ Rails.application.routes.draw do
   get 'thanks', to: 'pages#thanks'
   get 'privacy', to: 'pages#privacy'
   get 'community', to: 'pages#community'
-  get 'fast-track', to: 'pages#fasttrack'
   resources :users
 end
