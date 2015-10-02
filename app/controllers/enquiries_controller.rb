@@ -2,6 +2,7 @@ class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   layout 'admin', except: [:new, :create]
+  invisible_captcha only: [:create, :update]
   # load_and_authorize_resource
   # GET /enquiries
   # GET /enquiries.json
