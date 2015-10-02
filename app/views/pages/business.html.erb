@@ -3,7 +3,10 @@
 #customElement {background-image: url(<%= asset_path 'business.jpg' %>);}
 </style>
 <% @video_code = 'RLxe_I3daYk' %>
+<% @header_title = "POWER OF TECH" %>
+<% @header_tagline = 'Technology education for business and schools.' %>
 <%= render 'layouts/top_bar' %>
+
 <%= render partial: 'course_detail', collection: @business_courses %>
 
 

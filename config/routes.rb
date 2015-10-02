@@ -32,6 +32,6 @@ Rails.application.routes.draw do
   get 'thanks', to: 'pages#thanks'
   get 'privacy', to: 'pages#privacy'
   get 'community', to: 'pages#community'
-  
+  get 'fast-track', to: 'pages#fasttrack'
   resources :users
 end

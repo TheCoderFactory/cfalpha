@@ -3,11 +3,20 @@
   	<div class="row">
   		<div class="col m12 hide-on-small-only">
         <center>
-          <svg width="1100" height="200" style="font-family: 'minerva-modern';">
-            <text fill="black" fill-opacity="0.2" font-weight="800" font-size="6em" x="520" y="100" text-anchor="middle" stroke="#fff" stroke-width="2px">CREATE the FUTURE</text>
+          <svg width="1150" height="120" style="font-family: 'minerva-modern';">
+            <text fill="black" fill-opacity="0.2" font-weight="800" font-size="6em" x="520" y="100" text-anchor="middle" stroke="#fff" stroke-width="2px"><%= @header_title %></text>
           </svg>
+          <% if @header_tagline %>
+            <h3 class="light-blue tagline"><%= @header_tagline %></h3>
+          <% end %>
         </center>
-        <%= render 'layouts/header_boxes' %>
+        <% if current_page?(root_path) %>
+          <%= render 'layouts/header_boxes' %>
+        <% else %>
+          <div class="down-arrow center-align">
+            <br><br><i class="material-icons medium white-text">keyboard_arrow_down</i>
+          </div>
+        <% end %>
       </div>
       <div class="hide-on-med-and-up">
       <br>
