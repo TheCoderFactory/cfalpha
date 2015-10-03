@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   resources :skill_categories
   resources :course_locations
   resources :course_types
-  resources :enquiries, except: [:edit, :update, :destroy]
+  resources :enquiries, except: [:edit, :update] do
+    member do
+      get :responded_to
+    end
+  end
   resources :enquiry_types
   resources :profiles
   get 'admin', to: 'pages#admin'

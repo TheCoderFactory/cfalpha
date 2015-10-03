@@ -1,13 +1,19 @@
 class EnquiriesController < ApplicationController
-  before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
+  before_action :set_enquiry, only: [:responded_to, :show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   layout 'admin', except: [:new, :create]
   invisible_captcha only: [:create, :update]
   # load_and_authorize_resource
   # GET /enquiries
   # GET /enquiries.json
+
+  def responded_to
+    @enquiry.update_attributes(responded_to: true)
+    redirect_to enquiries_path
+  end
+
   def index
-    @enquiries = Enquiry.all
+    @enquiries = Enquiry.most_recent
     authorize! :read, @enquiries
   end
 
@@ -55,13 +61,13 @@ class EnquiriesController < ApplicationController
 
   # DELETE /enquiries/1
   # DELETE /enquiries/1.json
-  # def destroy
-  #   @enquiry.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to enquiries_url, notice: 'Enquiry was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @enquiry.destroy
+    respond_to do |format|
+      format.html { redirect_to enquiries_url, notice: 'Enquiry was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
