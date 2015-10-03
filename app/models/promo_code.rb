@@ -6,6 +6,7 @@ class PromoCode < ActiveRecord::Base
   validates :price_value, presence: true, if: :percent_value_blank?
   validates :percent_value, presence: true, if: :price_value_blank?
   validate :expiry_date_cannot_be_in_the_past
+  validates :code, uniqueness: true
  
   def expiry_date_cannot_be_in_the_past
     if expiry_date.present? && expiry_date <= Date.today + 1.day

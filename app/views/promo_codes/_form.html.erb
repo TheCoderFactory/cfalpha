@@ -1,16 +1,34 @@
 <%= simple_form_for(@promo_code) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :code %>
-    <%= f.input :description %>
-    <%= f.input :price_value %>
-    <%= f.input :percent_value %>
-    <%= f.input :expiry_date %>
+  <div class="row">
+    <div class="col m4">
+      <%= f.input :name, label: 'Give this promo code a name' %>
+    </div>
+    <div class="col m4">
+      <%= f.input :code, label: 'Unique Code (No spaces in code please)' %>
+    </div>
+    <div class="col m4">
+      <%= f.input :description, label: 'Reason promo code is being created' %>
+    </div>
   </div>
-
-  <div class="form-actions">
+    <p>Enter either a price OR a percent value:</p>
+    <div class="row">
+      <div class="col m4">
+        <%= f.input :price_value %>
+      </div>
+      <div class="col m4">
+        <%= f.input :percent_value %>
+      </div>
+      <div class="col m4">
+        <label for="promo_code[expiry_date]">Expiry date</label>
+        <input type="date" class="datepicker" name="promo_code[expiry_date]">
+        
+      </div>
+    </div>
+  <div class="row">
+  <div class="col m4">
     <%= f.button :submit %>
+    </div>
   </div>
 <% end %>

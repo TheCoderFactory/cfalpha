@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.reverse_chron_order
+    @posts = Post.reverse_chron_order.paginate(:page => params[:page], :per_page => 10)
     authorize! :read, @posts
   end
 

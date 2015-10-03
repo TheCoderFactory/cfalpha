@@ -4,8 +4,6 @@
         <div class="card-content grey-text text-darken-2">
           <span class="card-title grey-text text-darken-2">Enquiries</span>
           <p id="notice"><%= notice %></p>
-
-
 <table>
   <thead>
     <tr>
@@ -21,7 +19,7 @@
 
   <tbody>
     <% @enquiries.each do |enquiry| %>
-      <tr class="<%= 'red-text' unless enquiry.responded_to %>">
+      <tr class="<%= 'red-text bold' unless enquiry.responded_to %>">
         <td><%= enquiry.enquiry_type.name if enquiry.enquiry_type %></td>
         <td><%= enquiry.full_name %></td>
         <td><%= enquiry.company %></td>

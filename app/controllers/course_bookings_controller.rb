@@ -4,8 +4,8 @@ class CourseBookingsController < ApplicationController
   # GET /course_bookings
   # GET /course_bookings.json
   def index
-    @upcoming_intakes = CourseIntake.includes(:course_bookings).upcoming
-    @past_intakes = CourseIntake.includes(:course_bookings).past
+    @upcoming_intakes = CourseIntake.includes(:course_bookings).upcoming.paginate(:page => params[:page], :per_page => 10)
+    @past_intakes = CourseIntake.includes(:course_bookings).past.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /course_bookings/1
