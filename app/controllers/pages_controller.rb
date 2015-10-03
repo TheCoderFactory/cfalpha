@@ -14,10 +14,18 @@ class PagesController < ApplicationController
   	# unless current_user.has_role? :admin
   	# 	redirect_to root_path
   	# end
-  	@new_course_bookings = CourseBooking.last_seven_days
-  	@new_enquiries = Enquiry.last_seven_days
-  	@new_feedback_forms = FeedbackForm.last_seven_days
-  	@new_prequestionnaires = Prequestionnaire.last_seven_days
+  	@new_course_bookings = CourseBooking.this_week
+  	@new_enquiries = Enquiry.this_week
+  	@new_feedback_forms = FeedbackForm.this_week
+  	@new_prequestionnaires = Prequestionnaire.this_week
+    @grouped_course_bookings = CourseBooking.group_by_day(:created_at, format: "%a", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
+    @grouped_enquiries = Enquiry.group_by_day(:created_at, format: "%a", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
+    @course_bookings_this_week = CourseBooking.this_week
+    @enquiries_this_week = Enquiry.this_week
+    @course_bookings_last_week = CourseBooking.last_week
+    @enquiries_last_month = Enquiry.last_month
+    @enquiries_last_week = Enquiry.last_week
+    @course_bookings_last_month = CourseBooking.last_month
     authorize! :read, @new_course_bookings
   end
 

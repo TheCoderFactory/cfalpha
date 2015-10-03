@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
+gem 'pg'
+gem 'passenger'
 gem 'devise'
 gem 'simple_form'
 gem 'country_select'
@@ -26,15 +28,14 @@ gem 'fist_of_fury'
 gem 'groupdate'
 gem 'chartkick'
 gem 'exception_notification'
+gem 'gibbon', '~> 2.0'
+gem 'httparty'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
-  gem 'sqlite3'
 end
 group :production do
   gem 'rails_12factor'
-  gem 'passenger'
-  gem 'pg'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

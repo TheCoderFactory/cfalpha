@@ -29,7 +29,7 @@ class EnquiriesController < ApplicationController
 
     respond_to do |format|
       if @enquiry.save
-        EnquiryMailerJob.new.async.perform(@enquiry.id)
+        @enquiry.send_emails
         format.html { redirect_to thanks_path(enquiry: @enquiry.id), notice: 'Your enquiry has been received.' }
         format.json { render :show, status: :created, location: @enquiry }
       else

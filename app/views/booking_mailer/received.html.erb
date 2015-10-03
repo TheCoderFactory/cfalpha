@@ -1,5 +1,25 @@
-<h1>BookingMailer#received</h1>
+<h1>Booking received</h1>
+<p>
+  <strong>Course intake:</strong>
+  <%= @course.name %>
+</p>
 
 <p>
-  <%= @greeting %>, find me in app/views/booking_mailer/received.html.erb
+  <strong>User:</strong>
+  <%= @course_booking.user.full_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course_booking.price %>
+</p>
+
+<p>
+  <strong>Promo code:</strong>
+  <%= @course_booking.promo_code %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @course_booking.paid %>
 </p>

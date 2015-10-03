@@ -2,8 +2,16 @@ class CourseBooking < ActiveRecord::Base
   belongs_to :course_intake
   belongs_to :user
 
-  def self.last_seven_days
+  def self.this_week
   	most_recent.where('created_at > ?', Date.today - 7.days)
+  end
+
+  def self.last_week
+    most_recent.where('created_at > ? and created_at < ?', Date.today - 14.days, Date.today - 7.days)
+  end
+
+  def self.last_month
+    most_recent.where('created_at > ? and created_at < ?', Date.today - 60.days, Date.today - 30.days)
   end
 
   def self.most_recent
