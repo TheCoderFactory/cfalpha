@@ -6,6 +6,8 @@ class CourseIntake < ActiveRecord::Base
 
   # extend FriendlyId
   # friendly_id :name, use: :slugged
+  
+  # after_create :add_to_calendar
 
   def self.chron_order
   	order(start_date: :asc)
@@ -23,6 +25,24 @@ class CourseIntake < ActiveRecord::Base
   	course_bookings.sum(:price)
   end
 
+  # def add_to_calendar
+  #   @event = {
+  #     'summary' => self.course.name,
+  #     'description' => self.course.name,
+  #     'location' => self.course_location.street_address,
+  #     'start' => { 'dateTime' =>  },
+  #     'end' => { 'dateTime' => Chronic.parse('tomorrow 5pm') },
+  #     'attendees' => [ { "email" => 'bob@example.com' },
+  #     { "email" =>'sally@example.com' } ] }
 
+  #   client = Google::APIClient.new
+  #   client.authorization.access_token = current_user.token
+  #   service = client.discovered_api('calendar', 'v3')
+
+  #   @set_event = client.execute(:api_method => service.events.insert,
+  #                           :parameters => {'calendarId' => current_user.email, 'sendNotifications' => true},
+  #                           :body => JSON.dump(@event),
+  #                           :headers => {'Content-Type' => 'application/json'})
+  # end
 
 end

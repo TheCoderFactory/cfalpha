@@ -41,6 +41,9 @@
         <%= link_to 'Admin', admin_path, class: 'right' %>
       <% end %>
     <% end %>
+    <% if devise_controller? %>
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+    <% end %>
     </div>
   </div>
 </footer>

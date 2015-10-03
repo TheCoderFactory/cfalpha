@@ -250,7 +250,6 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
     will_paginate-materialize (0.1.0)
-    zapier_ruby (0.0.3)
 
 PLATFORMS
   ruby
@@ -298,7 +297,6 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
   will_paginate-materialize
-  zapier_ruby
 
 BUNDLED WITH
    1.10.6

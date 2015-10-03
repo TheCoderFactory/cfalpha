@@ -26,7 +26,6 @@ gem 'fist_of_fury'
 gem 'groupdate'
 gem 'chartkick'
 gem 'exception_notification'
-gem 'zapier_ruby'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

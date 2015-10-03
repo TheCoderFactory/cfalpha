@@ -30,4 +30,5 @@ class User < ActiveRecord::Base
   def create_promo_code
     WelcomeMailerJob.new.async.perform(self.id)
   end
+
 end
