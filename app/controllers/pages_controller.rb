@@ -51,12 +51,12 @@ class PagesController < ApplicationController
   end
   # Category.includes(articles: [{ comments: :guest }, :tags]).find(1)
   def part_time
-    @part_time_courses = Course.get_courses_by_type('Part Time')
+    @part_time_courses = Course.includes(:course_type, [{course_intakes: :course_location}]).get_courses_by_type('Part Time')
   end
 
   def business
-    @business_courses = Course.get_courses_by_type('Business')
-    @school_courses = Course.get_courses_by_type('School')
+    @business_courses = Course.includes(:course_type, [{course_intakes: :course_location}]).get_courses_by_type('Business')
+    @school_courses = Course.includes(:course_type, [{course_intakes: :course_location}]).get_courses_by_type('School')
   end
 
   def fasttrack
@@ -75,7 +75,7 @@ class PagesController < ApplicationController
     elsif params[:enquiry]
       @enquiry = Enquiry.find(params[:enquiry])
     end
-    @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)
   end
 
 end
