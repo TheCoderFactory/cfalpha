@@ -8,6 +8,8 @@ class PromoCode < ActiveRecord::Base
   validate :expiry_date_cannot_be_in_the_past
   validates :code, uniqueness: true
  
+  has_paper_trail
+  
   def expiry_date_cannot_be_in_the_past
     if expiry_date.present? && expiry_date <= Date.today + 1.day
       errors.add(:expiration_date, "must be in the future")

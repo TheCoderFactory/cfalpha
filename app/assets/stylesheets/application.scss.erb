@@ -51,6 +51,18 @@ html {
   height: 400px;
   background-size: cover;
 }
+#header-boxes {
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+}
+.header-box {
+  flex: 1;
+  height: 200px;
+}
+.header-box:first-child { display: flex; }
+.header-box:last-of-type { flex: 3;}
+
 .blog-post h1 {
   margin: 5px;
   font-size: 30px;

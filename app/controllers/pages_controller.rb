@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, except: [:admin, :settings]
   layout 'admin', only: [:admin, :settings]
   def home
-    @upcoming_course_intakes = CourseIntake.upcoming.limit(5)
+    @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)
     @workshops = Course.get_courses_by_type('Workshop')
     @part_time_courses = Course.get_courses_by_type('Part Time')
     @business_courses = Course.get_courses_by_type('Business')
@@ -14,12 +14,12 @@ class PagesController < ApplicationController
   	# unless current_user.has_role? :admin
   	# 	redirect_to root_path
   	# end
-  	@new_course_bookings = CourseBooking.this_week
+  	@new_course_bookings = CourseBooking.this_week.have_paid
   	@new_enquiries = Enquiry.this_week
   	@new_feedback_forms = FeedbackForm.this_week
   	@new_prequestionnaires = Prequestionnaire.this_week
-    @grouped_course_bookings = CourseBooking.group_by_day(:created_at, format: "%a", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
-    @grouped_enquiries = Enquiry.group_by_day(:created_at, format: "%a", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
+    @grouped_course_bookings = CourseBooking.group_by_day(:created_at, format: "%d%b", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
+    @grouped_enquiries = Enquiry.group_by_day(:created_at, format: "%a %d%b", range: 1.week.ago.midnight..Time.now, time_zone: "Sydney")
     @course_bookings_this_week = CourseBooking.this_week
     @enquiries_this_week = Enquiry.this_week
     @course_bookings_last_week = CourseBooking.last_week
@@ -47,9 +47,9 @@ class PagesController < ApplicationController
   end
 
   def beginner
-    @workshops = Course.get_courses_by_type('Workshop')
+    @workshops = Course.includes(:course_type, [{course_intakes: :course_location}]).get_courses_by_type('Workshop')
   end
-
+  # Category.includes(articles: [{ comments: :guest }, :tags]).find(1)
   def part_time
     @part_time_courses = Course.get_courses_by_type('Part Time')
   end

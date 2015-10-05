@@ -3,7 +3,7 @@
 #customElement {background-image: url(<%= asset_path 'beginner.jpg' %>);}
 </style>
 <% @video_code = '04oInZW-9H4' %>
-<%= render 'layouts/top_bar' %>
-<%= render partial: 'course_detail', collection: @workshops %>
 <% @header_title = "CODING is FUN" %>
 <% @header_tagline = 'Start your journey into code.' %>
+<%= render 'layouts/top_bar' %>
+<%= render partial: 'course_detail', collection: @workshops %>

@@ -30,9 +30,12 @@ gem 'chartkick'
 gem 'exception_notification'
 gem 'gibbon', '~> 2.0'
 gem 'httparty'
+gem 'paper_trail', '~> 4.0.0'
+gem "awesome_print", require:"ap"
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
+  gem "bullet"
 end
 group :production do
   gem 'rails_12factor'

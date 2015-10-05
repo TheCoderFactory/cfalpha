@@ -11,11 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003082926) do
+ActiveRecord::Schema.define(version: 20151004173559) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "course_bookings", force: :cascade do |t|
     t.integer  "course_intake_id"
     t.integer  "user_id"
+    t.decimal  "price"
     t.string   "promo_code"
     t.boolean  "paid"
     t.boolean  "completed"
@@ -25,12 +29,11 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.decimal  "gst"
     t.decimal  "discount"
     t.boolean  "reminder_send",    default: false
-    t.decimal  "price"
   end
 
-  add_index "course_bookings", ["course_intake_id"], name: "index_course_bookings_on_course_intake_id"
-  add_index "course_bookings", ["guid"], name: "index_course_bookings_on_guid", unique: true
-  add_index "course_bookings", ["user_id"], name: "index_course_bookings_on_user_id"
+  add_index "course_bookings", ["course_intake_id"], name: "index_course_bookings_on_course_intake_id", using: :btree
+  add_index "course_bookings", ["guid"], name: "index_course_bookings_on_guid", unique: true, using: :btree
+  add_index "course_bookings", ["user_id"], name: "index_course_bookings_on_user_id", using: :btree
 
   create_table "course_intakes", force: :cascade do |t|
     t.integer  "course_id"
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "course_intakes", ["course_id"], name: "index_course_intakes_on_course_id"
-  add_index "course_intakes", ["course_location_id"], name: "index_course_intakes_on_course_location_id"
+  add_index "course_intakes", ["course_id"], name: "index_course_intakes_on_course_id", using: :btree
+  add_index "course_intakes", ["course_location_id"], name: "index_course_intakes_on_course_location_id", using: :btree
 
   create_table "course_locations", force: :cascade do |t|
     t.string   "name"
@@ -73,8 +76,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "course_skills", ["course_id"], name: "index_course_skills_on_course_id"
-  add_index "course_skills", ["skill_id"], name: "index_course_skills_on_skill_id"
+  add_index "course_skills", ["course_id"], name: "index_course_skills_on_course_id", using: :btree
+  add_index "course_skills", ["skill_id"], name: "index_course_skills_on_skill_id", using: :btree
 
   create_table "course_types", force: :cascade do |t|
     t.string   "name"
@@ -98,7 +101,7 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.string   "color"
   end
 
-  add_index "courses", ["course_type_id"], name: "index_courses_on_course_type_id"
+  add_index "courses", ["course_type_id"], name: "index_courses_on_course_type_id", using: :btree
 
   create_table "enquiries", force: :cascade do |t|
     t.integer  "enquiry_type_id"
@@ -114,8 +117,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "enquiries", ["enquiry_type_id"], name: "index_enquiries_on_enquiry_type_id"
-  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id"
+  add_index "enquiries", ["enquiry_type_id"], name: "index_enquiries_on_enquiry_type_id", using: :btree
+  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id", using: :btree
 
   create_table "enquiry_types", force: :cascade do |t|
     t.string   "name"
@@ -141,8 +144,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "feedback_forms", ["course_id"], name: "index_feedback_forms_on_course_id"
-  add_index "feedback_forms", ["course_location_id"], name: "index_feedback_forms_on_course_location_id"
+  add_index "feedback_forms", ["course_id"], name: "index_feedback_forms_on_course_id", using: :btree
+  add_index "feedback_forms", ["course_location_id"], name: "index_feedback_forms_on_course_location_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -152,10 +155,10 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.integer  "course_booking_id"
@@ -164,105 +167,7 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "payments", ["course_booking_id"], name: "index_payments_on_course_booking_id"
-
-  create_table "payola_affiliates", force: :cascade do |t|
-    t.string   "code"
-    t.string   "email"
-    t.integer  "percent"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "payola_coupons", force: :cascade do |t|
-    t.string   "code"
-    t.integer  "percent_off"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "active",      default: true
-  end
-
-  create_table "payola_sales", force: :cascade do |t|
-    t.string   "email"
-    t.string   "guid"
-    t.integer  "product_id"
-    t.string   "product_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "state"
-    t.string   "stripe_id"
-    t.string   "stripe_token"
-    t.string   "card_last4"
-    t.date     "card_expiration"
-    t.string   "card_type"
-    t.text     "error"
-    t.integer  "amount"
-    t.integer  "fee_amount"
-    t.integer  "coupon_id"
-    t.boolean  "opt_in"
-    t.integer  "download_count"
-    t.integer  "affiliate_id"
-    t.text     "customer_address"
-    t.text     "business_address"
-    t.string   "stripe_customer_id"
-    t.string   "currency"
-    t.text     "signed_custom_fields"
-    t.integer  "owner_id"
-    t.string   "owner_type"
-  end
-
-  add_index "payola_sales", ["coupon_id"], name: "index_payola_sales_on_coupon_id"
-  add_index "payola_sales", ["email"], name: "index_payola_sales_on_email"
-  add_index "payola_sales", ["guid"], name: "index_payola_sales_on_guid"
-  add_index "payola_sales", ["owner_id", "owner_type"], name: "index_payola_sales_on_owner_id_and_owner_type"
-  add_index "payola_sales", ["product_id", "product_type"], name: "index_payola_sales_on_product"
-  add_index "payola_sales", ["stripe_customer_id"], name: "index_payola_sales_on_stripe_customer_id"
-
-  create_table "payola_stripe_webhooks", force: :cascade do |t|
-    t.string   "stripe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "payola_subscriptions", force: :cascade do |t|
-    t.string   "plan_type"
-    t.integer  "plan_id"
-    t.datetime "start"
-    t.string   "status"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.string   "stripe_customer_id"
-    t.boolean  "cancel_at_period_end"
-    t.datetime "current_period_start"
-    t.datetime "current_period_end"
-    t.datetime "ended_at"
-    t.datetime "trial_start"
-    t.datetime "trial_end"
-    t.datetime "canceled_at"
-    t.integer  "quantity"
-    t.string   "stripe_id"
-    t.string   "stripe_token"
-    t.string   "card_last4"
-    t.date     "card_expiration"
-    t.string   "card_type"
-    t.text     "error"
-    t.string   "state"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "currency"
-    t.integer  "amount"
-    t.string   "guid"
-    t.string   "stripe_status"
-    t.integer  "affiliate_id"
-    t.string   "coupon"
-    t.text     "signed_custom_fields"
-    t.text     "customer_address"
-    t.text     "business_address"
-    t.integer  "setup_fee"
-  end
-
-  add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid"
+  add_index "payments", ["course_booking_id"], name: "index_payments_on_course_booking_id", using: :btree
 
   create_table "post_categories", force: :cascade do |t|
     t.string   "name"
@@ -288,8 +193,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "posts", ["post_category_id"], name: "index_posts_on_post_category_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["post_category_id"], name: "index_posts_on_post_category_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "prequestionnaires", force: :cascade do |t|
     t.integer  "course_booking_id"
@@ -301,7 +206,7 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "prequestionnaires", ["course_booking_id"], name: "index_prequestionnaires_on_course_booking_id"
+  add_index "prequestionnaires", ["course_booking_id"], name: "index_prequestionnaires_on_course_booking_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "picture"
@@ -318,7 +223,7 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.integer  "user_id"
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "promo_codes", force: :cascade do |t|
     t.string   "name"
@@ -336,8 +241,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.decimal  "discount"
   end
 
-  add_index "promo_codes", ["course_intake_id"], name: "index_promo_codes_on_course_intake_id"
-  add_index "promo_codes", ["user_id"], name: "index_promo_codes_on_user_id"
+  add_index "promo_codes", ["course_intake_id"], name: "index_promo_codes_on_course_intake_id", using: :btree
+  add_index "promo_codes", ["user_id"], name: "index_promo_codes_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -347,8 +252,8 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-  add_index "roles", ["name"], name: "index_roles_on_name"
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "skill_categories", force: :cascade do |t|
     t.string   "name"
@@ -367,7 +272,7 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "skills", ["skill_category_id"], name: "index_skills_on_skill_category_id"
+  add_index "skills", ["skill_category_id"], name: "index_skills_on_skill_category_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -379,15 +284,15 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -404,19 +309,29 @@ ActiveRecord::Schema.define(version: 20151003082926) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "token"
-    t.string   "provider"
-    t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+
+  add_foreign_key "posts", "post_categories"
+  add_foreign_key "posts", "users"
 end
