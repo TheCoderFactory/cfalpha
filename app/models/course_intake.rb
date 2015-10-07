@@ -17,6 +17,10 @@ class CourseIntake < ActiveRecord::Base
   	chron_order.where('start_date >= ?', Date.today)
   end
 
+  def self.next
+    chron_order.first
+  end
+
   def self.past
   	chron_order.where('start_date < ?', Date.today)
   end

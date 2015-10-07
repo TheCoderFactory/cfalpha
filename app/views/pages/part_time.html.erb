@@ -7,4 +7,7 @@
 <% @header_title = "CREATE the FUTURE" %>
 <% @header_tagline = 'Learn fast while keeping your day job.' %>
 <%= render 'layouts/top_bar' %>
-<%= render partial: 'course_detail', collection: @part_time_courses %>
+
+<% @part_time_courses.each do |part_time_course| %>
+	<%= render part_time_course %>
+<% end %>

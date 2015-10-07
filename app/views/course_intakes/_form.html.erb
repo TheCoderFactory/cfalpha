@@ -1,20 +1,31 @@
-<%= simple_form_for(@course_intake) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@course_intake) do |f| %>
+  <%# f.error_notification %>
 
   <div class="form-inputs">
     <% if params[:course] %>
-      <%= f.input :course_id, as: :hidden, input_html: { value: params[:course]} %>
+      <%= f.hidden_field :course_id, value: params[:course] %>
     <% else %>
-      <%= f.association :course %>
+      <%= f.select :course %>
     <% end %>
-    <%= f.association :course_location %>
-    <%= f.input :start_date %>
-    <%= f.input :start_time %>
-    <%= f.input :end_date %>
-    <%= f.input :end_time %>
-    <%= f.input :days_of_week %>
-    <%= f.input :status %>
-    <%= f.input :price %>
+    <%= f.label :course_location %>
+    <%= f.collection_select(:course_location_id, CourseLocation.all, :id, :name, {}, { :class => 'browser-default' }) %>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %>
+
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+
+    <%= f.label :end_time %>
+    <%= f.time_field :end_time %>
+
+    <%= f.label :days_of_week %>
+    <%= f.text_field :days_of_week %>
+    
+    <%= f.label :price %>
+    <%= f.number_field :price %>
   </div>
 
   <div class="form-actions">

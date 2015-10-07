@@ -51,7 +51,8 @@ class PagesController < ApplicationController
   end
   # Category.includes(articles: [{ comments: :guest }, :tags]).find(1)
   def part_time
-    @part_time_courses = Course.includes(:course_type, [{course_intakes: :course_location}]).get_courses_by_type('Part Time')
+    @course_type = CourseType.find_by(name: 'Part Time')
+    @part_time_courses = @course_type.courses.includes([{course_intakes: :course_location}]).active
   end
 
   def business

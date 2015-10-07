@@ -12,11 +12,16 @@
     <%= f.input :prerequisites %>
     <%= f.input :outcomes %>
     <%= f.input :format %>
-    <%= f.input :modules %>
     <%= f.input :payment %>
     <%= f.input :homework %>
     <%= f.input :assessments %>
-    <%= f.input :active, as: :select %>
+    <%= f.input :modules %>
+
+    <input value="0" type="hidden" name="course[active]" />
+    
+      <input class="boolean optional" type="checkbox" value="1" name="course[active]" id="course_active" <%= 'checked' if @course.active %> />
+      <label class="boolean optional checkbox" for="course_active">Active
+    </label>
     
     <%= f.input :slug %>
   </div>

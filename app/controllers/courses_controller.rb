@@ -1,13 +1,14 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  # skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show]
   layout 'admin', except: :show
-  load_and_authorize_resource
+  # load_and_authorize_resource
   # GET /courses
   # GET /courses.json
   def index
     @course_types = CourseType.includes(:courses)
     @courses = Course.includes(:course_intakes)
+    authorize! :read, @courses
   end
 
   # GET /courses/1
@@ -18,10 +19,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    authorize! :create, @course
   end
 
   # GET /courses/1/edit
   def edit
+    authorize! :update, @course
   end
 
   # POST /courses
@@ -38,6 +41,7 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :create, @course
   end
 
   # PATCH/PUT /courses/1
@@ -52,6 +56,7 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :read, @course
   end
 
   # DELETE /courses/1
@@ -62,6 +67,7 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize! :destroy, @course
   end
 
   private
