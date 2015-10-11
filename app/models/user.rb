@@ -31,4 +31,5 @@ class User < ActiveRecord::Base
     WelcomeMailerJob.new.async.perform(self.id)
   end
 
+
 end

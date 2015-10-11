@@ -1,24 +1,12 @@
 <%= simple_form_for(@course_booking) do |f| %>
   <%= f.error_notification %>
-
-  
-    <% if params[:intake_id] %>
-      <%= f.input :course_intake_id, as: :hidden, input_html: { value: params[:intake_id]} %>
-    <% else %>
-      <%= f.association :course_intake %>
-    <% end %>
-    
+    <%= f.input :course_intake_id, as: :hidden, input_html: { value: params[:intake_id]} %>
     <div class="row">
-      <div class="input-field col m12">
-          <%= f.input :promo_code, label: 'Do you have a promo code? (Check your inbox)', placeholder: 'Promo code' %>
-      </div></div>
-   
-  
-
-  <div class="form-actions">
-    <button type="submit" class='waves-effect waves-light btn light-blue btn-large'>
-      <i class="material-icons right">check_circle</i> Confirm your booking
+      <div class="input-field col m8 offset-m2">
+          <%= f.input :promo_code, label: 'Do you have a promo code?', placeholder: 'Promo code' %>
+      </div>
+    </div>
+    <button type="submit" class='waves-effect waves-light btn-large light-blue'>
+      Confirm
     </button>
-
-  </div>
 <% end %>

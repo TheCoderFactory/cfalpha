@@ -27,7 +27,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @promo_code.user %>
+  <%= @promo_code.user.email + ' (User id: ' + @promo_code.user.id.to_s + ')' if @promo_code.user %>
 </p>
 
 <p>

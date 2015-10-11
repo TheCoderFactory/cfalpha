@@ -1,0 +1,30 @@
+<div class="col <%= @course_booking.price > 1000.0 ? 'm4' : 'm6' %> s12">
+    <div class="card z-depth-3 hoverable">
+      <div class="card-content grey-text text-darken-2 center-align">
+        <span class="card-title light-blue-text">
+        	Step 2.<br>Make payment
+        	  
+        	</span>
+        	<hr>
+        	<div class="row">
+		        <div class="col m9 right-align">
+			        <p>Course fee: <%= number_to_currency(@course_intake.price) %></p>
+			        <% unless @course_booking.promo_code.empty? %>
+			        	<p class="light-blue-text">Promo code discount: <%= number_to_currency(@course_booking.discount) %></p>
+			        	<p>Total after discount: <% number_to_currency(@course_booking.price) %></p>
+			        	<p>GST: <%= number_to_currency(@course_booking.gst) %></p>
+			        	<p class="bold">TOTAL: <%= number_to_currency(@course_booking.price + @course_booking.gst) %></p>		
+			        <% else %>
+			        	<p>GST: <%= number_to_currency(@course_booking.gst) %></p>
+			        	<p class="bold">TOTAL: <%= number_to_currency(@course_booking.price + @course_booking.gst) %></p>	
+			        <% end %>	
+			        <i class="fa fa-2x fa-cc-visa"></i> <i class="fa fa-2x fa-cc-mastercard"></i> <i class="fa fa-2x fa-cc-amex"></i>	        
+		       	</div>
+		      </div>
+		      <hr>
+		      
+        	<%= render 'payment_form' %>
+    		
+    	</div>
+    </div>
+  </div>

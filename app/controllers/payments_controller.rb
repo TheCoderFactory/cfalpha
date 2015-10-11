@@ -1,15 +1,27 @@
 class PaymentsController < ApplicationController
+	
+
 	def index
-		if params[:booking]
-			@booking = CourseBooking.find_by(guid: params[:booking])
-			@course_intake = @booking.course_intake
-			@course = @course_intake.course
+		@course_booking = CourseBooking.includes(:course_intake).find_by(guid: params[:booking])
+		@course_intake = CourseIntake.includes(:course).find(@course_booking.course_intake.id)
+		@payment_amount = @course_booking.price + @course_booking.gst
+		if params[:payment_option] == 'deposit'
+			@payment_amount = 500.0
+		else
+			@payment_amount = @course_booking.price + @course_booking.gst
 		end
+	end
+
+	def choose
+		@course_booking = CourseBooking.includes(:course_intake).find_by(guid: params[:booking])
+		@course_intake = CourseIntake.includes(:course).find(@course_booking.course_intake.id)
 	end
 
 	def create
 		  @course_booking = CourseBooking.find_by(guid: params[:booking])
-		  @payment_amount = @course_booking.price + @course_booking.gst
+		  @user = current_user
+		  @intake = @course_booking.course_intake
+		  @payment_amount = params[:payment_amount].to_d
 		  Stripe.api_key = Rails.configuration.stripe[:secret_key]
 		  token = params[:stripeToken]
 

@@ -13,12 +13,20 @@ Rails.application.routes.draw do
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
   get 'fast-track', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#business'
-  resources :payments, only: [:index, :create]
+  resources :payments, only: [:index, :create] do 
+    collection do
+      get :choose
+    end
+  end
   resources :post_categories
   resources :feedback_forms, except: [:edit, :update, :destroy]
   resources :prequestionnaires, except: [:edit, :update, :destroy]
   resources :promo_codes
-  resources :course_bookings
+  resources :course_bookings do
+    collection do
+      get :confirm
+    end
+  end
   resources :course_intakes
   resources :courses
   resources :skills

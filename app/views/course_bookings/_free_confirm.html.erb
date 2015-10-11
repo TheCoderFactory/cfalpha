@@ -1,0 +1,17 @@
+<div class="card z-depth-3 hoverable">
+	<div class="card-content grey-text text-darken-2 center-align">
+    <span class="card-title light-blue-text bold">
+    	Confirm booking<br><hr>
+    </span>
+    <span class="card-title grey-text text-darken-2">
+    	<i class="fa fa-<%= @course_intake.course.icon %>"></i> <%= @course_intake.course.name %>
+    </span>
+    <p><%= @course_intake.course_location.name %>, <%= @course_intake.course_location.city %></p>
+    <p>Starts <%= @course_intake.start_date.strftime('%d %B %Y') %></p>
+    <p>FREE</p>
+    <br>
+    <%= render 'free_form' %>
+    <br>
+    <p>Further details of your chosen course or workshop will be emailed to you immediately.</p>
+  </div>
+</div>

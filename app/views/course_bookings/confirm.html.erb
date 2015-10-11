@@ -1,0 +1,14 @@
+<%= content_for :title, 'Confirm Course Booking' %>
+
+<section class="light-blue lighten-4" id="top-section">
+<div class="container">
+	<h2>1. Confirm your course.</h2>
+	<% if @course_intake.price == 0.0 %>
+		<%= render 'free_confirm' %>
+	<% elsif @course_intake.price > 0.0 and @course_intake.price < 1000.0 %>
+		<%= render 'workshop_confirm' %>
+	<% else %>
+		<%= render 'course_confirm' %>
+	<% end %>
+</div>
+</section>

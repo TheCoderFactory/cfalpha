@@ -1,0 +1,27 @@
+<div class="row">
+	<%= render 'course_details' %>
+	<%= render 'payment_choice' %>
+  
+  <div class="col m4 s12">
+    <div class="card z-depth-3 hoverable">
+      <div class="card-content grey-text text-darken-2 center-align">
+        <span class="card-title light-blue-text">
+        	Step 3.<br>Make payment
+        	  
+        	</span>
+        	<hr>
+        	<div class="row">
+		        <div class="col m9 right-align">	
+			        	
+			        <i class="fa fa-2x fa-cc-visa"></i> <i class="fa fa-2x fa-cc-mastercard"></i> <i class="fa fa-2x fa-cc-amex"></i>	  
+			        <p class="bold">Paying now: <%= number_to_currency(@payment_amount) %></p>      
+		       	</div>
+		      </div>
+		      <hr>
+		      
+        	<%= render 'payment_form' %>
+    		
+    	</div>
+    </div>
+  </div>
+</div>

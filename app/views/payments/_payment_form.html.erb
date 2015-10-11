@@ -1,36 +1,38 @@
-<%= form_tag payments_path(booking: @booking.guid), id: 'payment-form', autocomplete: 'on' %>
-  <span class="payment-errors red-text"><%= alert %></span>
+<%= form_tag payments_path(booking: params[:booking], payment_amount: @payment_amount), id: 'payment-form', autocomplete: 'on' %>
+<span class="payment-errors red-text"><%= alert %></span>
+  
   <div class="row">
-    <div class="input-field col s3">
-      <input id="credit-holder-name" type="text" class="cc-name" autocomplete="cc-name" data-stripe="name" placeholder=""></input>
+    <div class="input-field col s6">
+      <input id="credit-holder-name" type="text" class="cc-name" autocomplete="cc-name" data-stripe="name" placeholder="eg. Anne Smith" autofocus>
       <label class="" for="credit-card-name"> Card holder name</label>
     </div>
-    <div class="input-field col s4">
-      <input id="credit-card-number" type="tel" class="cc-number" autocomplete="cc-number" data-stripe="number" placeholder="•••• •••• •••• ••••"></input>
+    <div class="input-field col s6">
+      <input id="credit-card-number" type="tel" class="cc-number" autocomplete="cc-number" data-stripe="number" placeholder="•••• •••• •••• ••••">
       <label class="" for="credit-card-number"> Credit Card Number</label>
     </div>
-    <div class="input-field col s1">
-        <input class="cc-cvc" id="security-code" type="tel" autocomplete="off" data-stripe="cvc" placeholder="•••"></input>
-      <label class="" for="security-code"> CVC
-      </label>
-    </div>
     <div class="input-field col s2">
-    
+      <input class="cc-cvc" id="security-code" type="tel" autocomplete="off" data-stripe="cvc" placeholder="•••">
+      <label class="" for="security-code"> CVC</label>
+    </div>
+    <div class="input-field col s5">
       <%= select_month(Date.today, {add_month_numbers: true},  class: 'browser-default', data: {stripe: "exp-month"}) %>
-      </div>
-      <div class="input-field col s2">
+     
+    </div>
+    <div class="input-field col s5">
+      <%= select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 8}, class: 'browser-default', data: {stripe: "exp-year"}) %>
+    </div>
+  </div>
 
-      <%= select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, class: 'browser-default', data: {stripe: "exp-year"}) %>
-  </div></div>
-  <div class="row"><div class="col m12">
-                <button type="submit" class="btn light-blue right">Finalise booking</button> 
-    <span class="grey-text text-darken-2"> 
-                <i class="fa fa-2x fa-cc-visa"></i> <i class="fa fa-2x fa-cc-mastercard"></i> <i class="fa fa-2x fa-cc-amex"></i> <%= image_tag 'stripe.png' %></span>
-                </div></div>
+  <div class="row">
+    <div class="col m12">
+      <button type="submit" class="btn light-blue btn-large">Finalise booking</button> 
+    </div>
+  </div>
 </form>
+<%= image_tag 'stripe.png' %>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script>
-Stripe.setPublishableKey('Rails.configuration.stripe[:publishable_key]');
+Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
 jQuery(function($) {
   $('#payment-form').submit(function(event) {
     var $form = $(this);

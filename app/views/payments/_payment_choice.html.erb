@@ -1,0 +1,54 @@
+<div class="col m4 s12">
+		<div class="card">
+  		<div class="card-content grey-text text-darken-2 center-align">
+		    <span class="card-title light-blue-text bold">
+		    	Step 2.<br>Choose payment option<br><hr>
+		    </span>
+		    
+
+		    <% unless params[:payment_option] == 'deposit' %>
+
+			    <p class="flow-text">Upfront payment</p>
+			    <% if params[:payment_option] == 'full' %>
+			    	<%= link_to 'Pay in full', payments_path, class: 'disabled waves-effect waves-light btn light-blue btn-large' %>
+			    <% else %>
+			    	<%= link_to 'Pay in full', payments_path(booking: @course_booking.guid, payment_option: 'full'), class: 'waves-effect waves-light btn light-blue btn-large' %>
+			    <% end %>
+			    <br><br>
+			    <div class="row">
+			    	<div class="col m10 right-align">
+			    		<p>Course fee: <%= number_to_currency(@course_booking.price) %></p>
+			    		<p>GST: <%= number_to_currency(@course_booking.gst) %></p>
+			    		<p>TOTAL: <%= number_to_currency(@course_booking.price + @course_booking.gst) %>
+
+			    	</div>
+			    </div>
+			    <hr>
+			  <% end %>
+			  <% unless params[:payment_option] == 'full' %>
+			     <p class="flow-text">Payment plan</p>
+			     <% if params[:payment_option] == 'deposit' %>
+			     	<%= link_to 'Pay $500 deposit', payments_path(booking: @course_booking.guid, payment_option: 'deposit'), class: 'waves-effect waves-light btn light-blue btn-large disabled' %>
+			     <% else %>
+			     	<%= link_to 'Pay $500 deposit', payments_path(booking: @course_booking.guid, payment_option: 'deposit'), class: 'waves-effect waves-light btn light-blue btn-large' %>
+			     <% end %>
+			     <br><br>
+			     <div class="row">
+			     	<div class="col m10 right-align">
+					     <p>Course fee: <%= number_to_currency(@course_booking.price) %></p>
+					     <p>GST: <%= number_to_currency(@course_booking.gst) %></p>
+					     <p>TOTAL: <%= number_to_currency(@course_booking.price + @course_booking.gst) %></p>
+					     <p class="bold">Paying now: <%= number_to_currency(500.0) %></p>
+					     <p>Pay later: <%= number_to_currency(@course_booking.price + @course_booking.gst - 500.0) %></p>
+			    	</div>
+			    </div>
+			    <hr>
+			  <% end %>
+			  <% if params[:payment_option] %>
+			  	<%= link_to 'CHANGE', choose_payments_path(booking: @course_booking.guid) %>
+			  <% end %>
+
+
+		  </div>
+		</div>
+</div>

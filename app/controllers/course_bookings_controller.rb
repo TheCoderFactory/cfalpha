@@ -1,6 +1,11 @@
 class CourseBookingsController < ApplicationController
   before_action :set_course_booking, only: [:show, :edit, :update, :destroy]
-  layout 'admin', except: :new
+  layout 'admin', except: [:new, :confirm]
+
+  def confirm
+    @course_intake = CourseIntake.find(params[:intake_id])
+    @course_booking = CourseBooking.new
+  end
   # GET /course_bookings
   # GET /course_bookings.json
   def index
@@ -36,8 +41,10 @@ class CourseBookingsController < ApplicationController
     respond_to do |format|
       if @course_booking.save
         current_user.add_role :student
-        if @course_booking.price > 0
+        if @course_booking.price > 0 and @course_booking.price < 1000.0
           format.html { redirect_to payments_path(booking: @course_booking.guid), notice: 'Your course booking was successfully created.' }
+        elsif @course_booking.price >= 1000.0
+          format.html { redirect_to choose_payments_path(booking: @course_booking.guid)} 
         else
           BookingMailerJob.new.async.perform(@course_booking.id)
           format.html { redirect_to thanks_path(booking: @course_booking.id), notice: 'Your course booking was successfully created.' }
