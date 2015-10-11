@@ -26,7 +26,7 @@ class CourseIntake < ActiveRecord::Base
   end
 
   def bookings_revenue
-  	course_bookings.sum(:price)
+  	course_bookings.where(paid: true).sum(:price)
   end
 
   # def add_to_calendar

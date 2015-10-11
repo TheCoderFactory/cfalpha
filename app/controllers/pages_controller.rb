@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   	# unless current_user.has_role? :admin
   	# 	redirect_to root_path
   	# end
-  	@new_course_bookings = CourseBooking.this_week.have_paid
+  	@new_course_bookings = CourseBooking.this_week
   	@new_enquiries = Enquiry.this_week
   	@new_feedback_forms = FeedbackForm.this_week
   	@new_prequestionnaires = Prequestionnaire.this_week

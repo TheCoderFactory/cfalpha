@@ -45,11 +45,7 @@ class CourseBooking < ActiveRecord::Base
   end
 
   def calculate_gst
-    if self.discount
-  	 self.gst = (self.price - self.discount) * 0.1
-    else
-      self.gst = self.price * 0.1
-    end
+    self.gst = (self.price) * 0.1
   end
 
   def mark_as_paid
