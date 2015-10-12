@@ -14,7 +14,7 @@
 <h4>Program information</h4>
 <ul class="collapsible" data-collapsible="accordion">
   <li>
-    <div class="collapsible-header light-blue white-texts"><i class="material-icons">info_outline</i>OVERVIEW</div>
+    <div class="collapsible-header light-blue white-text"><i class="material-icons">info_outline</i>OVERVIEW</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <%= course.description.html_safe %>
       <br>
@@ -73,5 +73,7 @@
     </div>
   </li>
 </ul>
+<%= link_to "<i class='fa fa-question-circle right'></i> Enquire about this course".html_safe, new_enquiry_path(etype: 'partTime'), class: 'light-blue btn waves-light' %>
+<br><br>
 </div>
 </section>

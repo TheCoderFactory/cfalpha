@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Upcoming Intakes</h1>
+<h1>Course Bookings</h1>
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
@@ -15,7 +15,7 @@
         <div class="collapsible-header">
         	<i class="fa fa-<%= upcoming_intake.course.icon %> circle"></i>
         	<span class="title"> </span>
-        	<%= upcoming_intake.course.name %> 
+        	<%= upcoming_intake.course.name %> (<%= upcoming_intake.course_bookings.count %>)
         	
         </div>
         <div class="collapsible-body">
@@ -53,9 +53,50 @@
       <% end %>
     </ul>
   </div>
+
+<div id="past" class="col s12">
+    <ul class="collapsible collection" data-collapsible="accordion">
+      <% @past_intakes.each do |past_intake| %>
+      <li class="collection-item avatar">
+        <div class="collapsible-header">
+          <i class="fa fa-<%= past_intake.course.icon %> circle"></i>
+          <span class="title"> </span>
+          <%= past_intake.course.name %> (<%= past_intake.course_bookings.count %>)
+          
+        </div>
+        <div class="collapsible-body">
+          <p>
+            <i class="fa fa-map-marker"></i> <%= past_intake.course_location.name %> | 
+            <i class="fa fa-calendar"></i> <%= past_intake.start_date.strftime('%d %b %y') %>
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Price</th>
+                <th>Promo code</th>
+                <th>Paid</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% past_intake.course_bookings.each do |course_booking| %>
+                <tr>
+                  <td><%= course_booking.user.name %></td>
+                  <td><%= course_booking.price %></td>
+                  <td><%= course_booking.promo_code %></td>
+                  <td><%= course_booking.paid %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td></td>
+                <td><%= number_to_currency(past_intake.bookings_revenue) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
-
-
-<h2>Past intakes</h2>
-<%= render @past_intakes %>

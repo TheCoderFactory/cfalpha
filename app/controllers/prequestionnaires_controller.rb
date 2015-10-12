@@ -30,7 +30,7 @@ class PrequestionnairesController < ApplicationController
 
     respond_to do |format|
       if @prequestionnaire.save
-        format.html { redirect_to @prequestionnaire, notice: 'Prequestionnaire was successfully created.' }
+        format.html { redirect_to thanks_path(thanks: 'prequestionnaire'), notice: 'Prequestionnaire was successfully created.' }
         format.json { render :show, status: :created, location: @prequestionnaire }
       else
         format.html { render :new }

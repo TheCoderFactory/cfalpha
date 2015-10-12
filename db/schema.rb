@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005065832) do
+ActiveRecord::Schema.define(version: 20151012112706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151005065832) do
     t.decimal  "gst"
     t.decimal  "discount"
     t.boolean  "reminder_send",    default: false
+    t.string   "payment_option"
   end
 
   add_index "course_bookings", ["course_intake_id"], name: "index_course_bookings_on_course_intake_id", using: :btree
@@ -206,12 +207,12 @@ ActiveRecord::Schema.define(version: 20151005065832) do
 
   create_table "prequestionnaires", force: :cascade do |t|
     t.integer  "course_booking_id"
-    t.string   "reason"
-    t.string   "background"
-    t.string   "experience"
-    t.string   "hobbies"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.text     "reason"
+    t.text     "background"
+    t.text     "experience"
+    t.text     "hobbies"
   end
 
   add_index "prequestionnaires", ["course_booking_id"], name: "index_prequestionnaires_on_course_booking_id", using: :btree
@@ -229,6 +230,10 @@ ActiveRecord::Schema.define(version: 20151005065832) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
+    t.text     "bio"
+    t.string   "google_plus"
+    t.string   "website"
+    t.string   "title"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

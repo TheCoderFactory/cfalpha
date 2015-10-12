@@ -1,15 +1,37 @@
 <%= simple_form_for(@prequestionnaire) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :course_booking %>
-    <%= f.input :reason %>
-    <%= f.input :background %>
-    <%= f.input :experience %>
-    <%= f.input :hobbies %>
-  </div>
+  
+    <% if params[:booking] %>
+      <%= f.input :course_booking_id, as: :hidden, input_html: { value: params[:booking]} %>
+    <% end %>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="prequestionnaire[reason]" id="prequestionnaire_reason" class="materialize-textarea"></textarea>
+        <label for="prequestionnaire_reason">1. Why have you decided to take this workshop or course?</label> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="prequestionnaire[background]" id="prequestionnaire_background" class="materialize-textarea"></textarea>
+        <label for="prequestionnaire_background">2. What is your background? eg. career or study</label> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="prequestionnaire[experience]" id="prequestionnaire_experience" class="materialize-textarea"></textarea>
+        <label for="prequestionnaire_experience">3. Do you have any coding or web design experience?</label> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="prequestionnaire[hobbies]" id="prequestionnaire_hobbies" class="materialize-textarea"></textarea>
+        <label for="prequestionnaire_hobbies">4. What are your hobbies or interests outside of work?</label> 
+      </div>
+    </div>
+    
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <button type="submit" class="light-blue btn">Send your answers</button>
   </div>
 <% end %>

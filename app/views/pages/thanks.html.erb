@@ -19,9 +19,13 @@
 				<% if params[:booking] %>
 					<h2>Welcome <%= current_user.first_name %></h2>
 					<p class="flow-text">We're looking forward to having you in class.</p>
+					<br>
 					<p class="flow-text">Check your inbox. You will receive a confirmation of your booking with the details of the course including location, dates and times.</p>
 					<br>
-					<p class="flow-text">In the meantime, check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
+					<p class="flow-text">We'd also like to know a bit more about you. Please take 2 minutes and tell us a bit about why you're wanting to do the course.</p>
+					<%= link_to 'Complete the prequestionnaire', new_prequestionnaire_path(booking: params[:booking]), class: 'btn light-blue' %>
+					<br><br>
+					<p>Also check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
 					<h4>More upcoming courses</h4>
 					<ul class="collection">
 			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
@@ -38,6 +42,15 @@
 					<ul class="collection">
 			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
 			    </ul>
+				<% end %>
+
+				<!-- PREQUESTIONNAIRE -->
+				<% if params[:thanks] == 'prequestionnaire' %>
+					<h2>Thanks for that.</h2>
+					<p class="flow-text">We're looking forward to getting you know in person. See you soon.</p>
+
+					<br><p class="flow-text">Don't forget to tell your friends that you're learning to code at Coder Factory. :)</p>
+					<br>
 				<% end %>
 			</div>
 		</div>

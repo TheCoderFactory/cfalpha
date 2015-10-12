@@ -13,7 +13,7 @@ class EnquiriesController < ApplicationController
   end
 
   def index
-    @enquiries = Enquiry.most_recent
+    @enquiries = Enquiry.most_recent.paginate(:page => params[:page], :per_page => 15)
     authorize! :read, @enquiries
   end
 

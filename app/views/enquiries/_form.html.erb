@@ -8,7 +8,7 @@
       <select class="browser-default" name="enquiry[enquiry_type_id]" id="enquiry_enquiry_type_id">
         <option value="" disabled selected>Select your enquiry type</option>
         <option value="1">Workshop enquiry</option>
-        <option value="2">Part time enquiry</option>
+        <option value="2" <%= 'selected' if params[:etype] == 'PartTime' %>>Part time enquiry</option>
         <option value="3">Business course enquiry</option>
         <option value="4">School enquiry</option>
         <option value="5" <%= 'selected' if params[:etype] == 'fasttrack' %>>Fast Track enquiry</option>

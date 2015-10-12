@@ -1,3 +1,5 @@
+<%= content_for :title, "Enrol in Coder Factory&apos;s ".html_safe + @course.name %>
+<%= content_for :description, @course.tagline.html_safe %>
 <%= render @course %>
 
 
