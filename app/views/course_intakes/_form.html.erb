@@ -4,8 +4,7 @@
   <div class="form-inputs">
     <% if params[:course] %>
       <%= f.hidden_field :course_id, value: params[:course] %>
-    <% else %>
-      <%= f.select :course %>
+    
     <% end %>
     <%= f.label :course_location %>
     <%= f.collection_select(:course_location_id, CourseLocation.all, :id, :name, {}, { :class => 'browser-default' }) %>
