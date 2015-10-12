@@ -9,4 +9,8 @@ class UsersController < ApplicationController
 		# @students = Role.find_by(name: 'student').users
 		# @club_members = Role.find_by(name: 'club').users
 	end
+
+	def show
+		@user = User.find(params[:id])
+	end
 end

@@ -32,7 +32,8 @@ class PostsController < ApplicationController
     @post_categories = PostCategory.all
     @tags = ActsAsTaggableOn::Tag.most_used(10)
     # impressionist(@post)
-    
+    @intake = CourseIntake.includes(:course, :course_location).upcoming.first
+
   end
 
   def new
