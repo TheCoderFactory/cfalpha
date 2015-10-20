@@ -1,0 +1,24 @@
+<h1>Add a manual booking</h1>
+<%= simple_form_for(@course_booking) do |f| %>
+  <%= f.error_notification %>
+
+  <label class="select optional" for="course_booking_course_intake_id">Course intake</label>
+  <select class="select optional browser-default" name="course_booking[course_intake_id]" id="course_booking_course_intake_id">
+  <option value=""></option>
+  <% @upcoming_intakes.each do |intake| %>
+  	<option value="<%= intake.id %>"><%= intake.course.name %> <%= intake.start_date.strftime('%d %b %y') %></option>
+  <% end %>
+  </select>
+
+  <label class="select optional" for="course_booking_user_id">User</label>
+  <select class="select optional browser-default" name="course_booking[user_id]" id="course_booking_user_id">
+  <option value=""></option>
+  	<% @users.each do |user| %>
+  	<option value="<%= user.id %>"><%= user.name %></option>
+  	<% end %>
+  </select>
+  <%= f.input :promo_code %>
+
+  <button type="submit" class="btn light-blue">Add booking</button>
+<% end %>
+

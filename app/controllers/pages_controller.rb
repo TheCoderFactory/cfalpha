@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, except: [:admin, :settings]
-  layout 'admin', only: [:admin, :settings]
+  layout 'admin', only: [:admin, :settings, :admin_booking]
   def home
     @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)
     @workshops = Course.get_courses_by_type('Workshop')
@@ -77,6 +77,16 @@ class PagesController < ApplicationController
       @enquiry = Enquiry.find(params[:enquiry])
     end
     @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)
+  end
+
+  def admin_booking
+    if current_user.has_role? :admin
+      @course_booking = CourseBooking.new
+      @upcoming_intakes = CourseIntake.includes(:course).upcoming.limit(5)
+      @users = User.all
+    else
+      redirect_to root_path
+    end
   end
 
 end

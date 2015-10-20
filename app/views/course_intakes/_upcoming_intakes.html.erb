@@ -8,8 +8,9 @@
        - <%= intake.end_date.strftime('%d %b %Y') %>
       <% end %>
       </span>
+
       <br>
-      <%= intake.days_of_week %>
+      <%= intake.days_of_week %> <%= intake.start_time.strftime('%l:%M%P') %> - <%= intake.end_time.strftime('%l:%M%P') %>
       <br>
      <%= intake.course_location.name %>, <%= intake.course_location.city %><br>
      Price: 

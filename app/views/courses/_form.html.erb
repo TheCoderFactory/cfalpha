@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :course_type %>
+    <%= f.association :course_type, input_html: { class: 'browser-default'} %>
     <%= f.input :name %>
     <%= f.input :icon %>
     <%= f.input :color %>
