@@ -1,6 +1,28 @@
-<h1>Editing Course Booking</h1>
+<h1>Edit Course Booking</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@course_booking) do |f| %>
+  <%= f.error_notification %>
 
+  <label class="select optional" for="course_booking_course_intake_id">Course intake</label>
+  <select class="select optional browser-default" name="course_booking[course_intake_id]" id="course_booking_course_intake_id">
+  <option value=""></option>
+  <% @upcoming_intakes.each do |intake| %>
+  	<option value="<%= intake.id %>" <%= 'selected' if @course_booking.course_intake == intake %>><%= intake.course.name %> <%= intake.start_date.strftime('%d %b %y') %></option>
+  <% end %>
+  </select>
+
+  <label class="select optional" for="course_booking_user_id">User</label>
+  <select class="select optional browser-default" name="course_booking[user_id]" id="course_booking_user_id">
+  <option value=""></option>
+  	<% @users.each do |user| %>
+  	<option value="<%= user.id %>" <%= 'selected' if @course_booking.user == user %>><%= user.name %></option>
+  	<% end %>
+  </select>
+  <%= f.input :promo_code %>
+
+
+
+  <button type="submit" class="btn light-blue">Update booking</button> <%= link_to 'Delete Booking', course_booking_path(@course_booking), method: :delete, class: 'btn red', data: { confirm: 'Are you sure?' }  %>
+<% end %>
 <%= link_to 'Show', @course_booking %> |
 <%= link_to 'Back', course_bookings_path %>

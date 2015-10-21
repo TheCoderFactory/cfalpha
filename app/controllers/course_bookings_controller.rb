@@ -29,6 +29,8 @@ class CourseBookingsController < ApplicationController
 
   # GET /course_bookings/1/edit
   def edit
+    @upcoming_intakes = CourseIntake.includes(:course).upcoming.limit(5)
+    @users = User.all
   end
 
   # POST /course_bookings

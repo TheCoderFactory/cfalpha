@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-content">
 
+  <p><strong>Course:</strong><%= @course_booking.course_intake.course.name %></p>
 <p>
   <strong>Course intake:</strong>
-  <%= @course_booking.course_intake %>
+  <%= @course_booking.course_intake.start_date %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @course_booking.user %>
+  <strong>Student:</strong>
+  <%= @course_booking.user.name %>
 </p>
 
 <p>
@@ -30,5 +33,9 @@
   <%= @course_booking.completed %>
 </p>
 
-<%= link_to 'Edit', edit_course_booking_path(@course_booking) %> |
+<%= link_to 'Edit', edit_course_booking_path(@course_booking), class: 'btn orange' %>
+<%= link_to 'Delete', course_booking_path(@course_booking), method: :delete, class: 'btn red', data: { confirm: 'Are you sure?' }  %>
+ |
 <%= link_to 'Back', course_bookings_path %>
+</div>
+</div>
