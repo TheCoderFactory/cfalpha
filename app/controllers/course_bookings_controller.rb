@@ -16,6 +16,12 @@ class CourseBookingsController < ApplicationController
   # GET /course_bookings/1
   # GET /course_bookings/1.json
   def show
+    # if @course_booking.promo_code.nil?
+    #   @promo_code = false
+    # else
+    #   if PromoCode.code_is_valid?(@course_booking.promo_code)
+        
+
   end
 
   # GET /course_bookings/new
