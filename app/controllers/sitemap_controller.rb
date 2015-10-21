@@ -4,6 +4,7 @@ class SitemapController < ApplicationController
 
 	def index
 		@last_new_course = CourseIntake.last
+    @courses = Course.active
 	  @posts = Post.all
     @static_pages = [
       		  	root_url, 

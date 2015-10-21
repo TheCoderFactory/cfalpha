@@ -19,4 +19,14 @@
       <priority>0.5</priority>
     </url>
   <% end %>
+  <% @courses.each do |course| %>
+    <url>
+      <loc><%= course_url(course) %></loc>
+      <lastmod>
+        <%= course.updated_at.strftime('%Y-%m-%d') %>
+      </lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+    </url>
+  <% end %>
 </urlset>
