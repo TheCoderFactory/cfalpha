@@ -13,7 +13,7 @@
 <% end %>
 <h4>Program information</h4>
 <ul class="collapsible" data-collapsible="accordion">
-  <% if course.description %>
+  <% unless course.description.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">info_outline</i>OVERVIEW</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -22,13 +22,13 @@
     </div>
   </li>
   <% end %>
-  <% if course.audience %>
+  <% unless course.audience.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">supervisor_account</i>AUDIENCE</div>
     <div class="collapsible-body white grey-text text-darken-2"><p><%= course.audience.html_safe %></p></div>
   </li>
   <% end %>
-  <% if course.prerequisites %>
+  <% unless course.prerequisites.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">tune</i>PRE-REQUISITES</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -38,7 +38,7 @@
     </div>
   </li>
   <% end %>
-  <% if course.outcomes %>
+  <% unless course.outcomes.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">assignment_turned_in</i>OUTCOMES</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -48,7 +48,7 @@
     </div>
   </li>
   <% end %>
-  <% if course.format %>
+  <% unless course.format.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">query_builder</i>FORMAT</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -58,7 +58,7 @@
     </div>
   </li>
   <% end %>
-  <% if course.payment %>
+  <% unless course.payment.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">local_atm</i>PAYMENT OPTIONS</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -68,7 +68,7 @@
     </div>
   </li>
   <% end %>
-  <% if course.homework %>
+  <% unless course.homework.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">brightness_3</i>HOMEWORK</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -78,7 +78,7 @@
     </div>
   </li>
   <% end %>
-  <% if course.modules %>
+  <% unless course.modules.nil? %>
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">list</i>COURSE OUTLINE</div>
     <div class="collapsible-body white grey-text text-darken-2">
