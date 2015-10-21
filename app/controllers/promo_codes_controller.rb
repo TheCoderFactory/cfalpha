@@ -1,7 +1,16 @@
 class PromoCodesController < ApplicationController
-  before_action :set_promo_code, only: [:show, :edit, :update, :destroy]
+  before_action :set_promo_code, only: [:show, :edit, :update, :destroy, :apply]
   layout 'admin'
   load_and_authorize_resource
+
+
+  def apply
+    @booking = CourseBooking.find_by(guid: params[:booking])
+    @booking.apply_promo_code(@promo_code.id)
+    # @booking.check_promo_code
+    @promo_code.redeemed(@booking.course_intake_id, @booking.user_id, @booking.discount)
+    redirect_to :back
+  end
   # GET /promo_codes
   # GET /promo_codes.json
   def index

@@ -28,11 +28,14 @@ class PromoCode < ActiveRecord::Base
     self.update_attributes(date_used: Date.today, course_intake_id: course_intake_id, user_id: user_id, discount: discount_value)
   end
 
+
   def self.available(user_id)
     where(user_id: user_id, date_used: nil)
   end
 
-
+  def self.unused
+    where(date_used: nil)
+  end
 
 
 end

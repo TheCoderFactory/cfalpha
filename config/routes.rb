@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   resources :post_categories
   resources :feedback_forms, except: [:edit, :update, :destroy]
   resources :prequestionnaires, except: [:edit, :update, :destroy]
-  resources :promo_codes
+  resources :promo_codes do
+    member do
+      get :apply
+    end
+  end
   resources :course_bookings do
     collection do
       get :confirm

@@ -1,38 +1,64 @@
 <p id="notice"><%= notice %></p>
 <div class="card">
   <div class="card-content">
+  <span class="card-title black-text">Course Booking</span>
+<table class="striped">
+    <tr>
+      <th>Course</th>
+      <td><%= @course_booking.course_intake.course.name %></td>
+    </tr>
+    <tr>
+      <th>Intake</th>
+      <td><%= @course_booking.course_intake.start_date.strftime('%d %b %y') %></td>
+    </tr>
+    <tr>
+      <th>Student name</th>
+      <td><%= link_to @course_booking.user.name, @course_booking.user %></td>
+    </tr>
+    <tr>
+      <th>Student email</th>
+      <td><%= @course_booking.user.email %></td>
+    </tr>
+    
+    <tr>
+      <th>Price</th>
+      <td><%= number_to_currency(@course_booking.price) %></td>
+    </tr>
+    <tr>
+      <th>Paid?</th>
+      <td>
+        <% if @course_booking.paid %>
+          YES
+        <% else %>
 
-  <p><strong>Course:</strong><%= @course_booking.course_intake.course.name %></p>
-<p>
-  <strong>Course intake:</strong>
-  <%= @course_booking.course_intake.start_date %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @course_booking.user.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @course_booking.price %>
-</p>
-
-<p>
-  <strong>Promo code:</strong>
-  <%= @course_booking.promo_code %>
-</p>
-
-<p>
-  <strong>Paid:</strong>
-  <%= @course_booking.paid %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @course_booking.completed %>
-</p>
-
+          <% if @course_booking.price > 1000.0 %>
+            <%= link_to 'Booking link', choose_payments_path(booking: @course_booking.guid) %>
+          <% else %>
+            <%= link_to 'Booking link', payments_path(@course_booking) %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>Promo code used?</th>
+      <td>
+        <% unless @course_booking.promo_code.empty? %>
+          <%= link_to PromoCode.find(@course_booking.promo_code).name, promo_code_path(@course_booking.promo_code) %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>Unused promo codes</th>
+      <td>
+        <% if @course_booking.user.promo_codes.unused.any? %>
+          <% @course_booking.user.promo_codes.unused.each do |promo_code| %>
+            <%= link_to promo_code.name + " (" + promo_code.percent_value.to_s + "% discount)", promo_code_path(promo_code) %> [<%= link_to 'Apply to Booking', apply_promo_code_path(promo_code, booking: @course_booking.guid) %>]<br>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+<br>
 <%= link_to 'Edit', edit_course_booking_path(@course_booking), class: 'btn orange' %>
 <%= link_to 'Delete', course_booking_path(@course_booking), method: :delete, class: 'btn red', data: { confirm: 'Are you sure?' }  %>
  |

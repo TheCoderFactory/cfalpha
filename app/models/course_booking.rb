@@ -44,6 +44,22 @@ class CourseBooking < ActiveRecord::Base
   	end
   end
 
+  def apply_promo_code(promo_code_id)
+    @promo_code = PromoCode.find(promo_code_id)
+    self.discount = ((@promo_code.percent_value / 100.0) * self.price)
+    self.price = self.price - self.discount
+    update_attributes(promo_code: @promo_code.id, discount: discount, price: price)
+  end
+  # def apply_promo_code
+  #   if self.promo_code.price_value
+  #     self.discount = @promo_code.price_value
+  #   elsif self.promo_code.percent_value > 0
+  #     self.discount = ((self.promo_code.percent_value / 100.0) * self.price)
+  #   end
+  #   self.price = self.price - self.discount
+  #   self.promo_code.redeemed(self.course_intake_id, self.user_id, self.discount)
+  # end
+
   def calculate_gst
     self.gst = (self.price) * 0.1
   end
