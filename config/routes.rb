@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'coder-factory-part-time-courses', to: 'pages#part_time'
   get 'coding-workshops-for-businesses', to: 'pages#business'
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
+  get '/courses/part-time-courses/web-app-developer-pt', to: redirect('/courses/web-app-builder')
   get 'fast-track', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#business'
   get 'admin_booking', to: 'pages#admin_booking'
