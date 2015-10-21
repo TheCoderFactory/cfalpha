@@ -42,7 +42,8 @@
     <tr>
       <th>Promo code used?</th>
       <td>
-        <% unless @course_booking.promo_code.empty? %>
+        <% if !@course_booking.promo_code.empty? and PromoCode.code_is_valid?(@course_booking.promo_code)  %>
+
           <%= link_to PromoCode.find(@course_booking.promo_code).name, promo_code_path(@course_booking.promo_code) %>
         <% end %>
       </td>
