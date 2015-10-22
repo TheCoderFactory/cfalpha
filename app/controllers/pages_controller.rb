@@ -89,4 +89,7 @@ class PagesController < ApplicationController
     end
   end
 
+  def coder_factory_club
+  end
+
 end

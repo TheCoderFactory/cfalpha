@@ -1,5 +1,8 @@
 <%= content_for :title, "Enrol in Coder Factory&apos;s ".html_safe + @course.name %>
 <%= content_for :description, @course.tagline.html_safe %>
+<% unless user_signed_in? %>
+	<%= render 'layouts/club_bar' %>
+<% end %>
 <%= render @course %>
 
 

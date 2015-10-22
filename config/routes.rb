@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'fast-track', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#business'
   get 'admin_booking', to: 'pages#admin_booking'
+  get 'coder-factory-club', to: 'pages#coder_factory_club'
   resources :payments, only: [:index, :create] do 
     collection do
       get :choose
