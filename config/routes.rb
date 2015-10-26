@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'coding-workshops-for-businesses', to: 'pages#business'
   get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
   get '/courses/part-time-courses/web-app-developer-pt', to: redirect('/courses/web-app-builder')
+  get '/courses/workshops/web-design-weekend-workshop', to: redirect('/coder-factory-workshops-for-beginners')
   get 'fast-track', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#business'
   get 'admin_booking', to: 'pages#admin_booking'

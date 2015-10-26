@@ -3,11 +3,12 @@ class PagesController < ApplicationController
   layout 'admin', only: [:admin, :settings, :admin_booking]
   def home
     @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)
-    @workshops = Course.get_courses_by_type('Workshop')
-    @part_time_courses = Course.get_courses_by_type('Part Time')
-    @business_courses = Course.get_courses_by_type('Business')
-    @school_courses = Course.get_courses_by_type('School')
-    @fast_track = Course.get_courses_by_type('Full Time Intensive')
+    @workshops = Course.includes(:course_type).get_courses_by_type('Workshop')
+    @part_time_courses = Course.includes(:course_type).get_courses_by_type('Part Time')
+    @business_courses = Course.includes(:course_type).get_courses_by_type('Business')
+    @school_courses = Course.includes(:course_type).get_courses_by_type('School')
+    @fast_track = Course.includes(:course_type).get_courses_by_type('Full Time Intensive')
+    # @courses = Course.active
   end
 
   def admin
