@@ -43,7 +43,9 @@ class CourseBookingsController < ApplicationController
   # POST /course_bookings.json
   def create
     @course_booking = CourseBooking.new(course_booking_params)
-    @course_booking.user = current_user
+    if @course_booking.user.nil?
+      @course_booking.user = current_user
+    end
     @course_intake = @course_booking.course_intake
     @course_booking.price = @course_intake.price.to_d
     respond_to do |format|

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, except: [:admin, :settings]
+  skip_before_action :authenticate_user!, except: [:admin, :settings, :admin_booking]
   layout 'admin', only: [:admin, :settings, :admin_booking]
   def home
     @upcoming_course_intakes = CourseIntake.includes(:course, :course_location).upcoming.limit(5)

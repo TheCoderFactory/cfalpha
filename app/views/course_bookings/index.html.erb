@@ -82,7 +82,7 @@
             <tbody>
               <% past_intake.course_bookings.each do |course_booking| %>
                 <tr>
-                  <td><%= course_booking.user.name %></td>
+                  <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= course_booking.price %></td>
                   <td><%= course_booking.promo_code %></td>
                   <td><%= course_booking.paid %></td>
