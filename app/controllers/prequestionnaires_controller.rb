@@ -2,11 +2,14 @@ class PrequestionnairesController < ApplicationController
   before_action :set_prequestionnaire, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   layout 'admin', except: :new
-  load_and_authorize_resource
   # GET /prequestionnaires
   # GET /prequestionnaires.json
   def index
-    @prequestionnaires = Prequestionnaire.all
+    if current_user.has_role? :admin
+      @prequestionnaires = Prequestionnaire.all
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /prequestionnaires/1
