@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :surveys
   root 'pages#home'
   devise_for :users, controllers: { registrations: "registrations"}
   resources :posts do
