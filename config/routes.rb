@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :surveys
+  resources :survey_forms, except: [:edit, :update]
   root 'pages#home'
   devise_for :users, controllers: { registrations: "registrations"}
   resources :posts do

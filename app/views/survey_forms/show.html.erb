@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @survey_form.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @survey_form.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @survey_form.email %>
+</p>
+
+<p>
+  <strong>Industry:</strong>
+  <%= @survey_form.industry %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @survey_form.skills %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @survey_form.company %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @survey_form.comments %>
+</p>
+
+<%= link_to 'Edit', edit_survey_form_path(@survey_form) %> |
+<%= link_to 'Back', survey_forms_path %>
