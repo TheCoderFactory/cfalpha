@@ -2,7 +2,7 @@ class SurveyFormsController < ApplicationController
   before_action :set_survey_form, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :check_admin, only: [:show, :index, :destroy]
-
+  invisible_captcha only: [:create, :update], honeypot: :phone
 
   # GET /survey_forms
   # GET /survey_forms.json
