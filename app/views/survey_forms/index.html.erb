@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Survey Forms</h1>
+<h1>Survey Forms (<%= @survey_forms.count %>)</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      
       <th>Name</th>
       <th>Email</th>
       <th>Industry</th>
@@ -19,7 +19,6 @@
   <tbody>
     <% @survey_forms.each do |survey_form| %>
       <tr>
-        <td><%= survey_form.user %></td>
         <td><%= survey_form.name %></td>
         <td><%= survey_form.email %></td>
         <td><%= survey_form.industry %></td>
