@@ -6,7 +6,7 @@
     <%= course.tagline %>
   </p>
 <% if course.course_intakes.upcoming.any? %>
-  <h4>Next course starts soon (<%= distance_of_time_in_words(course.course_intakes.next.start_date, Date.today) %>)</h4>
+ <!--  <h4>Next course starts soon (<%# distance_of_time_in_words(course.course_intakes.next.start_date, Date.today) %>)</h4> -->
   <ul class="collection">
     <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming, as: :intake %>
   </ul>
