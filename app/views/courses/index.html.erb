@@ -33,7 +33,7 @@
                 </thead>
 
                 <tbody>
-                  <% course.course_intakes.each do |course_intake| %>
+                  <% course.course_intakes.upcoming.each do |course_intake| %>
                     <tr>
                       <td><%= course_intake.course_location.city %></td>
                       <td><%= course_intake.start_date.strftime('%d %b %y') %></td>
