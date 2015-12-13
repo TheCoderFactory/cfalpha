@@ -21,7 +21,7 @@ class Enquiry < ActiveRecord::Base
   end
 
   def self.pending
-    where('reply_sent = ?', nil)
+    where('reply_sent is NULL')
   end
 
   def self.responded
