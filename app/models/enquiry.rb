@@ -21,7 +21,7 @@ class Enquiry < ActiveRecord::Base
   end
 
   def self.pending
-    where.not('reply_sent <= ?', DateTime.now)
+    where('reply_sent = ?', nil)
   end
 
   def self.responded
