@@ -20,6 +20,14 @@ class Enquiry < ActiveRecord::Base
     order(created_at: :desc)
   end
 
+  def self.pending
+    where.not('reply_sent <= ?', DateTime.now)
+  end
+
+  def self.responded
+    where('reply_sent <= ?', DateTime.now)
+  end
+
   def send_emails
   	EnquiryMailerJob.new.async.perform(self.id)
   end
@@ -41,5 +49,6 @@ class Enquiry < ActiveRecord::Base
   def self.last_seven_days
   	where('created_at > ?', Date.today - 7.days)
   end
+
 
 end

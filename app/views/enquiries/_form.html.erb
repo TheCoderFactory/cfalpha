@@ -37,6 +37,7 @@
       <%= f.input :company %>
     </div>
   </div>
+  <%= f.input_field :responded_to, as: :hidden, value: false %>
   <div class="row">
     <div class="input-field col s12 m12">
       <label class="text required" for="enquiry_message"><abbr title="required">*</abbr> Message</label><textarea rows="5" class="materialize-textarea" name="enquiry[message]" id="enquiry_message">

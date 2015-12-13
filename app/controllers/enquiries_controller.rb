@@ -1,5 +1,5 @@
 class EnquiriesController < ApplicationController
-  before_action :set_enquiry, only: [:responded_to, :show, :edit, :update, :destroy]
+  before_action :set_enquiry, only: [:reply_to, :responded_to, :show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :create]
   layout 'admin', except: [:new, :create]
   invisible_captcha only: [:create, :update]
@@ -12,8 +12,17 @@ class EnquiriesController < ApplicationController
     redirect_to enquiries_path
   end
 
+  def reply_to
+  end
+
   def index
-    @enquiries = Enquiry.most_recent.paginate(:page => params[:page], :per_page => 15)
+    if params[:enquiries]
+      if params[:enquiries] == 'responded'
+        @enquiries = Enquiry.responded.most_recent.paginate(:page => params[:page], :per_page => 15)
+      end
+    else
+      @enquiries = Enquiry.pending.most_recent.paginate(:page => params[:page], :per_page => 15)
+    end
     authorize! :read, @enquiries
   end
 
@@ -47,17 +56,20 @@ class EnquiriesController < ApplicationController
 
   # PATCH/PUT /enquiries/1
   # PATCH/PUT /enquiries/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @enquiry.update(enquiry_params)
-  #       format.html { redirect_to @enquiry, notice: 'Enquiry was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @enquiry }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @enquiry.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @enquiry.update(enquiry_params)
+        EnquiryReplyMailerJob.new.async.perform(@enquiry.id)
+        @enquiry.update_attributes(reply_sent: DateTime.now)
+        format.html { redirect_to enquiries_path, notice: 'Enquiry was successfully updated.' }
+        format.js
+        format.json { render :show, status: :ok, location: @enquiry }
+      else
+        format.html { render :edit }
+        format.json { render json: @enquiry.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /enquiries/1
   # DELETE /enquiries/1.json
@@ -77,6 +89,6 @@ class EnquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enquiry_params
-      params.require(:enquiry).permit(:enquiry_type_id, :first_name, :last_name, :company, :phone, :email, :message, :responded_to, :user_id)
+      params.require(:enquiry).permit(:enquiry_type_id, :first_name, :last_name, :company, :phone, :email, :message, :responded_to, :user_id, :reply)
     end
 end

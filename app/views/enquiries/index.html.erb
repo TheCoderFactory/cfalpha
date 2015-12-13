@@ -1,38 +1,45 @@
+<p id="notice"><%= notice %></p>
 <div class="row">
-    <div class="col s12 m12">
-      <div class="card z-depth-3 hoverable">
-        <div class="card-content grey-text text-darken-2">
-          <span class="card-title grey-text text-darken-2">Enquiries</span>
-          <p id="notice"><%= notice %></p>
-<table>
-  <thead>
-    <tr>
-      <th>Enquiry type</th>
-      <th>First name</th>
-      <th>Company</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="col s12 m12">
+    <h2>Enquiries</h2>
+    <%= link_to 'Archived', enquiries_path(enquiries: 'responded') %> 
     <% @enquiries.each do |enquiry| %>
-      <tr class="<%= 'red-text bold' unless enquiry.responded_to %>">
-        <td><%= enquiry.enquiry_type.name if enquiry.enquiry_type %></td>
-        <td><%= enquiry.full_name %></td>
-        <td><%= enquiry.company %></td>
-        <td><%= enquiry.phone %></td>
-        <td><%= enquiry.email %></td>
-        <td><%= enquiry.created_at.strftime('%d/%m/%y') %></td>
-        <td><%= link_to 'Read', enquiry %></td>
-        <td><%= link_to 'Delete', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="card z-depth-3 hoverable">
+      <div class="card-content grey-text text-darken-2">
+        <div class="row">
+          <div class="col m4">
+            <span class="card-title black-text"><%= enquiry.full_name %> <% if enquiry.company %>(<%= enquiry.company %>)<% end %> <%= link_to '<i class="fa fa-trash"></i>'.html_safe, enquiry, method: :delete, data: { confirm: 'Are you sure?' }, class: 'red-text' %></span>
+            <br>
+            <% if enquiry.responded_to %>
+              <a href="#!" class="green white-text">&nbsp;<i class="fa fa-thumbs-up"></i> Responded&nbsp;</a>
+            <% else %>
+              <%= link_to responded_to_enquiry_path(enquiry), class: 'red white-text' do %>&nbsp;<i class="fa fa-clock-o"></i> Pending (<%= distance_of_time_in_words_to_now(enquiry.created_at) %> ago) &nbsp;
+              <% end %>
+            <% end %>
+            
+            <p><a href="mailto:<%= enquiry.email %>" target="_blank"><%= enquiry.email %></a></p>
+            <p><%= enquiry.phone %></p>
+            <p><%= enquiry.message %></p>
+            
+          </div>
+          <div class="col m8">
+            <%= link_to 'Reply', reply_to_enquiry_path(enquiry), remote: true %>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-<center>
-            <%= will_paginate @posts, renderer: MaterializePagination::Rails %>
-          </center>
-</div></div></div></div>
+       
+        <center>
+          <%= will_paginate @posts, renderer: MaterializePagination::Rails %>
+        </center>
+
+  </div>
+<script>
+  $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+    });
+</script>
+<%= render 'dialog' %>
+</div>

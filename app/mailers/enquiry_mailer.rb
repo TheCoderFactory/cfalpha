@@ -1,5 +1,5 @@
 class EnquiryMailer < ActionMailer::Base
-  default from: "Coder Factory Enquiries <info@coderfactory.com>"
+  default from: "Coder Factory Enquiries <enquiries@coderfactory.com>"
 
   def response(enquiry_id)
     @enquiry = Enquiry.find(enquiry_id)

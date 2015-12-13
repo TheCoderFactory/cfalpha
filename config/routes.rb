@@ -42,9 +42,10 @@ Rails.application.routes.draw do
   resources :skill_categories
   resources :course_locations
   resources :course_types
-  resources :enquiries, except: [:edit, :update] do
+  resources :enquiries do
     member do
       get :responded_to
+      get :reply_to
     end
   end
   resources :enquiry_types

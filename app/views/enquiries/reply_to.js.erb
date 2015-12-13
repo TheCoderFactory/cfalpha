@@ -1,0 +1,14 @@
+// Add the dialog title
+$('#modal1 h4').html("<i class='fa fa-pencil'></i> Reply");
+$('#modal1 p#name').html('Name: <br><%= @enquiry.full_name %>');
+$('#modal1 p#message').html('Message: <br><%= @enquiry.message %>');
+// Render the edit form
+$('#reply-form').html('<%= j render("reply_form") %>');
+ 
+// Show the dynamic dialog
+$('#modal1').openModal();
+ 
+// Set focus to the first element
+// $('#dialog').on('shown.bs.modal', function () {
+// 	  $('.first_input').focus()
+//   })

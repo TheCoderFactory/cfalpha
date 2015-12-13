@@ -1,0 +1,10 @@
+<%= simple_form_for @enquiry do |f| %>
+  <%= f.input :reply, input_html: { class: 'ckeditor' } %>
+  <%= f.submit 'Reply' %>
+<% end %>
+
+<script>
+  $('.ckeditor').ckeditor({
+
+  });
+</script>

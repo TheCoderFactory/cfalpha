@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028063620) do
+ActiveRecord::Schema.define(version: 20151213031928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,10 +122,17 @@ ActiveRecord::Schema.define(version: 20151028063620) do
     t.text     "message"
     t.boolean  "responded_to"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "reply"
+    t.datetime "reply_sent"
+    t.datetime "archived"
+    t.datetime "added_to_crm"
+    t.datetime "added_to_mailchimp"
+    t.integer  "course_id"
   end
 
+  add_index "enquiries", ["course_id"], name: "index_enquiries_on_course_id", using: :btree
   add_index "enquiries", ["enquiry_type_id"], name: "index_enquiries_on_enquiry_type_id", using: :btree
   add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id", using: :btree
 
@@ -359,6 +366,7 @@ ActiveRecord::Schema.define(version: 20151028063620) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  add_foreign_key "enquiries", "courses"
   add_foreign_key "posts", "post_categories"
   add_foreign_key "posts", "users"
   add_foreign_key "survey_forms", "users"
