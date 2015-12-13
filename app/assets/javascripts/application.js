@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor-jquery
+//= require ckeditor/config
 //= require materialize-sprockets
 //= require jquery.mb.YTPlayer.min
 //= require jquery.payment
