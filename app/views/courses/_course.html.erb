@@ -1,7 +1,7 @@
-<%= content_for :title, @course.name + ' [@CoderFactory Blog]' %>
-<%= content_for :description, @course.name + ': ' + @course.tagline %>
-<%= content_for :image, asset_path(@course.assessments) %>
-<%= content_for :tagline, @course.tagline %>
+<%= content_for :title, course.name + ' [@CoderFactory]' %>
+<%= content_for :description, course.name + ': ' + course.tagline %>
+<%= content_for :image, asset_path(course.assessments) %>
+<%= content_for :tagline, course.tagline %>
 
 
 
@@ -10,7 +10,7 @@
   <div class="container">
   <h1><i class="fa fa-<%= course.icon %>"></i> <%= course.name %> </h1>
   <!-- <span class="course-type">PART TIME</span> <span class="course-type">ENTREPRENEUR</span> -->
-  <%= image_tag @course.assessments %>
+  <%= image_tag course.assessments %>
   <p class="flow-text">
     <%= course.tagline %>
   </p>
