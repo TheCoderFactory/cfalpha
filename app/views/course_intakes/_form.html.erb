@@ -25,6 +25,10 @@
     
     <%= f.label :price %>
     <%= f.number_field :price %>
+
+    <%= f.label :status %>
+    <%= f.select(:status, ['OPEN', 'FULL', 'CANCELLED'], {}, {:class => 'browser-default'} ) %>
+
   </div>
 
   <div class="form-actions">

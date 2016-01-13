@@ -20,7 +20,7 @@
 		    </li>
 			</ul>
 			<ul class="collection">
-        <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
+        <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
       </ul>
       <p><%= link_to 'Enquire about this course', new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %></p>
 			</div>
@@ -39,7 +39,7 @@
 		    </li>
 			</ul>
 				<ul class="collection">
-        	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming, as: :intake %>
+        	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
       	</ul>
 			</div>
 		</div>

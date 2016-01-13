@@ -14,10 +14,10 @@
   <p class="flow-text">
     <%= course.tagline %>
   </p>
-<% if course.course_intakes.upcoming.any? %>
+<% if course.course_intakes.upcoming.open.any? %>
  <!--  <h4>Next course starts soon (<%# distance_of_time_in_words(course.course_intakes.next.start_date, Date.today) %>)</h4> -->
   <ul class="collection">
-    <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming, as: :intake %>
+    <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming.open, as: :intake %>
   </ul>
 <% end %>
 <h4>Program information</h4>
@@ -99,10 +99,10 @@
   </li>
   <% end %>
 </ul>
-<% if course.course_intakes.upcoming.any? %>
+<% if course.course_intakes.upcoming.open.any? %>
  <!--  <h4>Next course starts soon (<%# distance_of_time_in_words(course.course_intakes.next.start_date, Date.today) %>)</h4> -->
   <ul class="collection">
-    <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming, as: :intake %>
+    <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming.open, as: :intake %>
   </ul>
 <% end %>
 <%= link_to "<i class='fa fa-question-circle right'></i> Enquire about this course".html_safe, new_enquiry_path(etype: 'partTime'), class: 'light-blue btn waves-light' %>

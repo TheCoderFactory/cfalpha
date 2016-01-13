@@ -13,6 +13,10 @@ class CourseIntake < ActiveRecord::Base
   	order(start_date: :asc)
   end
 
+  def self.open
+    where(status: 'OPEN')
+  end
+
   def self.upcoming
   	chron_order.where('start_date >= ?', Date.today)
   end
