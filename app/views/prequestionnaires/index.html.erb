@@ -10,21 +10,20 @@
       <th>Background</th>
       <th>Experience</th>
       <th>Hobbies</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @prequestionnaires.each do |prequestionnaire| %>
       <tr>
-        <td><%= prequestionnaire.course_booking %></td>
+        <td><%= prequestionnaire.course_booking.user.name %></td>
         <td><%= prequestionnaire.reason %></td>
         <td><%= prequestionnaire.background %></td>
         <td><%= prequestionnaire.experience %></td>
         <td><%= prequestionnaire.hobbies %></td>
         <td><%= link_to 'Show', prequestionnaire %></td>
-        <td><%= link_to 'Edit', edit_prequestionnaire_path(prequestionnaire) %></td>
-        <td><%= link_to 'Destroy', prequestionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
