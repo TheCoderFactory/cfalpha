@@ -17,7 +17,7 @@
   <tbody>
     <% @prequestionnaires.each do |prequestionnaire| %>
       <tr>
-        <td><%= prequestionnaire.course_booking.user.name if prequestionnaire.course_booking.user %></td>
+        <td><%# prequestionnaire.course_booking.user.name if prequestionnaire.course_booking.user %></td>
         <td><%= prequestionnaire.reason %></td>
         <td><%= prequestionnaire.background %></td>
         <td><%= prequestionnaire.experience %></td>
