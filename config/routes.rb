@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :course_intakes
   resources "learn-to-code", :as => :courses, :controller => :courses, course_type_id: 1
   resources "coding-courses", :as => :courses, :controller => :courses, course_type_id: 2
-  # resources :courses
+  resources :courses
   resources :skills
   resources :skill_categories
   resources :course_locations
