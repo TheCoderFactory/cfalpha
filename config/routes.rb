@@ -8,17 +8,17 @@ Rails.application.routes.draw do
   get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
   get 'blog', to: 'blog#index'
-  get 'coder-factory-workshops-for-beginners', to: 'pages#beginner'
-  get 'coder-factory-part-time-courses', to: 'pages#part_time'
-  get 'coding-workshops-for-businesses', to: 'pages#business'
-  get 'fast-track-intensive-bootcamp', to: 'pages#fasttrack'
-  get '/courses/part-time-courses/web-app-developer-pt', to: redirect('/courses/web-app-builder')
-  get '/courses/workshops/web-design-weekend-workshop', to: redirect('/coder-factory-workshops-for-beginners')
+  get 'learn-to-code', to: 'pages#beginner'
+  get 'coding-courses', to: 'pages#part_time'
+  get 'coding-workshops', to: 'pages#business'
+  get 'coding-bootcamp', to: 'pages#fasttrack'
+  get '/courses/part-time-courses/web-app-developer-pt', to: redirect('/coding-courses/learn-web-development')
+  get '/courses/workshops/web-design-weekend-workshop', to: redirect('/learn-to-code')
   get 'fast-track', to: 'pages#fasttrack'
   get 'coding-for-schools', to: 'pages#business'
   get 'admin_booking', to: 'pages#admin_booking'
   get 'coder-factory-club', to: 'pages#coder_factory_club'
-  resources :payments, only: [:index, :create] do 
+  resources :payments, only: [:index, :create] do
     collection do
       get :choose
     end
@@ -37,7 +37,9 @@ Rails.application.routes.draw do
     end
   end
   resources :course_intakes
-  resources :courses
+  resources "learn-to-code", :as => :courses, :controller => :courses, course_type_id: 1
+  resources "coding-courses", :as => :courses, :controller => :courses, course_type_id: 2
+  # resources :courses
   resources :skills
   resources :skill_categories
   resources :course_locations
