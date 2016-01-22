@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   get 'settings', to: 'pages#settings'
-  get 'about', to: 'pages#about'
+  get 'coding-academy', to: 'pages#about'
   get 'thanks', to: 'pages#thanks'
   get 'privacy', to: 'pages#privacy'
   get 'community', to: 'pages#community'
