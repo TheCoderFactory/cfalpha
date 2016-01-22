@@ -1,48 +1,49 @@
 <section id="<%= course_detail.name %>" class="white">
 <div class="hide-on-small-only">
-	<div class="container z-depth-3 grey lighten-4">
-		<div class="row">
-			<div class="col m10 offset-m1 grey-text text-darken-2">
-				<h3>
-					<span class="light-blue-text"><i class="fa fa-<%= course_detail.icon %>"></i>
-					</span>
-					<%= course_detail.name %>
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col m10 offset-m1">
-			<p class="flow-text"><%= course_detail.tagline %></p>
-			<ul class="collapsible" data-collapsible="accordion">
-		    <li>
-		      <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
-		      <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
-		    </li>
-			</ul>
-			<ul class="collection">
+  <div class="container z-depth-3 grey lighten-4">
+    <div class="row">
+      <div class="col m10 offset-m1 grey-text text-darken-2">
+        <h3>
+          <span class="light-blue-text"><i class="fa fa-<%= course_detail.icon %>"></i>
+          </span>
+          <%= course_detail.name %>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col m10 offset-m1">
+        <p class="flow-text"><%= course_detail.tagline %></p>
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
+            <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
+          </li>
+        </ul>
+        <ul class="collection">
+          <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
+        </ul>
+        <p><%= link_to 'Find out more', course_path(course_detail.id), class: 'btn light-blue' %>
+        <%= link_to 'Enquire about this course', new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hide-on-med-and-up">
+  <div class="card">
+    <div class="card-content grey-text text-darken-2">
+      <span class="card-title grey-text text-darken-2"><%= course_detail.name %></span>
+      <p class="flow-text"><%= course_detail.tagline %></p>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
+          <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
+        </li>
+      </ul>
+      <ul class="collection">
         <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
       </ul>
-      <p><%= link_to 'Enquire about this course', new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %></p>
-			</div>
-		</div>
-	</div>
-	</div>
-	<div class="hide-on-med-and-up">
-		<div class="card">
-			<div class="card-content grey-text text-darken-2">
-				<span class="card-title grey-text text-darken-2"><%= course_detail.name %></span>
-				<p class="flow-text"><%= course_detail.tagline %></p>
-				<ul class="collapsible" data-collapsible="accordion">
-		    <li>
-		      <div class="collapsible-header"><i class="material-icons right">help</i> More info</div>
-		      <div class="collapsible-body"><%= course_detail.description.html_safe if course_detail.description %></div>
-		    </li>
-			</ul>
-				<ul class="collection">
-        	<%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
-      	</ul>
-			</div>
-		</div>
-	</div>
+    </div>
+  </div>
+</div>
 </section>
 
