@@ -8,6 +8,6 @@ class EnquiryMailer < ActionMailer::Base
 
   def received(enquiry_id)
     @enquiry = Enquiry.find(enquiry_id)
-    mail(to: "pete@coderfactory.com", subject: "Coder Factory Enquiry Received")
+    mail(to: "enquiries@coderfactory.com", subject: "Coder Factory Enquiry Received")
   end
 end
