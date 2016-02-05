@@ -74,6 +74,6 @@ class PrequestionnairesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prequestionnaire_params
-      params.require(:prequestionnaire).permit(:course_booking_id, :reason, :background, :experience, :hobbies)
+      params.require(:prequestionnaire).permit(:course_booking_id, :reason, :background, :experience, :hobbies, :referrer)
     end
 end

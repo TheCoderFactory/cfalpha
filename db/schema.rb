@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213031928) do
+ActiveRecord::Schema.define(version: 20160127061414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20151213031928) do
     t.time     "start_time"
     t.date     "end_date"
     t.time     "end_time"
-    t.string   "days_of_week",                    array: true
+    t.string   "days_of_week"
     t.string   "status"
     t.decimal  "price"
     t.string   "slug"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20151213031928) do
     t.text     "background"
     t.text     "experience"
     t.text     "hobbies"
+    t.string   "referrer"
   end
 
   add_index "prequestionnaires", ["course_booking_id"], name: "index_prequestionnaires_on_course_booking_id", using: :btree
@@ -366,25 +367,8 @@ ActiveRecord::Schema.define(version: 20151213031928) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-  add_foreign_key "course_bookings", "course_intakes"
-  add_foreign_key "course_bookings", "users"
-  add_foreign_key "course_intakes", "course_locations"
-  add_foreign_key "course_intakes", "courses"
-  add_foreign_key "course_skills", "courses"
-  add_foreign_key "course_skills", "skills"
-  add_foreign_key "courses", "course_types"
   add_foreign_key "enquiries", "courses"
-  add_foreign_key "enquiries", "enquiry_types"
-  add_foreign_key "enquiries", "users"
-  add_foreign_key "feedback_forms", "course_locations"
-  add_foreign_key "feedback_forms", "courses"
-  add_foreign_key "payments", "course_bookings"
   add_foreign_key "posts", "post_categories"
   add_foreign_key "posts", "users"
-  add_foreign_key "prequestionnaires", "course_bookings"
-  add_foreign_key "profiles", "users"
-  add_foreign_key "promo_codes", "course_intakes"
-  add_foreign_key "promo_codes", "users"
-  add_foreign_key "skills", "skill_categories"
   add_foreign_key "survey_forms", "users"
 end
