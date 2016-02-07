@@ -9,8 +9,8 @@ class CourseBookingsController < ApplicationController
   # GET /course_bookings
   # GET /course_bookings.json
   def index
-    @upcoming_intakes = CourseIntake.includes(:course_bookings).upcoming.paginate(:page => params[:page], :per_page => 10)
-    @past_intakes = CourseIntake.includes(:course_bookings).past.paginate(:page => params[:page], :per_page => 10)
+    @upcoming_intakes = CourseIntake.includes(:course, :course_location, course_bookings: :user).upcoming.paginate(:page => params[:page], :per_page => 10)
+    @past_intakes = CourseIntake.includes(:course, :course_location, course_bookings: :user).past.reverse_order
   end
 
   # GET /course_bookings/1
@@ -20,7 +20,7 @@ class CourseBookingsController < ApplicationController
     #   @promo_code = false
     # else
     #   if PromoCode.code_is_valid?(@course_booking.promo_code)
-        
+
 
   end
 
@@ -54,7 +54,7 @@ class CourseBookingsController < ApplicationController
         if @course_booking.price > 0 and @course_booking.price < 1000.0
           format.html { redirect_to payments_path(booking: @course_booking.guid), notice: 'Your course booking was successfully created.' }
         elsif @course_booking.price >= 1000.0
-          format.html { redirect_to choose_payments_path(booking: @course_booking.guid)} 
+          format.html { redirect_to choose_payments_path(booking: @course_booking.guid)}
         else
           BookingMailerJob.new.async.perform(@course_booking.id)
           format.html { redirect_to thanks_path(booking: @course_booking.id), notice: 'Your course booking was successfully created.' }

@@ -6,11 +6,15 @@ class CourseIntake < ActiveRecord::Base
 
   # extend FriendlyId
   # friendly_id :name, use: :slugged
-  
+
   # after_create :add_to_calendar
 
   def self.chron_order
   	order(start_date: :asc)
+  end
+
+  def self.reverse_order
+  	order(start_date: :desc)
   end
 
   def self.open

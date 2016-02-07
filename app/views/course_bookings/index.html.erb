@@ -7,7 +7,7 @@
       <li class="tab col s3"><a href="#past">Past</a></li>
     </ul>
   </div>
-    
+
   <div id="upcoming" class="col s12">
     <ul class="collapsible collection" data-collapsible="accordion">
       <% @upcoming_intakes.each do |upcoming_intake| %>
@@ -15,12 +15,12 @@
         <div class="collapsible-header">
         	<i class="fa fa-<%= upcoming_intake.course.icon %> circle"></i>
         	<span class="title"> </span>
-        	<%= upcoming_intake.course.name %> (<%= upcoming_intake.course_bookings.count %>)
-        	
+        	<%= upcoming_intake.course.name %> [<%= upcoming_intake.start_date.strftime('%d %b %y') %>] (<%= upcoming_intake.course_bookings.count %>)
+
         </div>
         <div class="collapsible-body">
         	<p>
-	        	<i class="fa fa-map-marker"></i> <%= upcoming_intake.course_location.name %> | 
+	        	<i class="fa fa-map-marker"></i> <%= upcoming_intake.course_location.name %> |
 	        	<i class="fa fa-calendar"></i> <%= upcoming_intake.start_date.strftime('%d %b %y') %>
 	        </p>
         	<table>
@@ -61,12 +61,12 @@
         <div class="collapsible-header">
           <i class="fa fa-<%= past_intake.course.icon %> circle"></i>
           <span class="title"> </span>
-          <%= past_intake.course.name %> (<%= past_intake.course_bookings.count %>)
-          
+          <%= past_intake.course.name %> [<%= past_intake.start_date.strftime('%d %b %y') %>] (<%= past_intake.course_bookings.count %>)
+
         </div>
         <div class="collapsible-body">
           <p>
-            <i class="fa fa-map-marker"></i> <%= past_intake.course_location.name %> | 
+            <i class="fa fa-map-marker"></i> <%= past_intake.course_location.name %> |
             <i class="fa fa-calendar"></i> <%= past_intake.start_date.strftime('%d %b %y') %>
           </p>
           <table>
