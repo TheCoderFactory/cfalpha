@@ -56,7 +56,7 @@ class CourseBookingsController < ApplicationController
         elsif @course_booking.price >= 1000.0
           format.html { redirect_to choose_payments_path(booking: @course_booking.guid)}
         else
-          BookingMailerJob.new.async.perform(@course_booking.id)
+          BookingMailerJob.perform_async(@course_booking.id)
           format.html { redirect_to thanks_path(booking: @course_booking.id), notice: 'Your course booking was successfully created.' }
         end
       else

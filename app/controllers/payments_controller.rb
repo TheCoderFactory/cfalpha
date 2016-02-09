@@ -40,7 +40,7 @@ class PaymentsController < ApplicationController
 		  if charge["paid"] == true
 		    @payment = Payment.create(course_booking_id: @course_booking.id, amount: @payment_amount)
 		    @course_booking.mark_as_paid
-		    BookingMailerJob.new.async.perform(@course_booking.id)
+		    BookingMailerJob.perform_async(@course_booking.id)
 		    redirect_to thanks_path(booking: @course_booking.id), :notice => "Thanks"
 		  end
 

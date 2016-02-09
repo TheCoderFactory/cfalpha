@@ -29,16 +29,16 @@ class Enquiry < ActiveRecord::Base
   end
 
   def send_emails
-  	EnquiryMailerJob.new.async.perform(self.id)
+  	EnquiryMailerJob.perform_async(self.id)
   end
 
   def subscribe_to_mailchimp
-  	SubscribeToMailchimpJob.new.async.perform(self.id)
+  	SubscribeToMailchimpJob.perform_async(self.id)
   end
 
   def push_to_hubspot
   	if self.enquiry_type.important
-  		PushToHubspotJob.new.async.perform(self.id)
+  		PushToHubspotJob.perform_async(self.id)
   	end
   end
 

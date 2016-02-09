@@ -14,7 +14,7 @@ class SubscribeToMailchimpJob
   	uri.to_s
   	open(uri)
     if enquiry.enquiry_type.important
-      PushToHubspotJob.new.async.perform(self.id)
+      PushToHubspotJob.perform_async(self.id)
     end
   end
 end

@@ -59,7 +59,7 @@ class EnquiriesController < ApplicationController
   def update
     respond_to do |format|
       if @enquiry.update(enquiry_params)
-        EnquiryReplyMailerJob.new.async.perform(@enquiry.id)
+        EnquiryReplyMailerJob.perform_async(@enquiry.id)
         @enquiry.update_attributes(reply_sent: DateTime.now)
         format.html { redirect_to enquiries_path, notice: 'Enquiry was successfully updated.' }
         format.js
