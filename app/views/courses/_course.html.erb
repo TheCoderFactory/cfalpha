@@ -26,21 +26,21 @@
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">info_outline</i>OVERVIEW</div>
     <div class="collapsible-body white grey-text text-darken-2">
-      <%= course.description.html_safe %>
+      <%= course.description.html_safe if course.description %>
       <br>
     </div>
   </li>
 
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">supervisor_account</i>AUDIENCE</div>
-    <div class="collapsible-body white grey-text text-darken-2"><p><%= course.audience.html_safe %></p></div>
+    <div class="collapsible-body white grey-text text-darken-2"><p><%= course.audience.html_safe if course.audience %></p></div>
   </li>
 
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">tune</i>PRE-REQUISITES</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.prerequisites.html_safe %>
+        <%= course.prerequisites.html_safe if course.prerequisites %>
       </p>
     </div>
   </li>
@@ -49,7 +49,7 @@
     <div class="collapsible-header light-blue white-text"><i class="material-icons">assignment_turned_in</i>OUTCOMES</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.outcomes.html_safe %>
+        <%= course.outcomes.html_safe if course.outcomes %>
       </p>
     </div>
   </li>
@@ -58,7 +58,7 @@
     <div class="collapsible-header light-blue white-text"><i class="material-icons">query_builder</i>FORMAT</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.format.html_safe %>
+        <%= course.format.html_safe if course.format %>
       </p>
     </div>
   </li>
@@ -67,7 +67,7 @@
     <div class="collapsible-header light-blue white-text"><i class="material-icons">local_atm</i>PAYMENT OPTIONS</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.payment.html_safe %>
+        <%= course.payment.html_safe if course.payment %>
       </p>
     </div>
   </li>
@@ -76,7 +76,7 @@
     <div class="collapsible-header light-blue white-text"><i class="material-icons">brightness_3</i>HOMEWORK</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.homework.html_safe %>
+        <%= course.homework.html_safe if course.homework %>
       </p>
     </div>
   </li>
@@ -85,7 +85,7 @@
     <div class="collapsible-header light-blue white-text"><i class="material-icons">list</i>COURSE OUTLINE</div>
     <div class="collapsible-body white grey-text text-darken-2">
       <p>
-        <%= course.modules.html_safe %>
+        <%= course.modules.html_safe if course.modules %>
       </p>
     </div>
   </li>
