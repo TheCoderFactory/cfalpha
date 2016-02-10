@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'coding-workshops', to: 'pages#business'
   get 'coding-bootcamp', to: 'pages#fasttrack'
   get '/courses/digital-leadership', to: redirect('/coding-workshops')
+  get '/learn-to-code/silicon-valley-express', to: redirect('learn-to-code')
   get '/courses/web-app-builder', to: redirect('/coding-courses/learn-web-development')
   get '/courses/part-time-courses/web-app-developer-pt', to: redirect('/coding-courses/learn-web-development')
   get '/courses/workshops/web-design-weekend-workshop', to: redirect('/learn-to-code')
