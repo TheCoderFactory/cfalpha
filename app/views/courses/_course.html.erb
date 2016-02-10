@@ -22,7 +22,7 @@
 <% end %>
 <h4>Program information</h4>
 <ul class="collapsible" data-collapsible="accordion">
-  <% unless course.description.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">info_outline</i>OVERVIEW</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -30,14 +30,12 @@
       <br>
     </div>
   </li>
-  <% end %>
-  <% unless course.audience.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">supervisor_account</i>AUDIENCE</div>
     <div class="collapsible-body white grey-text text-darken-2"><p><%= course.audience.html_safe %></p></div>
   </li>
-  <% end %>
-  <% unless course.prerequisites.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">tune</i>PRE-REQUISITES</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -46,9 +44,7 @@
       </p>
     </div>
   </li>
-  <% end %>
-  
-  <% unless course.outcomes.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">assignment_turned_in</i>OUTCOMES</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -57,8 +53,7 @@
       </p>
     </div>
   </li>
-  <% end %>
-  <% unless course.format.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">query_builder</i>FORMAT</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -67,8 +62,7 @@
       </p>
     </div>
   </li>
-  <% end %>
-  <% unless course.payment.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">local_atm</i>PAYMENT OPTIONS</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -77,8 +71,7 @@
       </p>
     </div>
   </li>
-  <% end %>
-  <% unless course.homework.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">brightness_3</i>HOMEWORK</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -87,8 +80,7 @@
       </p>
     </div>
   </li>
-  <% end %>
-  <% unless course.modules.empty? %>
+
   <li>
     <div class="collapsible-header light-blue white-text"><i class="material-icons">list</i>COURSE OUTLINE</div>
     <div class="collapsible-body white grey-text text-darken-2">
@@ -97,14 +89,9 @@
       </p>
     </div>
   </li>
-  <% end %>
+
 </ul>
-<% if course.course_intakes.upcoming.open.any? %>
- <!--  <h4>Next course starts soon (<%# distance_of_time_in_words(course.course_intakes.next.start_date, Date.today) %>)</h4> -->
-  <ul class="collection">
-    <%= render partial: 'course_intakes/upcoming_intakes', collection: course.course_intakes.upcoming.open, as: :intake %>
-  </ul>
-<% end %>
+
 <%= link_to "<i class='fa fa-question-circle right'></i> Enquire about this course".html_safe, new_enquiry_path(etype: 'partTime'), class: 'light-blue btn waves-light' %>
 <br><br>
 </div>
