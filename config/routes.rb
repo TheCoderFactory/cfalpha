@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'blog#index'
   get 'learn-to-code', to: 'pages#beginner'
   get 'coding-courses', to: 'pages#part_time'
-  get 'coding-workshops', to: 'pages#business'
+  get 'coding-workshops-for-business-and-schools', to: 'pages#business'
   get 'coding-bootcamp', to: 'pages#fasttrack'
   get '/courses/digital-leadership', to: redirect('/coding-workshops')
   get '/learn-to-code/silicon-valley-express', to: redirect('learn-to-code')
