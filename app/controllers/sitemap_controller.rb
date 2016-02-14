@@ -12,7 +12,7 @@ class SitemapController < ApplicationController
       		  	learn_to_code_url,
 							coding_courses_url,
       		  	courses_web_app_builder_url,
-      		  	coding_workshops_for_businesses_url,
+      		  	coding_workshops_for_business_and_schools_url,
       		  	# fast_track_intensive_bootcamp_url,
       		  	# fast_track_url,
       		  	# coding_for_schools_url,
