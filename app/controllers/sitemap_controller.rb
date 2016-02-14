@@ -17,7 +17,7 @@ class SitemapController < ApplicationController
       		  	# fast_track_url,
       		  	# coding_for_schools_url,
       		  	community_url,
-      		  	about_url,
+      		  	coding_academy_url,
       		  	contact_url,
       		  	privacy_url
       		 	]
