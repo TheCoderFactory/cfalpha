@@ -34,6 +34,8 @@ gem 'httparty'
 gem 'paper_trail', '~> 4.0.0'
 gem "awesome_print", require:"ap"
 gem 'awesome_rails_console'
+gem 'google_drive'
+gem 'google-api-client', '~> 0.7.1'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
