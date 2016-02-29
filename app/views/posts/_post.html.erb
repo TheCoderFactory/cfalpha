@@ -12,9 +12,9 @@
           <img src="<%= asset_path 'pete.jpg' %>" alt="<%= post.user.name if post.user %>">
           <%= post.user.name if post.user %>
         </div>
-        <div class="chip">
-          <%= post.published_date.strftime('%d %B %Y') %>
-        </div>
+        <!-- <div class="chip">
+          <%# post.published_date.strftime('%d %B %Y') %>
+        </div> -->
           <hr>
         <p class="flow-text"><%= post.lead %></p>
       </div>
