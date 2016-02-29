@@ -1,55 +1,54 @@
-<section class="light-blue" id="top-section">
-  <div class="container">
-    <h1>Coder Factory is the place to go to learn coding.</h1>
-    <h3>Have fun</h3>
-    <p class="flow-text">We want you to have fun while you learn. Sitting in a classroom shouldn't be boring. Coder Factory's passionate teachers share their love of coding with you - but be warned, it's contagious!</p>
-    <h3>Learn fast</h3>
-    <p class="flow-text">Tired of trying to learn on your own at home? Our students have all been there. Now they're out building great applications since they decided to learn the fast and fun way at Coder Factory.</p>
-
-  </div>
-</section>
-<section class="grey lighten-2">
+<%= content_for :title, 'Meet our Team' %>
+<%= content_for :description, 'Meet our team here at Coderfacotry.' %>
 <div class="container">
-  <h2>The Coder Factory team</h2>
- 
+  <div class="row">
+    <div class="col s12">
+      <h1>About Coder Factory Academy</h1>
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title" id="logo-blue-text">OUR STORY</span>
+            <p>At Coder Factory Academy, we’re using our innovative framework as Australia’s only US-style accredited coding bootcamp to build a community of empowered individuals with global employment opportunities. Through our full-time immersive program, part-time web app development course, and coding classes and workshops, we equip our students with the in-demand skills they need to pursue their dream careers in tech. Established in 2013 as a place where anyone can learn the basics of coding and web programming, Coder Factory Academy is an educational institution granting people with technological aspirations the knowledge and skillsets they need to bring even the most far-fetched visions to life. </p>
+            <br>
+            <span class="card-title" id="logo-blue-text">OUR MISSION</span>
+            <p>To become a beacon for the global advancement of accessible and affordable technology education.<p>
+            <br>
+            <span class="card-title" id="logo-blue-text"></i>OUR COMMITMENT TO QUALITY</span>
+            <p>Coder Factory Academy has partnered with the Academy of Information Technology (AIT) – Sydney’s first specialist provider of creative media education – to provide Australia’s first nationally accredited coding bootcamp. Using AIT’s structured and well-resourced framework, and the backing of the Australian Skills Quality Authority (ASQA), Coder Factory Academy offers a fast-track US-style coding bootcamp education and high quality Diploma in Software Development with VET FEE-HELP tuition loans available.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Our Executive Team</h2>
   <div class="row">
     <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= asset_path 'pete.jpg' %>">
-        </div>
+      <center><img src="<%= asset_path 'pete.jpg' %>" class="responsive-img circle z-depth-1"></center>
+      <div class="card" id="team-cards">
         <div class="card-content">
-          <span class="card-title light-blue-text">Pete Argent</span>
-          <p>Director and Head Teacher</p>
-          <p><a href="https://www.linkedin.com/in/peterargent" target="_blank">Connect with me on LinkedIn</a></p>
+          <span class="card-title" id="logo-blue-text">Pete Argent</span>
+          <p><strong>Academic Director</strong></p>
+          <p>Pete is passionate about technology and encouraging the community to be involved in creating their future. After a career at IBM, Pete now lives to teach coding and share his love of tech.</p>
         </div>
       </div>
     </div>
     <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= asset_path 'raman.jpg' %>">
-        </div>
+      <center><img src="<%= asset_path 'raman.jpg' %>" class="responsive-img circle z-depth-1"></center>
+      <div class="card" id="team-cards">
         <div class="card-content">
-          <span class="card-title light-blue-text">Raman Nambiar</span>
-          <p>Strategic Partnerships</p>
-          <p><%= link_to 'Get in touch with me', new_enquiry_path(etype: 'partnership') %></p>
+          <span class="card-title" id="logo-blue-text">Raman Nambiar</span>
+          <p><strong>Managing Director</strong></p>
+          <p>Raman has a career spanning education, executive recruitment and technology in a wide variety of industries including hospitality, security and IT. He lives between Australia and the USA and is passionate about opening and expanding the access to technology education world-wide.</p>
         </div>
       </div>
     </div>
     <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= asset_path 'dan.jpg' %>">
-        </div>
+      <center><img src="<%= asset_path 'gabriel.jpg' %>" class="responsive-img circle z-depth-1"></center>
+      <div class="card" id="team-cards">
         <div class="card-content">
-          <span class="card-title light-blue-text">'Twitter Dan' Siepen</span>
-          <p>Social Media Maestro</p>
-          <p><a href="https://twitter.com/dansiepen" target="_blank">Follow me on Twitter</a></p>
+          <span class="card-title" id="logo-blue-text">Gabriel Providel</span>
+          <p><strong>General Manager of AIT</strong></p>
+          <p>Gabriel is an experienced senior executive with a strong track record in education, creative and technology businesses. He is passionate about all things digital and has had the opportunity to live, study and work across Australia, USA, Singapore, Spain, Chile and the Middle East.</p>
         </div>
       </div>
     </div>
   </div>
-
 </div>
-</section>
