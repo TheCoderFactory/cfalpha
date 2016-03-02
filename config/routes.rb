@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get :apply
     end
   end
+  get 'reminder_email', to: 'course_bookings#reminder_email'
   resources :course_bookings do
     collection do
       get :confirm
