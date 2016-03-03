@@ -2,6 +2,12 @@ class CourseBookingsController < ApplicationController
   before_action :set_course_booking, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: [:new, :confirm]
 
+  def reminder_email
+    # @course_intake = CourseIntake.find(params[:course_intake_id])
+    ReminderMailerJob.new.async.perform(params[:course_intake_id])
+    redirect_to :back
+  end
+
   def confirm
     @course_intake = CourseIntake.find(params[:intake_id])
     @course_booking = CourseBooking.new

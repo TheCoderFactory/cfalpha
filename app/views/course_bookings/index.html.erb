@@ -22,6 +22,8 @@
         	<p>
 	        	<i class="fa fa-map-marker"></i> <%= upcoming_intake.course_location.name %> |
 	        	<i class="fa fa-calendar"></i> <%= upcoming_intake.start_date.strftime('%d %b %y') %>
+            | <%= link_to '<i class="fa fa-envelope"></i> Send reminder email'.html_safe, reminder_email_path(course_intake_id: upcoming_intake.id), data: { confirm: 'You are sending ' + pluralize(upcoming_intake.course_bookings.where(reminder_send: false).count.to_s, 'email') + '. Are you sure?' }, class: 'white-text' %>
+
 	        </p>
         	<table>
         	  <thead>
@@ -30,6 +32,7 @@
         	      <th>Price</th>
         	      <th>Promo code</th>
         	      <th>Paid</th>
+                <th>Reminder</th>
         	    </tr>
         	  </thead>
 
@@ -40,6 +43,7 @@
         	        <td><%= course_booking.price %></td>
         	        <td><%= course_booking.promo_code %></td>
         	        <td><%= course_booking.paid %></td>
+                  <td><%= '<i class="fa fa-envelope"></i>'.html_safe if course_booking.reminder_send %></td>
         	      </tr>
         	    <% end %>
         	    <tr>
