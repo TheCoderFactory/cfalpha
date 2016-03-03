@@ -5,11 +5,15 @@
 <%= render 'layouts/top_bar' %>
 <% @header_title = "CREATE the FUTURE" %>
 <% @header_tagline = false %>
+
 <section class="grey lighten-2">
   <div class="container">
-    <h2>Coding is Fun</h2>
-    <h4>Upcoming courses</h4>
     <ul class="collection hoverable z-depth-3">
+      <li class="collection-item avatar valign-wrapper"> 
+        <p>
+          <h3 class="grey-text text-darken-1">Upcoming courses</h3>
+        </p>
+      </li>
       <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
     </ul>
   </div>
@@ -27,8 +31,8 @@
 <div class="container">
 <%= render 'layouts/club' %>
 </div>
-
 </section>
+
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="white">
 <div class="container">
