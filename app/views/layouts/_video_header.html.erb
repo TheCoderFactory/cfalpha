@@ -2,13 +2,12 @@
   <div class="container">
   	<div class="row">
   		<div class="col m12 hide-on-small-only center">
-          <svg width="100%" height="120%" style="font-family: 'minerva-modern';">
-            <text fill="black" fill-opacity="0.2" font-weight="800" font-size="600%" x="500" y="100" text-anchor="middle" stroke="#fff" stroke-width="2px"><%= @header_title %></text>
-          </svg>
+        <div class="align-center" id="customheader">
+          <%= @header_title %>
+        </div>
           <% if @header_tagline %>
             <h3 class="light-blue tagline"><%= @header_tagline %></h3>
           <% end %>
-        
         <% if current_page?(root_path) %>
           <%= render 'layouts/header_boxes' %>
         <% else %>

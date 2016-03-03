@@ -12,6 +12,7 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Comfortaa', roboto, sans-serif;
+  color: #616161;
 }
 .collapsible-body p {
     margin: 0;
@@ -70,8 +71,9 @@ html {
 }
 }
 #tech-heroes {
-  background: url(<%= asset_path 'heroes2.jpg' %>);
-  height: 400px;
+  background: url(<%= asset_path 'heroes.jpg' %>);
+  height: 500px;
+  width:auto;
   background-size: cover;
 }
 #header-boxes {
@@ -243,4 +245,14 @@ main {
 }
 strong {
   font-weight: bold;
+}
+#customheader {
+  text-align: center;
+  font-size:600%;
+  stroke:#fff;
+  stroke-width:2px;
+  color: white;
+  font-family:'Comfortaa';
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px red; //#03a9f4;
 }

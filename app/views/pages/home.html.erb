@@ -6,31 +6,11 @@
 <% @header_title = "CREATE the FUTURE" %>
 <% @header_tagline = false %>
 
-<section class="grey lighten-2">
-  <div class="container">
-    <ul class="collection hoverable z-depth-3">
-      <li class="collection-item avatar valign-wrapper"> 
-        <p>
-          <h3 class="grey-text text-darken-1">Upcoming courses</h3>
-        </p>
-      </li>
-      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-    </ul>
-  </div>
-</section>
-
 <!-- TECH HEROES -->
 <section id="tech-heroes">
-<div class="container">
-<h1 class="center-align white-text">Be a tech hero!</h1>
-</div>
-</section>
-
-<!-- COMMUNITY -->
-<section class="grey lighten-2">
-<div class="container">
-<%= render 'layouts/club' %>
-</div>
+  <div class="container">
+    <h1 class="center-align white-text">Become a tech hero!</h1>
+  </div>
 </section>
 
 <!-- TESTIMONIALS -->
@@ -56,20 +36,6 @@
           <p>- Héloïse Lakermance</p>
         </div>
       </li>
-      <!-- <li>
-        <img src="http://lorempixel.com/580/250/nature/3">
-        <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/4">
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li> -->
     </ul>
   </div>
   </div></div></div>
@@ -97,14 +63,33 @@
   </div>
 </section>
 
+<!-- PARTNERS -->
+<section class="white hide-on-small-only">
+<%= render 'layouts/partners' %>
+</section>
+<br>
+<hr>
+
+<!-- COURSES -->
+<section class="grey lighten-2">
+  <div class="container">
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h3>Upcoming Courses</h3></li>
+    </ul>
+    <ul class="collection with-header  hoverable z-depth-2">
+      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+    </ul>
+  </div>
+</section>
+
 <!-- COURSES -->
 <section class="grey lighten-2">
 <%= render 'courses' %>
 </section>
 
-<!-- PARTNERS -->
-<section class="white hide-on-small-only">
-<%= render 'layouts/partners' %>
+<!-- COMMUNITY -->
+<section class="grey lighten-2">
+<div class="container">
+<%= render 'layouts/club' %>
+</div>
 </section>
-
-<!-- COURSES -->
