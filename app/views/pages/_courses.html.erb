@@ -1,12 +1,11 @@
 <div class="container">
    <ul class="collection with-header z-depth-3">
-      <li class="collection-header"><h3>Coder Factory Workshops</h3></li>
+      <li class="collection-header"><h3><i class="fa fa-angle-right light-blue-text"></i> Coder Factory Workshops</h3></li>
   </ul>
   <div class="row">
     <% @workshops.each do |course| %>
         <div class="col s6">
           <div class="card grey-text text-darken-2 hoverable z-depth-2">
-            
             <div class="card-content" style="height: 200px;">
               <span class="card-title grey-text text-darken-2"><i class="fa fa-<%= course.icon %>"></i> <%= course.name %> 
               </span><br>
@@ -21,9 +20,11 @@
       
     <% end %>
   </div>
-  <ul class="collection with-header z-depth-3">
-      <li class="collection-header"><h3>Part Time Courses</h3></li>
-  </ul>
+  <div class="col s6">
+    <ul class="collection with-header z-depth-3">
+        <li class="collection-header"><h3><i class="fa fa-angle-right light-blue-text"></i> Part Time Courses</h3></li>
+    </ul>
+  </div>
   <div class="row">
     <% @part_time_courses.each do |course| %>
        
@@ -44,8 +45,8 @@
       
     <% end %>
   </div>
-  <ul class="collection with-header z-depth-3">
-      <li class="collection-header"><h3>Business Workshops</h3></li>
+  <ul class="collection with-header col s8 z-depth-3">
+      <li class="collection-header"><h3><i class="fa fa-angle-right light-blue-text"></i> Business Workshops</h3></li>
   </ul>
   <div class="row">
     <% @business_courses.each do |course| %>
@@ -68,7 +69,7 @@
     <% end %>
   </div>
   <ul class="collection with-header z-depth-3">
-      <li class="collection-header"><h3>Full Time Intensive</h3></li>
+      <li class="collection-header"><h3><i class="fa fa-angle-right light-blue-text"></i> Full Time Intensive</h3></li>
   </ul>
   <div class="row">
     <% @fast_track.each do |course| %>
