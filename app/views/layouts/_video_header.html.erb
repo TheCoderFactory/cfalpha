@@ -5,9 +5,16 @@
         <div class="align-center" id="customheader">
           <%= @header_title %>
         </div>
-          <% if @header_tagline %>
-            <h3 class="light-blue tagline"><%= @header_tagline %></h3>
-          <% end %>
+
+        <% if @header_tagline %>
+
+          <div class="card semi-transparent-header-card2 header-box center">
+            <div class="card-content white-text">
+              <h4 class="center-align capitals orange-text"><i><%= @header_tagline %></i></h4>           
+            </div>
+          </div>
+        <% end %>
+
         <% if current_page?(root_path) %>
           <%= render 'layouts/header_boxes' %>
         <% else %>
