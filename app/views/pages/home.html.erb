@@ -5,74 +5,8 @@
 <%= render 'layouts/top_bar' %>
 <% @header_title = "CREATE the FUTURE" %>
 <% @header_tagline = false %>
-
-<!-- TECH HEROES -->
-<section id="tech-heroes">
-  <div class="container">
-    <h2 class="center-align white-text">Become a tech hero!</h2>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="white">
-<div class="container">
-<h2>What our students say...</h2>
-<div class="row"><div class="col s12">
-  <div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="<%= asset_path 'julia.jpg' %>">
-        <div class="caption right-align">     
-          <h3>&nbsp;</h3>
-          <blockquote class="blockquote-reverse right-align">
-          <p class="light grey-text text-lighten-3 flow-text">Learning to code changed my life.<br>I live half the year<br> in Bali as a digital nomad.</p>
-          </blockquote>
-          <p>- Julia Clavien, Web Designer</p>
-        </div>
-      </li>
-      <li>
-        <img src="<%= asset_path 'heloise.jpg' %>">
-        <div class="caption left-align">
-          <blockquote class="left-align">
-          <p class="light grey-text text-lighten-3 flow-text">If you want to work in tech,<br> you need to know code. <br>Coder Factory taught me how.</p>
-          </blockquote>
-          <p>- Héloïse Lakermance</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-  </div></div></div>
-</section>
-
-<!-- INSIDE CODER FACTORY -->
-<section id="inside-cf" class="grey darken-4">
-  <div class="container">
-    <h2 class="white-text">Inside Coder Factory</h2>
-    <div class="row">
-      <div class="col s12 m6" id="inside-coder-factory">
-        <a href="https://www.youtube.com/watch?v=d_09xRdOMlU" target="_blank">
-          <img src="<%= asset_path 'vid.jpg' %>" class="responsive-img ">
-          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Hear from our students.</p>
-        </a>
-      </div>
-      
-      <div class="col s12 m6">
-        <a href="https://www.youtube.com/watch?v=OW1djJd9Fu0" target="_blank">
-          <img src="<%= asset_path 'learn-to-code.jpg' %>" class="responsive-img">
-          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Why you should learn to code.</p>
-        </a>
-      </div>
-      
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section class="white hide-on-small-only">
-<%= render 'layouts/partners' %>
-</section>
 <br>
-<hr>
-
+<!-- WHITE PAGE CONTENT -->
 <!-- COURSES -->
 <section class="grey lighten-2">
   <div class="container">
@@ -95,4 +29,68 @@
 <div class="container">
 <%= render 'layouts/club' %>
 </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="white">
+<div class="container">
+<h2>What our students say...</h2>
+<div class="row"><div class="col s12">
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="<%= asset_path 'julia.jpg' %>">
+        <div class="caption right-align">     
+          <h3>&nbsp;</h3>
+          <blockquote class="blockquote-reverse right-align">
+          <p class="light grey-text text-lighten-3 flow-text">Learning to code changed my life.<br>I lived half the year<br> in Bali as a digital nomad.</p>
+          </blockquote>
+          <p>- Julia Clavien, Web Designer</p>
+        </div>
+      </li>
+      <li>
+        <img src="<%= asset_path 'heloise.jpg' %>">
+        <div class="caption left-align">
+          <blockquote class="left-align">
+          <p class="light grey-text text-lighten-3 flow-text">If you want to work in tech,<br> you need to know code. <br>Coder Factory taught me how.</p>
+          </blockquote>
+          <p>- Héloïse Lakermance</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div></div></div>
+</section>
+
+<!-- TECH HEROES -->
+<section id="tech-heroes">
+  <div class="container">
+    <h2 class="center-align white-text">Become a tech hero!</h2>
+  </div>
+</section>
+
+<!-- INSIDE CODER FACTORY -->
+<section id="inside-cf" class="grey darken-4">
+  <div class="container">
+    <h2 class="white-text">Inside Coder Factory</h2>
+    <div class="row">
+      <div class="col s12 m6" id="inside-coder-factory">
+        <a href="https://www.youtube.com/watch?v=d_09xRdOMlU" target="_blank">
+          <img src="<%= asset_path 'vid.jpg' %>" class="responsive-img ">
+          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Hear from our students.</p>
+        </a>
+      </div>
+      
+      <div class="col s12 m6">
+        <a href="https://www.youtube.com/watch?v=OW1djJd9Fu0" target="_blank">
+          <img src="<%= asset_path 'learn-to-code.jpg' %>" class="responsive-img">
+          <p class="flow-text center-align"><i class="fa fa-play-circle"></i> Why you should learn to code.</p>
+        </a>
+      </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="white hide-on-small-only">
+<%= render 'layouts/partners' %>
 </section>
