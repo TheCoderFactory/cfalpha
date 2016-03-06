@@ -1,6 +1,6 @@
 <%= content_for :title, 'Contact Coder Factory' %>
 <%= content_for :description, "Get in touch anyway you can. We're friendly and want to help!" %>
-<section id="top-section" class="blue">
+<section id="top-section">
 <div class="container">
   <div class="row">
     <div class="col s12 m12">
@@ -27,7 +27,9 @@
         <div class="col s12 m8">
           <div class="card z-depth-3 hoverable">
             <div class="card-content grey-text text-darken-2">
-            <span class="card-title grey-text text-darken-2">Enquiry Form</span>
+            <span class="card-title">
+              <h4 class="orange-text">Enquiry Form</h4><hr>
+            </span>
             <%= render 'enquiries/form' %>
             </div>
           </div>
