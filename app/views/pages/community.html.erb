@@ -14,14 +14,6 @@
 </div>
 </section>
 
-<% unless user_signed_in? %>
-<section class="grey lighten-2">
-<div class="container">
-<%= render 'layouts/club' %>
-</div>
-</section>
-<% end %>
-
 <br>
 <section>
 	<div class="card">
@@ -43,3 +35,11 @@
 	</div>
 </section>
 <br>
+
+<% unless user_signed_in? %>
+<section class="grey lighten-2">
+<div class="container">
+<%= render 'layouts/club' %>
+</div>
+</section>
+<% end %>
