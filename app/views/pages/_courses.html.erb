@@ -5,10 +5,17 @@
         <li class="collection-item ">
           <span class="capitals"><h6><i class="fa fa-<%=course.icon %>"> </i> <%= course.name %> <small class="light-blue-text" style="display:inline;text-transform: uppercase;"> <%= course.course_type.name if course.course_type %></small></h6></span>
 
-          <div class="row">
+          <div class="row hide-on-small-only">
             <div class="col s8"><p><i><%= course.tagline %></i></p></div>
             <div class="col s4 capitals right-align">
               <%= link_to "See more details", course_path(course) , class: 'orange white-text waves-effect waves-light btn btn-large' %>
+            </div>
+          </div>
+          <div class="row hide-on-med-and-up">
+            <div class="col s8"><p><i><%= course.tagline %></i></p></div>
+            <br>
+            <div class="col s12 capitals right-align">
+              <%= link_to "More details", course_path(course) , class: 'orange white-text waves-effect waves-light btn' %>
             </div>
           </div>
         </li>
@@ -20,11 +27,17 @@
     <% @part_time_courses.each do |course| %>
       <li class="collection-item ">
         <span class="capitals"><h6><i class="fa fa-<%=course.icon %>"> </i> <%= course.name %> <small class="light-blue-text" style="display:inline;text-transform: uppercase;"> <%= course.course_type.name if course.course_type %></small></h6></span>
-
-        <div class="row">
+        <div class="row hide-on-small-only">
           <div class="col s8"><p><i><%= course.tagline %></i></p></div>
           <div class="col s4 capitals right-align">
             <%= link_to "See more details", course_path(course) , class: 'orange white-text waves-effect waves-light btn btn-large' %>
+          </div>
+        </div>
+        <div class="row hide-on-med-and-up">
+          <div class="col s8"><p><i><%= course.tagline %></i></p></div>
+          <br>
+          <div class="col s12 capitals right-align">
+            <%= link_to "More details", course_path(course) , class: 'orange white-text waves-effect waves-light btn' %>
           </div>
         </div>
       </li>
@@ -37,10 +50,17 @@
       <li class="collection-item ">
         <span class="capitals"><h6><i class="fa fa-<%=course.icon %>"> </i> <%= course.name %> <small class="light-blue-text" style="display:inline;text-transform: uppercase;"> <%= course.course_type.name if course.course_type %></small></h6></span>
 
-        <div class="row">
+        <div class="row hide-on-small-only">
           <div class="col s8"><p><i><%= course.tagline %></i></p></div>
           <div class="col s4 capitals right-align">
             <%= link_to "See more details", course_path(course) , class: 'orange white-text waves-effect waves-light btn btn-large' %>
+          </div>
+        </div>
+        <div class="row hide-on-med-and-up">
+          <div class="col s8"><p><i><%= course.tagline %></i></p></div>
+          <br>
+          <div class="col s12 capitals right-align">
+            <%= link_to "More details", course_path(course) , class: 'orange white-text waves-effect waves-light btn' %>
           </div>
         </div>
       </li>
@@ -53,10 +73,17 @@
       <li class="collection-item ">
         <span class="capitals"><h6><i class="fa fa-<%=course.icon %>"> </i> <%= course.name %> <small class="light-blue-text" style="display:inline;text-transform: uppercase;"> <%= course.course_type.name if course.course_type %></small></h6></span>
 
-        <div class="row">
+        <div class="row hide-on-small-only">
           <div class="col s8"><p><i><%= course.tagline %></i></p></div>
           <div class="col s4 capitals right-align">
             <%= link_to "See more details", course_path(course) , class: 'orange white-text waves-effect waves-light btn btn-large' %>
+          </div>
+        </div>
+        <div class="row hide-on-med-and-up">
+          <div class="col s8"><p><i><%= course.tagline %></i></p></div>
+          <br>
+          <div class="col s12 capitals right-align">
+            <%= link_to "More details", course_path(course) , class: 'orange white-text waves-effect waves-light btn' %>
           </div>
         </div>
       </li>
