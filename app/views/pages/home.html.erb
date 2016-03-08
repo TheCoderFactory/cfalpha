@@ -10,10 +10,8 @@
 <!-- COURSES -->
 <section class="grey lighten-2">
   <div class="container">
-    <ul class="collection with-header z-depth-3">
-        <li class="collection-header"><h3><i class="fa fa-navicon light-blue-text"></i> Upcoming Courses</h3></li>
-    </ul>
     <ul class="collection with-header  hoverable z-depth-1">
+      <li class="collection-header"><h3><i class="fa fa-calendar-o light-blue-text"></i> Upcoming Courses</h3></li>
       <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
     </ul>
   </div>
