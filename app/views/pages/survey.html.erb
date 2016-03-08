@@ -1,0 +1,16 @@
+<section class="grey lighten-2">
+  <div class="container">
+    <ul class="collection with-header  hoverable z-depth-1">
+    	<%if user_signed_in? %>
+	      <li class="collection-header"><h3><i class="fa fa-edit light-blue-text"></i> Fill Out Our Survey</h3></li>
+
+	    <% elsif %>
+	    	<li class="collection-header center-align"><h3> Please Login To Fill Out the Survey </h3></li>
+	    	<li class="collection-item center-align">
+	    		<h1><i class="fa fa-warning orange-text" style="font-size:200%"></i></h1>
+				</li>
+	    <% end %>
+    </ul>
+    <iframe src="https://docs.google.com/a/coderfactory.com/forms/d/1JWNSFnO211E4E92n9QbU9dgi-RRR_mjXyrgmaywqH-0/viewform?embedded=true" height="4250px" width="100%">Your Browser Does Not Support iFrames...</iframe>
+  </div>
+</section>

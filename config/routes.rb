@@ -64,5 +64,6 @@ Rails.application.routes.draw do
   get 'thanks', to: 'pages#thanks'
   get 'privacy', to: 'pages#privacy'
   get 'community', to: 'pages#community'
+  get 'survey', to: 'pages#survey'
   resources :users
 end
