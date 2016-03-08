@@ -1,14 +1,14 @@
-<section class="light-blue" id="top-section">
+<section id="top-section">
 	<div class="container">
 		<div class="card grey-text text-darken-2">
 			<div class="card-content">
 
 				<!-- JOIN CLUB -->
 				<% if params[:welcome] %>
-					<h2>Welcome <%= @user.first_name %></h2>
-					<p class="flow-text">It's great to have you in the Coder Factory Club.</p>
+					<h2 class="orange-text">Welcome <%= @user.first_name %></h2><hr>
+					<p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
 					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
-					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p>
+					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p><br>
 
 					<ul class="collection hoverable z-depth-3">
 			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
