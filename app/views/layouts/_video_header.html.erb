@@ -7,7 +7,6 @@
         </div>
 
         <% if @header_tagline %>
-
           <div class="card semi-transparent-header-card2 header-box center">
             <div class="card-content white-text">
               <h4 class="center-align capitals orange-text"><i><%= @header_tagline %></i></h4>           
@@ -25,9 +24,25 @@
       </div>
       <div class="hide-on-med-and-up">
         <br>
-        <h1 class="center-align" style="color:white;"><%= @header_title %><br><i class="material-icons medium">keyboard_arrow_down</i></h1>
+        <h1 class="center-align" style="color:white;"><%= @header_title %></h1>
       </div>
-      
+      <% if @header_tagline %>
+      <div class="card semi-transparent-header-card2 header-box center">
+        <div class="card-content white-text">
+          <h4 class="center-align capitals orange-text flow-text"><i><%= @header_tagline %></i></h4>           
+        </div>
+      </div>
+      <% end %>
+      <% if current_page?(root_path) %>
+        <%= render 'layouts/header_boxes' %>
+        <div class="down-arrow center-align">
+          <br><br><i class="material-icons medium white-text">keyboard_arrow_down</i>
+        </div>
+      <% else %>
+        <div class="down-arrow center-align">
+          <br><br><i class="material-icons medium white-text">keyboard_arrow_down</i>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
