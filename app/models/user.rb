@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
 
   after_create :check_for_enquiries, :create_promo_code
 
+validates :first_name, presence: true
+validates :last_name, presence: true
+
   def check_for_enquiries
     @enquiries = Enquiry.where(email: self.email)
     @enquiries.each do |enquiry|
