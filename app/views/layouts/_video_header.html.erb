@@ -5,7 +5,6 @@
         <div class="align-center" id="customheader">
           <%= @header_title %>
         </div>
-
         <% if @header_tagline %>
           <div class="card semi-transparent-header-card2 header-box center">
             <div class="card-content white-text">
@@ -13,7 +12,6 @@
             </div>
           </div>
         <% end %>
-
         <% if current_page?(root_path) %>
           <%= render 'layouts/header_boxes' %>
         <% else %>
@@ -23,7 +21,6 @@
         <% end %>
       </div>
       <div class="hide-on-med-and-up">
-        <br>
         <h1 class="center-align" style="color:white;"><%= @header_title %></h1>
         <% if @header_tagline %>
         <div class="card semi-transparent-header-card2 header-box center">
