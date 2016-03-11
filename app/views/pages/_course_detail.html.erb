@@ -24,7 +24,11 @@
           <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
         </ul>
         <p><%= link_to 'Find out more', course_path(course_detail.id), class: 'btn light-blue' %>
-        <%= link_to 'Enquire about this course', new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %></p>
+        <%= link_to 'Enquire about this course', new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %>
+        <% if !course_detail.download_option.blank? %>
+          <a class="green white-text btn" href='<%course_detail.download_option%>'><i class="fa fa-cloud-download"></i> Download Package</a>
+        <% end %>
+        </p>
       </div>
     </div>
   </div>
@@ -43,6 +47,11 @@
       <ul class="collection">
         <%= render partial: 'course_intakes/upcoming_intakes', collection: course_detail.course_intakes.upcoming.open, as: :intake %>
       </ul>
+      <%= link_to '<i class="fa fa-info-circle"></i>'.html_safe, course_path(course_detail.id), class: 'btn light-blue' %>
+      <%= link_to '<i class="fa fa-envelope"></i>'.html_safe, new_enquiry_path(etype: course_detail.course_type.name), class: 'btn light-blue' %>
+      <% if !course_detail.download_option.blank? %>
+        <a class="green white-text btn" href='<%course_detail.download_option%>'><i class="fa fa-cloud-download"></i></a>
+      <% end %>
     </div>
   </div>
 </div>

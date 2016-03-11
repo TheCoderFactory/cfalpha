@@ -13,9 +13,10 @@
     <%= f.input :outcomes %>
     <%= f.input :format %>
     <%= f.input :payment %> <!--, input_html: {value: f.object.homework || 'Enquire for additional payment information'}%> -->
-    <%= f.input :homework %> <!-- input_html: {value: f.object.homework || 'No homework specified'}%> -->
-    <%= f.input :assessments %> <!-- Links to an image -->
-    <%= f.input :modules , input_html: {value: f.object.homework || 'No modules specified'}%>
+    <%= f.input :homework %> <!-- ,input_html: {value: f.object.homework || 'No homework specified'}%> -->
+    <%= f.input :assessments %> <!-- Links to an image.-->
+    <%= f.input :modules %> <!--, input_html: {value: f.object.homework || 'No modules specified'}%> -->
+    <%= f.input :download_option %>
 
     <input value="0" type="hidden" name="course[active]" />
     
