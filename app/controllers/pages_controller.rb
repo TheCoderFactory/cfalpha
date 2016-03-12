@@ -70,6 +70,7 @@ class PagesController < ApplicationController
   end
 
   def thanks
+    @user = 0
     if params[:welcome]
       @user = User.find(params[:welcome])
     elsif params[:booking]

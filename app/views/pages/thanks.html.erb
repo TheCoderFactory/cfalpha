@@ -5,7 +5,10 @@
 
 				<!-- JOIN CLUB -->
 				<% if params[:welcome] %>
-					<h2 class="orange-text">Welcome <% if @user.name then @user.first_name end%></h2><hr>
+					<h2 class="orange-text">Welcome
+					<% if !@user.first_name.blank? %>
+						<% @user.first_name %>
+					<% end %></h2><hr>
 					<p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
 					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
 					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p><br>
@@ -28,7 +31,7 @@
 					<p>Also check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
 					<h4>More upcoming courses</h4>
 					<ul class="collection">
-			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: boupcoming_course_intakes, as: :intake %>
 			    </ul>
 				<% end %>
 
