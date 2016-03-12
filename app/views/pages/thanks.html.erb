@@ -6,9 +6,9 @@
 				<!-- JOIN CLUB -->
 				<% if params[:welcome] %>
 					<h2 class="orange-text">Welcome
-					<%# if !@user.first_name.blank? %>
-						<%# @user.first_name %>
-					<%# end %></h2><hr>
+					<% unless @user.nil? %>
+					  <%= @user.first_name %>
+					<% end %></h2><hr>
 					<p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
 					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
 					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p><br>
