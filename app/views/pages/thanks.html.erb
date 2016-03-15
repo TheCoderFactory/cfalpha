@@ -7,7 +7,9 @@
 				<% if params[:welcome] %>
 					<h2 class="orange-text">Welcome
 					<% unless @user.nil? %>
-					  <%= @user.first_name %>
+						<% if @user.first_name.present? %>
+					  	<%= @user.first_name %>
+					  <% end %>
 					<% end %></h2><hr>
 					<p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
 					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
@@ -20,11 +22,12 @@
 
 				<!-- NEW COURSE BOOKING -->
 				<% if params[:booking] %>
-					<h2>Welcome 
-					<%unless current_user.first_name.blank? %>
-						<%= current_user.first_name %>
-					<% end %>
-					</h2>
+					<h2 class="orange-text">Welcome
+					<% if current_user %>
+						<% if current_user.first_name.present? %>
+					  	<%= current_user.first_name %>
+					  <% end %>
+					<% end %></h2><hr>
 					<p class="flow-text">We're looking forward to having you in class.</p>
 					<br>
 					<p class="flow-text">Check your inbox. You will receive a confirmation of your booking with the details of the course including location, dates and times.</p>
