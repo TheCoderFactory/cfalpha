@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 validates :first_name, presence: true
 validates :last_name, presence: true
 
+  require 'csv'
+
   def check_for_enquiries
     @enquiries = Enquiry.where(email: self.email)
     @enquiries.each do |enquiry|
@@ -32,5 +34,18 @@ validates :last_name, presence: true
 
   def create_promo_code
     WelcomeMailerJob.new.async.perform(self.id)
+  end
+
+  #Used to export Users to csv
+  def self.to_csv
+    attributes = %w{id email name}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
   end
 end

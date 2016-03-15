@@ -11,30 +11,30 @@
     <% @role_types.each do |role_type| %>
       <div id="<%= role_type.id %>" class="col s12">
        <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Enquiries</th>
-                    <th>Bookings</th>
-                    <th colspan="2"></th>
-                  </tr>
-                </thead>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Enquiries</th>
+              <th>Bookings</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
 
-                <tbody>
-                  <% role_type.users.alphabetical.each do |user| %>
-                    <tr>
-                      <td><%= link_to user.name, user %></td>
-                      <td><%= user.email %></td>
-                      <td><%= user.enquiries.count if user.enquiries %></td>
-                      <td><%= user.course_bookings.count if user.course_bookings %></td>
-                      <td>EDIT</td>
-                      <td>Delete</td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-              ADD USER
-            </div>
-          <% end %>
+          <tbody>
+            <% role_type.users.alphabetical.each do |user| %>
+              <tr>
+                <td><%= link_to user.name, user %></td>
+                <td><%= user.email %></td>
+                <td><%= user.enquiries.count if user.enquiries %></td>
+                <td><%= user.course_bookings.count if user.course_bookings %></td>
+                <td>EDIT</td>
+                <td>Delete</td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+      <%= link_to 'Export to CSV', users_path(:format => :csv) ,class:'btn'%>
     </div>
+    <% end %>
+</div>
