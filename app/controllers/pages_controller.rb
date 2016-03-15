@@ -93,4 +93,8 @@ class PagesController < ApplicationController
   def coder_factory_club
   end
 
+  def survey
+    
+  end
+
 end
