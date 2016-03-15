@@ -36,15 +36,18 @@ validates :last_name, presence: true
     WelcomeMailerJob.new.async.perform(self.id)
   end
 
-  #Used to export Users to csv
+  #Export Users to csv
   def self.to_csv
-    attributes = %w{id email name}
+    attributes = %w{Id Email Name Role}
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
-
       all.each do |user|
-        csv << attributes.map{ |attr| user.send(attr) }
+        if user.roles.present?
+          csv << [user.id, user.email, user.name, user.roles.map(&:name).join(', ')]
+        else
+          csv << [user.id, user.email, user.name]
+        end
       end
     end
   end

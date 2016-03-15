@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		# @club_members = Role.find_by(name: 'club').users
     respond_to do |format|
     	format.html
-      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+      format.csv { send_data @users.to_csv, filename: "all-users-#{Date.today}.csv" }
     end
 	end
 

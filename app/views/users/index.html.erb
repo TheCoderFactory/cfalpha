@@ -33,8 +33,11 @@
               </tr>
             <% end %>
           </tbody>
-      </table>
-      <%= link_to 'Export to CSV', users_path(:format => :csv) ,class:'btn'%>
-    </div>
+        </table>
+      <br>
+      </div>
     <% end %>
+    <div class="row center-align" >
+      <%= link_to 'Export Users to CSV', users_path(:format => :csv) ,class:'btn'%>
+    </div>
 </div>
