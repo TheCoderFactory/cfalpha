@@ -6,9 +6,9 @@
           <%= @header_title %>
         </div>
         <% if @header_tagline %>
-          <div class="card semi-transparent-header-card2 header-box center">
+          <div class="header-box center">
             <div class="card-content white-text">
-              <h3 class="center-align capitals orange-text"><%= @header_tagline %></h3>           
+              <h3 class="center-align capitals orange-text" id="apply-text"><%= @header_tagline %></h3>           
             </div>
           </div>
         <% end %>
@@ -16,7 +16,7 @@
           <%= render 'layouts/header_boxes' %>
         <% else %>
           <div class="down-arrow center-align">
-            <br><br><i class="material-icons medium white-text">keyboard_arrow_down</i>
+            <br><br><i class="material-icons medium white-text" id="apply-text">keyboard_arrow_down</i>
           </div>
         <% end %>
       </div>
