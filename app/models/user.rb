@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
 validates :first_name, presence: true
 validates :last_name, presence: true
+validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Follow the format: 123-123-1234" }, :allow_blank => true
 
   require 'csv'
 
