@@ -35,7 +35,7 @@
 		      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
 		    </div>
 		    <div class="input-field col s6">
-		    	<%= f.input :phone, :placeholder => "123-123-1234", required: false %>
+		    	<%= f.input :phone, :placeholder => "123-123-1234", required: true %>
 		    </div>
 		    <div class="form-actions col s2">
 		      <%= f.button :submit, "Join the club" , class: 'light-blue white-text waves-effect waves-teal btn'%>
