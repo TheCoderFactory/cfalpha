@@ -11,7 +11,7 @@
         <ul>
           <li><a class="grey-text text-lighten-3" href="/coding-academy">About us</a></li>
           <li><a class="grey-text text-lighten-3" href="/blog">Blog</a></li>
-          <li><a class="grey-text text-lighten-3" href="/contact">Contact</a></li>
+          <li><a class="grey-text text-lighten-3" href="/contact">Contact Us</a></li>
           <li><a class="grey-text text-lighten-3" href="/community">Community</a></li>
           <li><a class="grey-text text-lighten-3" href="/privacy">Privacy</a></li>
 
@@ -33,15 +33,22 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-    © <%= Date.today.year %> Coder Factory
-    <a class="grey-text text-lighten-4 right" href="/contact">Contact us</a>
-    <%if user_signed_in? %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'right' %>
-      <% if current_user.has_role? :admin %>
-        <%= link_to 'Admin', admin_path, class: 'right' %>
-      <% end %>
-    <% end %>
-
+      <div class="row">
+        <div class="col m6 s12">
+          <p>© <%= Date.today.year %> Coder Factory Academy</p>
+        </div>
+        <div class="col m6 s12">
+          <% if current_user %>
+            <p class="grey-text text-lighten-4 right">Currently logged in as: <%= current_user.email %>
+          <% if current_user.has_role? :admin %>
+            <%= link_to('| Admin', admin_path, class: "grey-text text-lighten-4") %>
+          <% end %>
+          | <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "grey-text text-lighten-4") %></p>
+          <% else %>
+            <a class="grey-text text-lighten-4 right" href="/users/sign_in">Sign in</a>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
