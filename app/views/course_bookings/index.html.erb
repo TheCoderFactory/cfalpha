@@ -51,7 +51,7 @@
               <hr><br>
               <% upcoming_intake.course_bookings.not_paid.each do |course_booking| %>
                 <tr>
-                  <td><i class="fa fa-search black-text"></i></td>
+                  <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= number_to_currency(course_booking.price) %></td>
                   <td><%= number_to_currency(course_booking.gst) %>
@@ -67,7 +67,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Total Revenue: <%= number_to_currency(upcoming_intake.bookings_revenue) %></td>
+                <td>Total: <%= number_to_currency(upcoming_intake.bookings_revenue) %></td>
               </tr>
             </tbody>
           </table>
