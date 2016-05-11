@@ -3,6 +3,10 @@ class CourseBooking < ActiveRecord::Base
   belongs_to :user
   has_many :payments
   has_paper_trail
+
+  scope :has_paid,               -> { where(paid: true) }
+  scope :not_paid,               -> { where(paid: nil) }
+
   def self.this_week
     most_recent.where('created_at > ?', Date.today - 7.days)
   end

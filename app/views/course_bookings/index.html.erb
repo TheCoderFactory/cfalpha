@@ -36,7 +36,20 @@
               </tr>
             </thead>
             <tbody>
-              <% upcoming_intake.course_bookings.each do |course_booking| %>
+              <% upcoming_intake.course_bookings.has_paid.each do |course_booking| %>
+                <tr>
+                  <td><i class="fa fa-search black-text"></i></td>
+                  <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
+                  <td><%= number_to_currency(course_booking.price) %></td>
+                  <td><%= number_to_currency(course_booking.gst) %>
+                  <td><%= course_booking.promo_code %></td>
+                  <td><%= course_booking.payments ? number_to_currency(course_booking.payments.sum(:amount)) : "$0.00"  %></td>
+                  <td><%= course_booking.payments ? number_to_currency(course_booking.price + course_booking.gst - course_booking.payments.sum(:amount)) : number_to_currency(course_booking.price) %></td>
+                  <td><%= '<i class="fa fa-envelope"></i>'.html_safe if course_booking.reminder_send %></td>
+                </tr>
+              <% end %>
+              <hr>
+              <% upcoming_intake.course_bookings.not_paid.each do |course_booking| %>
                 <tr>
                   <td><i class="fa fa-search black-text"></i></td>
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
