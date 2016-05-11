@@ -1,9 +1,10 @@
 class CourseBooking < ActiveRecord::Base
   belongs_to :course_intake
   belongs_to :user
+  has_many :payments
   has_paper_trail
   def self.this_week
-  	most_recent.where('created_at > ?', Date.today - 7.days)
+    most_recent.where('created_at > ?', Date.today - 7.days)
   end
 
   def self.last_week
@@ -25,23 +26,23 @@ class CourseBooking < ActiveRecord::Base
   before_create :set_guid, :check_promo_code, :calculate_gst
 
   def set_guid
-  	self.guid = SecureRandom.uuid
+    self.guid = SecureRandom.uuid
   end
 
   def check_promo_code
-  	if self.promo_code
-  		if @promo_code = PromoCode.find_by(code: self.promo_code)
-    		unless @promo_code.date_used
-    			if @promo_code.price_value
-    				self.discount = @promo_code.price_value
-    			elsif @promo_code.percent_value > 0
-    				self.discount = ((@promo_code.percent_value / 100.0) * self.price)
-    			end
-    			self.price = self.price - self.discount
+    if self.promo_code
+      if @promo_code = PromoCode.find_by(code: self.promo_code)
+        unless @promo_code.date_used
+          if @promo_code.price_value
+            self.discount = @promo_code.price_value
+          elsif @promo_code.percent_value > 0
+            self.discount = ((@promo_code.percent_value / 100.0) * self.price)
+          end
+          self.price = self.price - self.discount
           @promo_code.redeemed(self.course_intake_id, self.user_id, self.discount)
-    		end
+        end
       end
-  	end
+    end
   end
 
   def apply_promo_code(promo_code_id)
