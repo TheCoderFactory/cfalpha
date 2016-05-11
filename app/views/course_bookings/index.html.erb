@@ -9,12 +9,12 @@
   </div>
   <div id="upcoming" class="col s12">
     <ul class="collapsible collection" data-collapsible="accordion">
-      <% @upcoming_intakes.each do |upcoming_intake| %>
+      <% @upcoming_intakes.each_with_index do |upcoming_intake, index| %>
         <li class="collection-item avatar">
           <div class="collapsible-header">
             <i class="fa fa-<%= upcoming_intake.course.icon %> circle"></i>
             <span class="title"> </span>
-            <%= upcoming_intake.course.name %> [<%= upcoming_intake.start_date.strftime('%d %b %y') %>] (<%= upcoming_intake.course_bookings.count %> Students)
+            <%= upcoming_intake.course.name %> [<%= upcoming_intake.start_date.strftime('%d %b %y') %>] (<%= @total_students[index] %> Students)
           </div>
           <div class="collapsible-body">
             <p>
@@ -25,6 +25,7 @@
           <table>
             <thead>
               <tr>
+                <th></th>
                 <th>Student</th>
                 <th>Price</th>
                 <th>GST</th>
@@ -37,6 +38,7 @@
             <tbody>
               <% upcoming_intake.course_bookings.each do |course_booking| %>
                 <tr>
+                  <td><i class="fa fa-search black-text"></i></td>
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= number_to_currency(course_booking.price) %></td>
                   <td><%= number_to_currency(course_booking.gst) %>

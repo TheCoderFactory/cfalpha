@@ -17,6 +17,14 @@ class CourseBookingsController < ApplicationController
   def index
     @upcoming_intakes = CourseIntake.includes(:course, :course_location, course_bookings: :user).upcoming.paginate(:page => params[:page], :per_page => 10)
     @past_intakes = CourseIntake.includes(:course, :course_location, course_bookings: :user).past.reverse_order
+    @total_students = []
+    @upcoming_intakes.each do |intake|
+      if intake.price > 0
+        @total_students << intake.course_bookings.where(paid: true).count
+      else
+        @total_students << intake.course_bookings.count
+      end
+    end
   end
 
   # GET /course_bookings/1
