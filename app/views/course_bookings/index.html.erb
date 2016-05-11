@@ -39,8 +39,8 @@
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= number_to_currency(course_booking.price) %></td>
                   <td><%= course_booking.promo_code %></td>
-                  <td><%= course_booking.payments ? course_booking.payments.sum(:price) : "$0.00"  %></td>
-                  <td><%= course_booking.payments ? number_to_currency(course_booking.price - course_booking.payments.sum(:price)) : number_to_currency(course_booking.price) %></td>
+                  <td><%= course_booking.payments ? course_booking.payments.sum(:amount) : "$0.00"  %></td>
+                  <td><%= course_booking.payments ? number_to_currency(course_booking.price - course_booking.payments.sum(:amount)) : number_to_currency(course_booking.price) %></td>
                   <td><%= '<i class="fa fa-envelope"></i>'.html_safe if course_booking.reminder_send %></td>
                 </tr>
               <% end %>
