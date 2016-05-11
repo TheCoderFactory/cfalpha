@@ -16,7 +16,7 @@
             <span class="title"> </span>
             <%= upcoming_intake.course.name %> [<%= upcoming_intake.start_date.strftime('%d %b %y') %>] (<%= @total_students[index] %> Students)
           </div>
-          <div class="collapsible-body">
+          <div class="collapsible-body white-text">
             <p>
             <i class="fa fa-map-marker"></i> <%= upcoming_intake.course_location.name %> |
             <i class="fa fa-calendar"></i> <%= upcoming_intake.start_date.strftime('%d %b %y') %>
@@ -32,13 +32,13 @@
                 <th>Promo code</th>
                 <th>Paid</th>
                 <th>Outstanding</th>
-                <th>Reminder</th>
+                <th>Reminded?</th>
               </tr>
             </thead>
             <tbody>
               <% upcoming_intake.course_bookings.has_paid.each do |course_booking| %>
                 <tr>
-                  <td><i class="fa fa-search black-text"></i></td>
+                  <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= number_to_currency(course_booking.price) %></td>
                   <td><%= number_to_currency(course_booking.gst) %>
@@ -48,7 +48,7 @@
                   <td><%= '<i class="fa fa-envelope"></i>'.html_safe if course_booking.reminder_send %></td>
                 </tr>
               <% end %>
-              <hr>
+              <hr><br>
               <% upcoming_intake.course_bookings.not_paid.each do |course_booking| %>
                 <tr>
                   <td><i class="fa fa-search black-text"></i></td>
@@ -66,7 +66,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><%= number_to_currency(upcoming_intake.bookings_revenue) %></td>
+                <td></td>
+                <td>Total Revenue: <%= number_to_currency(upcoming_intake.bookings_revenue) %></td>
               </tr>
             </tbody>
           </table>
