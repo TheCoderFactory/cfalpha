@@ -36,6 +36,7 @@
               </tr>
             </thead>
             <tbody>
+              <tr>Paid</tr>
               <% upcoming_intake.course_bookings.has_paid.each do |course_booking| %>
                 <tr>
                   <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
@@ -49,8 +50,8 @@
                 </tr>
               <% end %>
             </tbody>
-            <hr>
             <tbody>
+              <tr>Unpaid</tr>
               <% upcoming_intake.course_bookings.not_paid.each do |course_booking| %>
                 <tr>
                   <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
