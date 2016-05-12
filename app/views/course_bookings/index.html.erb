@@ -41,14 +41,16 @@
                   <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
                   <td><%= link_to course_booking.user.name, course_booking, class: 'black-text' %></td>
                   <td><%= number_to_currency(course_booking.price) %></td>
-                  <td><%= number_to_currency(course_booking.gst) %>
+                  <td><%= number_to_currency(course_booking.gst) %></td>
                   <td><%= course_booking.promo_code %></td>
                   <td><%= course_booking.payments ? number_to_currency(course_booking.payments.sum(:amount)) : "$0.00"  %></td>
                   <td><%= course_booking.payments ? number_to_currency(course_booking.price + course_booking.gst - course_booking.payments.sum(:amount)) : number_to_currency(course_booking.price) %></td>
                   <td><%= '<i class="fa fa-envelope"></i>'.html_safe if course_booking.reminder_send %></td>
                 </tr>
               <% end %>
-              <hr><br>
+            </tbody>
+            <hr>
+            <tbody>
               <% upcoming_intake.course_bookings.not_paid.each do |course_booking| %>
                 <tr>
                   <td><a href="<%= course_booking_path(course_booking) %>"><i class="fa fa-search white-text"></i></a></td>
@@ -67,7 +69,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <!-- <td>Total: <%#= number_to_currency(upcoming_intake.bookings_revenue) %></td> -->
+                <td>Total: <%= number_to_currency(upcoming_intake.bookings_revenue) %></td>
               </tr>
             </tbody>
           </table>
@@ -110,7 +112,7 @@
               <% end %>
               <tr>
                 <td></td>
-                <!-- <td><%#= number_to_currency(past_intake.bookings_revenue) %></td> -->
+                <td><%= number_to_currency(past_intake.bookings_revenue) %></td>
               </tr>
             </tbody>
           </table>
