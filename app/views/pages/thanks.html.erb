@@ -1,79 +1,79 @@
 <section id="top-section">
-	<div class="container">
-		<div class="card grey-text text-darken-2">
-			<div class="card-content">
+<div class="container">
+  <div class="card grey-text text-darken-2">
+    <div class="card-content">
 
-				<!-- JOIN CLUB -->
-				<% if params[:welcome] %>
-					<h2 class="orange-text">Welcome
-					<% unless @user.nil? %>
-						<% if @user.first_name.present? %>
-					  	<%= @user.first_name %>
-					  <% end %>
-					<% end %></h2><hr>
-					<p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
-					<p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
-					<p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p><br>
+      <!-- JOIN CLUB -->
+      <% if params[:welcome] %>
+        <h2 class="orange-text">Welcome
+          <% unless @user.nil? %>
+            <% if @user.first_name.present? %>
+              <%= @user.first_name %>
+            <% end %>
+          <% end %></h2><hr>
+        <p class="light-blue-text flow-text"><i>It's great to have you in the Coder Factory Club!</i></p><br>
+        <p class="flow-text">Check your inbox. There's a promo code for you to get 10% discount off your first workshop or part time course.</p>
+        <p class="flow-text">You can also sign up for one of our free workshops. The Coder Factory team are looking forward to meeting you soon.</p><br>
 
-					<ul class="collection hoverable z-depth-3">
-			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-			    </ul>
-				<% end %>
+        <ul class="collection hoverable z-depth-3">
+          <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+        </ul>
+      <% end %>
 
-				<!-- NEW COURSE BOOKING -->
-				<% if params[:booking] %>
-					<h2 class="orange-text">Welcome
-					<% if current_user %>
-						<% if current_user.first_name.present? %>
-					  	<%= current_user.first_name %>
-					  <% end %>
-					<% end %></h2><hr>
-					<p class="flow-text">We're looking forward to having you in class.</p>
-					<br>
-					<p class="flow-text">Check your inbox. You will receive a confirmation of your booking with the details of the course including location, dates and times.</p>
-					<br>
-					<p class="flow-text">We'd also like to know a bit more about you. Please take 2 minutes and tell us a bit about why you're wanting to do the course.</p>
-					<%= link_to 'Complete the prequestionnaire', new_prequestionnaire_path(booking: params[:booking]), class: 'btn light-blue' %>
-					<br><br>
-					<p>Also check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
-					<h4>More upcoming courses</h4>
-					<ul class="collection">
-			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-			    </ul>
-				<% end %>
+      <!-- NEW COURSE BOOKING -->
+      <% if params[:booking] %>
+        <h2 class="orange-text">Welcome
+          <% if current_user %>
+            <% if current_user.first_name.present? %>
+              <%= current_user.first_name %>
+            <% end %>
+          <% end %></h2><hr>
+        <p class="flow-text">We're looking forward to having you in class.</p>
+        <br>
+        <p class="flow-text">Check your inbox. You will receive a confirmation of your booking with the details of the course including location, dates and times.</p>
+        <br>
+        <p class="flow-text">We'd also like to know a bit more about you. Please take 2 minutes and tell us a bit about why you're wanting to do the course.</p>
+        <%= link_to 'Complete the prequestionnaire', new_prequestionnaire_path(booking: params[:booking]), class: 'btn light-blue' %>
+        <br><br>
+        <p>Also check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
+        <h4>More upcoming courses</h4>
+        <ul class="collection">
+          <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+        </ul>
+      <% end %>
 
-				<!-- ENQUIRY -->
-				<% if params[:enquiry] %>
-					<h2>Thanks for getting in touch</h2>
-					<p class="flow-text">We've received your enquiry and one of our friendly team members will respond to you very soon.</p>
-					<br>
-					<p class="flow-text">In the meantime, check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
-					<h4>Upcoming courses</h4>
-					<ul class="collection">
-			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-			    </ul>
-				<% end %>
+      <!-- ENQUIRY -->
+      <% if params[:enquiry] %>
+        <h2>Thanks for getting in touch</h2>
+        <p class="flow-text">We've received your enquiry and one of our friendly team members will respond to you very soon.</p>
+        <br>
+        <p class="flow-text">In the meantime, check our <a href="/community">community page</a> to see if there are any activities that you would like to be involved in. Or see our <a href="/blog">blog</a> for articles to inspire you.
+        <h4>Upcoming courses</h4>
+        <ul class="collection">
+          <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+        </ul>
+      <% end %>
 
-				<!-- PREQUESTIONNAIRE -->
-				<% if params[:thanks] == 'prequestionnaire' %>
-					<h2>Thanks for that.</h2>
-					<p class="flow-text">We're looking forward to getting you know in person. See you soon.</p>
+      <!-- PREQUESTIONNAIRE -->
+      <% if params[:thanks] == 'prequestionnaire' %>
+        <h2>Thanks for booking!</h2>
+        <p class="flow-text">We're looking forward to getting to know you in person. See you soon.</p>
 
-					<br><p class="flow-text">Don't forget to tell your friends that you're learning to code at Coder Factory. :)</p>
-					<br>
-				<% end %>
+        <br><p class="flow-text">Don't forget to tell your friends that you're learning to code at Coder Factory. :)</p>
+        <br>
+      <% end %>
 
-				<!-- SURVEY -->
-				<% if params[:survey] %>
-					<h2>Thanks for helping us out.</h2>
-					<p class="flow-text"> You are now in the running to receive a voucher for a part time course of your choosing.</p>
-					<hr>
-					<h4>Upcoming courses</h4>
-					<ul class="collection">
-			      <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
-			    </ul>
-				<% end %>
-			</div>
-		</div>
-	</div>
+      <!-- SURVEY -->
+      <% if params[:survey] %>
+        <h2>Thanks for helping us out.</h2>
+        <p class="flow-text"> You are now in the running to receive a voucher for a part time course of your choosing.</p>
+        <hr>
+        <h4>Upcoming courses</h4>
+        <ul class="collection">
+          <%= render partial: 'course_intakes/upcoming_course_intake', collection: @upcoming_course_intakes, as: :intake %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
 </section>

@@ -3,6 +3,16 @@ $primary-color: color("light-blue", "") !default;
 @import 'materialize';
 @import 'YTPlayer';
 
+.hbspt-form [type="radio"]:not(:checked),
+.hbspt-form [type="radio"]:checked {
+  position: relative !important;
+  left: 0 !important;
+  opacity: 100 !important;
+}
+.hbspt-form .hs-button {
+  @extend .btn;
+  @extend .light-blue;
+}
 body {
   background: #e0e0e0;
   display: flex;
