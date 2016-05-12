@@ -1,4 +1,4 @@
-admin_user = User.create(email: 'admin@example.com', password: '12345678', first_name: 'Pete', last_name: 'Argent')
+admin_user = User.create(email: 'admin@example.com', password: '12345678', first_name: 'Jamie', last_name: 'Cerexhe')
 admin_user.add_role :admin
 
 
