@@ -66,4 +66,6 @@ Rails.application.routes.draw do
   get 'community', to: 'pages#community'
   get 'survey', to: 'pages#survey'
   resources :users
+
+  get 'booking-csv', to: 'course_bookings#get_csv'
 end

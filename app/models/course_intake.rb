@@ -39,6 +39,16 @@ class CourseIntake < ActiveRecord::Base
     return total
   end
 
+  def to_csv(options = {})
+    attributes = %w{ email }
+    CSV.generate(options) do |csv|
+      csv << attributes
+      course_bookings.each do |product|
+        csv << attributes.map{ |attr| product.user.send(attr)}
+      end
+    end
+  end
+
   # def add_to_calendar
   #   @event = {
   #     'summary' => self.course.name,

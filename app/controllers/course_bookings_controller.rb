@@ -1,6 +1,7 @@
 class CourseBookingsController < ApplicationController
   before_action :set_course_booking, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: [:new, :confirm]
+  require 'csv'
 
   def reminder_email
     # @course_intake = CourseIntake.find(params[:course_intake_id])
@@ -24,6 +25,14 @@ class CourseBookingsController < ApplicationController
       else
         @total_students << intake.course_bookings.count
       end
+    end
+  end
+
+  def get_csv
+    intake = CourseIntake.find(params[:intake_id])
+
+    respond_to do |format|
+      format.csv {send_data intake.to_csv}
     end
   end
 

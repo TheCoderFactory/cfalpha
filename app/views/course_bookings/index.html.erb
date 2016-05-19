@@ -20,7 +20,7 @@
             <p>
             <i class="fa fa-map-marker"></i> <%= upcoming_intake.course_location.name %> |
             <i class="fa fa-calendar"></i> <%= upcoming_intake.start_date.strftime('%d %b %y') %>
-          | <%= link_to '<i class="fa fa-envelope"></i> Send reminder email'.html_safe, reminder_email_path(course_intake_id: upcoming_intake.id), data: { confirm: 'You are sending ' + pluralize(upcoming_intake.course_bookings.where(reminder_send: false).count.to_s, 'email') + '. Are you sure?' }, class: 'white-text' %>
+          | <%= link_to '<i class="fa fa-envelope"></i> Send reminder email'.html_safe, reminder_email_path(course_intake_id: upcoming_intake.id), data: { confirm: 'You are sending ' + pluralize(upcoming_intake.course_bookings.where(reminder_send: false).count.to_s, 'email') + '. Are you sure?' }, class: 'white-text' %> | <%= link_to "Email CSV", booking_csv_path(intake_id: upcoming_intake.id, format: "csv") %>
           </p>
           <table>
             <thead>

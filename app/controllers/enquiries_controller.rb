@@ -26,6 +26,11 @@ class EnquiriesController < ApplicationController
     authorize! :read, @enquiries
   end
 
+  def international_enquiries
+    @all_enquiries = Enquiry.all
+
+  end
+
   # GET /enquiries/1
   # GET /enquiries/1.json
   def show
