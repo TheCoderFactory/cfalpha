@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'admin_booking', to: 'pages#admin_booking'
   get 'coder-factory-club', to: 'pages#coder_factory_club'
   get '/partners', to: 'pages#partners'
+  get '/survey/corporate', to: 'pages#corporate_survey'
   resources :payments, only: [:index, :create] do
     collection do
       get :choose

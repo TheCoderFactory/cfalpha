@@ -94,7 +94,9 @@ class PagesController < ApplicationController
   end
 
   def survey
-    
+
   end
 
+  def corporate_survey
+  end
 end
