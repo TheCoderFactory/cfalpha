@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-	skip_before_action :authenticate_user!, only: :choose
+	skip_before_action :authenticate_user!, only: [:choose, :create]
 
 	def index
 		@course_booking = CourseBooking.includes(:course_intake).find_by(guid: params[:booking])
