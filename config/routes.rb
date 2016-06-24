@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'pages#home'
   devise_for :users, controllers: { registrations: "registrations"}
   resources :posts do
-    collection { post :import, post :export }
+    collection do
+      post :import, :export
+    end
   end
   get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
