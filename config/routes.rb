@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/', to: redirect("https://www.coderfactoryacademy.edu.au")
+  constraints(:host => /coderfactory.com/) do
+    get "/(*path)" => redirect {|params, req| "https://www.coderfactoryacademy.edu.au/#{params[:path]}"},  via: [:get]
+  end
   resources :survey_forms, except: [:edit, :update]
   root 'pages#home'
   devise_for :users, controllers: { registrations: "registrations"}
