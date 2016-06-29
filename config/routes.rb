@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   get '/', to: redirect("https://www.coderfactoryacademy.edu.au")
+  resources :course_bookings do
+    collection do
+      get :confirm
+    end
+  end
+  get 'admin', to: 'pages#admin'
   constraints(:host => /coderfactory.com/) do
     get "/(*path)" => redirect {|params, req| "https://www.coderfactoryacademy.edu.au/#{params[:path]}"},  via: [:get]
   end
@@ -43,11 +49,6 @@ Rails.application.routes.draw do
     end
   end
   get 'reminder_email', to: 'course_bookings#reminder_email'
-  resources :course_bookings do
-    collection do
-      get :confirm
-    end
-  end
   resources :course_intakes
   resources "learn-to-code", :as => :courses, :controller => :courses, course_type_id: 1
   resources "coding-courses", :as => :courses, :controller => :courses, course_type_id: 2
@@ -64,7 +65,6 @@ Rails.application.routes.draw do
   end
   resources :enquiry_types
   resources :profiles
-  get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   get 'settings', to: 'pages#settings'
   get 'coding-academy', to: 'pages#about'
