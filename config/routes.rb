@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
   get 'admin', to: 'pages#admin'
+  resources :users
   constraints(:host => /coderfactory.com/) do
     get "/(*path)" => redirect {|params, req| "https://www.coderfactoryacademy.edu.au/#{params[:path]}"},  via: [:get]
   end
@@ -72,7 +73,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'pages#privacy'
   get 'community', to: 'pages#community'
   get 'survey', to: 'pages#survey'
-  resources :users
 
   get 'booking-csv', to: 'course_bookings#get_csv'
 end
