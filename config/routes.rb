@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  devise_for :users, controllers: { registrations: "registrations"}
   get '/', to: redirect("https://www.coderfactoryacademy.edu.au")
   resources :course_bookings do
     collection do
@@ -6,13 +8,11 @@ Rails.application.routes.draw do
     end
   end
   get 'admin', to: 'pages#admin'
-  resources :users
   constraints(:host => /coderfactory.com/) do
     get "/(*path)" => redirect {|params, req| "https://www.coderfactoryacademy.edu.au/#{params[:path]}"},  via: [:get]
   end
   resources :survey_forms, except: [:edit, :update]
   root 'pages#home'
-  devise_for :users, controllers: { registrations: "registrations"}
   resources :posts do
     collection do
       post :import, :export
